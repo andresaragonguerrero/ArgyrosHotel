@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace ArgrosHotel.Infrastructure.Repositories
 {
@@ -12,10 +14,22 @@ namespace ArgrosHotel.Infrastructure.Repositories
     {
         private readonly List<Booking> _bookings;
 
-        public InMemoryBookingRepository(List<Booking>? initialBookings = null)
+        public InMemoryBookingRepository(string jsonFilePath)
         {
-            _bookings = initialBookings ?? new List<Booking>();
+            if (!File.Exists(jsonFilePath))
+                _bookings = new List<Booking>();
+            else
+            {
+                var json = File.ReadAllText(jsonFilePath);
+                _bookings = JsonSerializer.Deserialize<List<Booking>>(json)
+                            ?? new List<Booking>();
+            }
         }
+
+        //public InMemoryBookingRepository(List<Booking>? initialBookings = null)
+        //{
+        //    _bookings = initialBookings ?? new List<Booking>();
+        //}
 
         public Task AddAsync(Booking booking)
         {

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace ArgrosHotel.Infrastructure.Repositories
 {
@@ -12,10 +14,23 @@ namespace ArgrosHotel.Infrastructure.Repositories
     {
         private readonly List<User> _users;
 
-        public InMemoryUserRepository(List<User>? initialUsers = null)
+        // Se carga la lista de usuarios desde un archivo JSON al crear la instancia del repositorio
+        public InMemoryUserRepository(string jsonFilePath)
         {
-            _users = initialUsers ?? new List<User>();
+            if (!File.Exists(jsonFilePath))
+                _users = new List<User>();
+            else
+            {
+                var json = File.ReadAllText(jsonFilePath);
+                _users = JsonSerializer.Deserialize<List<User>>(json)
+                         ?? new List<User>();
+            }
         }
+
+        //public InMemoryUserRepository(List<User>? initialUsers = null)
+        //{
+        //    _users = initialUsers ?? new List<User>();
+        //}
 
         public Task AddAsync(User user)
         {
