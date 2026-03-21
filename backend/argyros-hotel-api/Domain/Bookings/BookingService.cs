@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ArgrosHotel.Domain.Bookings
 {
     // Clase que representa a un servicio adicional asociado a una reserva de habitación de hotel
@@ -6,6 +8,7 @@ namespace ArgrosHotel.Domain.Bookings
         public Guid BookingId { get; private set; }
         public Guid ServiceId { get; private set; }
 
+        [JsonConstructor]
         public BookingService(Guid bookingId, Guid serviceId)
         {
             if (bookingId == Guid.Empty)

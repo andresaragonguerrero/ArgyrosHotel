@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ArgrosHotel.Domain.Bookings
 {
     // Clase que representa una reserva de habitación de hotel
@@ -17,6 +19,7 @@ namespace ArgrosHotel.Domain.Bookings
 
         public int NumberOfGuests { get; private set; }
 
+        [JsonConstructor]
         public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests)
         {
             if (userId == Guid.Empty)
