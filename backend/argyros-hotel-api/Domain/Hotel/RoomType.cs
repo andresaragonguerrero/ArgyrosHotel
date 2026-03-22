@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ArgrosHotel.Domain.Hotel
 {
     // Representa un tipo de habitación: individual, doble, suite, etc
@@ -10,6 +12,7 @@ namespace ArgrosHotel.Domain.Hotel
         public decimal BasePrice { get; private set; }
         public int TotalRooms { get; private set; }
 
+        [JsonConstructor]
         public RoomType(Guid id, string name, int capacity, decimal basePrice, int totalRooms)
         {
             if (string.IsNullOrWhiteSpace(name))

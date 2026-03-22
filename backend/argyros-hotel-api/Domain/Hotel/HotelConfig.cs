@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace HotelManagement.Domain.Hotel
 {
     // En este archivo se define la configuración del hotel
@@ -9,6 +11,7 @@ namespace HotelManagement.Domain.Hotel
 
         public DateTime SeasonEnd { get; private set; }
 
+        [JsonConstructor]
         public HotelConfig(DateTime seasonStart, DateTime seasonEnd)
         {
             if (seasonEnd <= seasonStart)

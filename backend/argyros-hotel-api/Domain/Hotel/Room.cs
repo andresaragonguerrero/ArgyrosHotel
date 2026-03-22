@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ArgrosHotel.Domain.Hotel
 {
     // Clase que representa a una habitación de hotel
@@ -7,6 +9,7 @@ namespace ArgrosHotel.Domain.Hotel
         public string RoomNumber { get; private set; }
         public Guid RoomTypeId { get; private set; }
 
+        [JsonConstructor]
         public Room(Guid id, string roomNumber, Guid roomTypeId)
         {
             if (string.IsNullOrWhiteSpace(roomNumber))

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ArgrosHotel.Domain.Hotel
 {
     // Representa un servicio adicional que puede ser contratado por los huéspedes: desayuno, actividad, evento, etc
@@ -7,6 +9,7 @@ namespace ArgrosHotel.Domain.Hotel
         public string Name { get; private set; }
         public decimal Price { get; private set; }
 
+        [JsonConstructor]
         public Service(Guid id, string name, decimal price)
         {
             if (string.IsNullOrWhiteSpace(name))
