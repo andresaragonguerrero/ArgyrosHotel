@@ -19,7 +19,6 @@ namespace argyros_hotel_api.Infrastructure.Repositories
                 var json = File.ReadAllText(jsonFilePath);
                 _roomTypes = JsonSerializer.Deserialize<List<RoomType>>(json) 
                                 ?? new List<RoomType>();
-                
             }
         }
 
