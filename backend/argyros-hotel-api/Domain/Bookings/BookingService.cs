@@ -8,9 +8,10 @@ namespace argyros_hotel_api.Domain.Bookings
         public Guid Id { get; private set; }
         public Guid BookingId { get; private set; }
         public Guid ServiceId { get; private set; }
+        public decimal TotalPrice { get; private set; }
 
         [JsonConstructor]
-        public BookingService(Guid bookingId, Guid serviceId)
+        public BookingService(Guid id, Guid bookingId, Guid serviceId, decimal totalPrice)
         {
             if (bookingId == Guid.Empty)
                 throw new ArgumentException("BookingId inválido", nameof(bookingId));
@@ -18,8 +19,13 @@ namespace argyros_hotel_api.Domain.Bookings
             if (serviceId == Guid.Empty)
                 throw new ArgumentException("ServiceId inválido", nameof(serviceId));
 
+            if (totalPrice < 0)
+                throw new ArgumentException("El precio total no puede ser negativo", nameof(totalPrice));
+
+            Id = id;
             BookingId = bookingId;
             ServiceId = serviceId;
+            TotalPrice = totalPrice;
         }
     }
 }
