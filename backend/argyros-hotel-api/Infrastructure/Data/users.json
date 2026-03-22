@@ -1,402 +1,162 @@
 [
   {
-    "Id": "c2d6faae-4f9b-4f37-91b7-1a1f1d9d1234",
+    "Id": "d1a2b3c4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "Name": "Carlos",
+    "Surname": "Rodriguez",
+    "Email": "carlos.rod@example.com",
+    "PasswordHash": "hash123",
+    "IsPremium": true
+  },
+  {
+    "Id": "a2b3c4d5-e6f7-4b8c-9d0e-1f2a3b4c5d6e",
+    "Name": "Maria",
+    "Surname": "Lopez",
+    "Email": "maria.lopez@example.com",
+    "PasswordHash": "hash456",
+    "IsPremium": false
+  },
+  {
+    "Id": "b3c4d5e6-f7a8-4c9d-0e1f-2a3b4c5d6e7f",
     "Name": "Juan",
     "Surname": "Perez",
     "Email": "juan.perez@example.com",
-    "PasswordHash": "hashed_password_juan",
+    "PasswordHash": "hash789",
     "IsPremium": true
   },
   {
-    "Id": "d3e8fbbf-5a2c-4a9c-8f12-3b2f2a8b5678",
-    "Name": "Maria",
-    "Surname": "Gomez",
-    "Email": "maria.gomez@example.com",
-    "PasswordHash": "hashed_password_maria",
-    "IsPremium": false
-  },
-  {
-    "Id": "e4f9ccca-6b3d-5b0d-9a23-4c3d3b9c6789",
-    "Name": "Carlos",
-    "Surname": "Rodriguez",
-    "Email": "carlos.rodriguez@example.com",
-    "PasswordHash": "hashed_password_carlos",
-    "IsPremium": true
-  },
-  {
-    "Id": "f5a0dddb-7c4e-6c1e-0b34-5d4e4c0d7890",
+    "Id": "c4d5e6f7-a8b9-4da0-1e2f-3a4b5c6d7e8f",
     "Name": "Ana",
-    "Surname": "Martinez",
-    "Email": "ana.martinez@example.com",
-    "PasswordHash": "hashed_password_ana",
-    "IsPremium": false
-  },
-  {
-    "Id": "a6b1eeee-8d5f-7d2f-1c45-6e5f5d1e8901",
-    "Name": "Luis",
-    "Surname": "Sanchez",
-    "Email": "luis.sanchez@example.com",
-    "PasswordHash": "hashed_password_luis",
-    "IsPremium": true
-  },
-  {
-    "Id": "b7c2ffff-9e6a-8e3a-2d56-7f6a6e2f9012",
-    "Name": "Elena",
-    "Surname": "Lopez",
-    "Email": "elena.lopez@example.com",
-    "PasswordHash": "hashed_password_elena",
-    "IsPremium": false
-  },
-  {
-    "Id": "c8d30000-0f7b-9f4b-3e67-8a7b7f3a0123",
-    "Name": "Javier",
-    "Surname": "Fernandez",
-    "Email": "javier.fernandez@example.com",
-    "PasswordHash": "hashed_password_javier",
-    "IsPremium": true
-  },
-  {
-    "Id": "d9e41111-1a8c-0a5c-4f78-9b8c8a4b1234",
-    "Name": "Lucia",
-    "Surname": "Gonzalez",
-    "Email": "lucia.gonzalez@example.com",
-    "PasswordHash": "hashed_password_lucia",
-    "IsPremium": false
-  },
-  {
-    "Id": "e0f52222-2b9d-1b6d-5a89-0c9d9b5c2345",
-    "Name": "Diego",
     "Surname": "Garcia",
-    "Email": "diego.garcia@example.com",
-    "PasswordHash": "hashed_password_diego",
-    "IsPremium": true
-  },
-  {
-    "Id": "f1a63333-3c0e-2c7e-6b90-1d0e0c6d3456",
-    "Name": "Sofia",
-    "Surname": "Torres",
-    "Email": "sofia.torres@example.com",
-    "PasswordHash": "hashed_password_sofia",
+    "Email": "ana.garcia@example.com",
+    "PasswordHash": "hash012",
     "IsPremium": false
   },
   {
-    "Id": "a2b74444-4d1f-3d8f-7c01-2e1f1d7e4567",
-    "Name": "Andres",
-    "Surname": "Ruiz",
-    "Email": "andres.ruiz@example.com",
-    "PasswordHash": "hashed_password_andres",
-    "IsPremium": true
-  },
-  {
-    "Id": "b3c85555-5e20-4e90-8d12-3f202e8f5678",
-    "Name": "Valeria",
-    "Surname": "Ramirez",
-    "Email": "valeria.ramirez@example.com",
-    "PasswordHash": "hashed_password_valeria",
-    "IsPremium": false
-  },
-  {
-    "Id": "c4d96666-6f31-5f01-9e23-4a313f906789",
-    "Name": "Sergio",
-    "Surname": "Diaz",
-    "Email": "sergio.diaz@example.com",
-    "PasswordHash": "hashed_password_sergio",
-    "IsPremium": true
-  },
-  {
-    "Id": "d5e07777-7a42-6a12-0f34-5b424a017890",
-    "Name": "Camila",
-    "Surname": "Vazquez",
-    "Email": "camila.vazquez@example.com",
-    "PasswordHash": "hashed_password_camila",
-    "IsPremium": false
-  },
-  {
-    "Id": "e6f18888-8b53-7b23-1a45-6c535b128901",
-    "Name": "Fernando",
-    "Surname": "Castro",
-    "Email": "fernando.castro@example.com",
-    "PasswordHash": "hashed_password_fernando",
-    "IsPremium": true
-  },
-  {
-    "Id": "f7a29999-9c64-8c34-2b56-7d646c239012",
-    "Name": "Isabel",
-    "Surname": "Jimenez",
-    "Email": "isabel.jimenez@example.com",
-    "PasswordHash": "hashed_password_isabel",
-    "IsPremium": false
-  },
-  {
-    "Id": "a8b3aaaa-0d75-9d45-3c67-8e757d340123",
-    "Name": "Ricardo",
-    "Surname": "Alvarez",
-    "Email": "ricardo.alvarez@example.com",
-    "PasswordHash": "hashed_password_ricardo",
-    "IsPremium": true
-  },
-  {
-    "Id": "b9c4bbbb-1e86-0e56-4d78-9f868e451234",
-    "Name": "Daniela",
-    "Surname": "Moreno",
-    "Email": "daniela.moreno@example.com",
-    "PasswordHash": "hashed_password_daniela",
-    "IsPremium": false
-  },
-  {
-    "Id": "c0d5cccc-2f97-1f67-5e89-0a979f562345",
-    "Name": "Mateo",
+    "Id": "d5e6f7a8-b9c0-4eb1-2f3a-4b5c6d7e8f9a",
+    "Name": "Luis",
     "Surname": "Martinez",
-    "Email": "mateo.martinez@example.com",
-    "PasswordHash": "hashed_password_mateo",
-    "IsPremium": true
-  },
-  {
-    "Id": "d1e6dddd-3a08-2a78-6f90-1b080a673456",
-    "Name": "Gabriela",
-    "Surname": "Ortiz",
-    "Email": "gabriela.ortiz@example.com",
-    "PasswordHash": "hashed_password_gabriela",
+    "Email": "luis.mar@example.com",
+    "PasswordHash": "hash345",
     "IsPremium": false
   },
   {
-    "Id": "e2f7eeee-4b19-3b89-7a01-2c191b784567",
+    "Id": "e6f7a8b9-c0d1-4fc2-3a4b-5c6d7e8f9a0b",
+    "Name": "Elena",
+    "Surname": "Sanz",
+    "Email": "elena.sanz@example.com",
+    "PasswordHash": "hash678",
+    "IsPremium": true
+  },
+  {
+    "Id": "f7a8b9c0-d1e2-4ad3-4b5c-6d7e8f9a0b1c",
+    "Name": "Pedro",
+    "Surname": "Jimenez",
+    "Email": "pedro.jim@example.com",
+    "PasswordHash": "hash901",
+    "IsPremium": false
+  },
+  {
+    "Id": "a8b9c0d1-e2f3-4be4-5c6d-7e8f9a0b1c2d",
+    "Name": "Lucia",
+    "Surname": "Fernandez",
+    "Email": "lucia.fer@example.com",
+    "PasswordHash": "hash234",
+    "IsPremium": true
+  },
+  {
+    "Id": "b9c0d1e2-f3a4-4cf5-6d7e-8f9a0b1c2d3e",
+    "Name": "Diego",
+    "Surname": "Ruiz",
+    "Email": "diego.ruiz@example.com",
+    "PasswordHash": "hash567",
+    "IsPremium": false
+  },
+  {
+    "Id": "c0d1e2f3-a4b5-4da6-7e8f-9a0b1c2d3e4f",
+    "Name": "Sofia",
+    "Surname": "Gomez",
+    "Email": "sofia.gomez@example.com",
+    "PasswordHash": "hash890",
+    "IsPremium": false
+  },
+  {
+    "Id": "d1e2f3a4-b5c6-4eb7-8f9a-0b1c2d3e4f5a",
     "Name": "Jorge",
+    "Surname": "Diaz",
+    "Email": "jorge.diaz@example.com",
+    "PasswordHash": "hash111",
+    "IsPremium": true
+  },
+  {
+    "Id": "e2f3a4b5-c6d7-4fc8-9a0b-1c2d3e4f5a6b",
+    "Name": "Laura",
     "Surname": "Blanco",
-    "Email": "jorge.blanco@example.com",
-    "PasswordHash": "hashed_password_jorge",
-    "IsPremium": true
-  },
-  {
-    "Id": "f3a8ffff-5c2a-4c9a-8b12-3d2a2c895678",
-    "Name": "Natalia",
-    "Surname": "Molina",
-    "Email": "natalia.molina@example.com",
-    "PasswordHash": "hashed_password_natalia",
+    "Email": "laura.blan@example.com",
+    "PasswordHash": "hash222",
     "IsPremium": false
   },
   {
-    "Id": "a4b90000-6d3b-5d0b-9c23-4e3b3d9a6789",
-    "Name": "Hugo",
-    "Surname": "Delgado",
-    "Email": "hugo.delgado@example.com",
-    "PasswordHash": "hashed_password_hugo",
-    "IsPremium": true
-  },
-  {
-    "Id": "b5c01111-7e4c-6e1c-0d34-5f4c4e0b7890",
-    "Name": "Martina",
-    "Surname": "Suarez",
-    "Email": "martina.suarez@example.com",
-    "PasswordHash": "hashed_password_martina",
-    "IsPremium": false
-  },
-  {
-    "Id": "c6d12222-8f5d-7f2d-1e45-6a5d5f1c8901",
-    "Name": "Adrian",
-    "Surname": "Ortega",
-    "Email": "adrian.ortega@example.com",
-    "PasswordHash": "hashed_password_adrian",
-    "IsPremium": true
-  },
-  {
-    "Id": "d7e23333-9a6e-8a3e-2f56-7b6e6a2d9012",
-    "Name": "Paula",
-    "Surname": "Morales",
-    "Email": "paula.morales@example.com",
-    "PasswordHash": "hashed_password_paula",
-    "IsPremium": false
-  },
-  {
-    "Id": "e8f34444-0b7f-9b4f-3a67-8c7f7b3e0123",
-    "Name": "Alvaro",
-    "Surname": "Marin",
-    "Email": "alvaro.marin@example.com",
-    "PasswordHash": "hashed_password_alvaro",
-    "IsPremium": true
-  },
-  {
-    "Id": "f9a45555-1c80-0c50-4b78-9d808c4f1234",
-    "Name": "Sara",
-    "Surname": "Santos",
-    "Email": "sara.santos@example.com",
-    "PasswordHash": "hashed_password_sara",
-    "IsPremium": false
-  },
-  {
-    "Id": "a0b56666-2d91-1d61-5c89-0e919d502345",
-    "Name": "David",
-    "Surname": "Castillo",
-    "Email": "david.castillo@example.com",
-    "PasswordHash": "hashed_password_david",
-    "IsPremium": true
-  },
-  {
-    "Id": "b1c67777-3e02-2e72-6d90-1f020e613456",
-    "Name": "Clara",
-    "Surname": "Rubio",
-    "Email": "clara.rubio@example.com",
-    "PasswordHash": "hashed_password_clara",
-    "IsPremium": false
-  },
-  {
-    "Id": "c2d78888-4f13-3f83-7e01-2a131f724567",
-    "Name": "Pablo",
-    "Surname": "Pena",
-    "Email": "pablo.pena@example.com",
-    "PasswordHash": "hashed_password_pablo",
-    "IsPremium": true
-  },
-  {
-    "Id": "d3e89999-5a24-4a94-8f12-3b242a835678",
-    "Name": "Julia",
-    "Surname": "Cano",
-    "Email": "julia.cano@example.com",
-    "PasswordHash": "hashed_password_julia",
-    "IsPremium": false
-  },
-  {
-    "Id": "e4f9aaaa-6b35-5b05-9a23-4c353b946789",
-    "Name": "Marcos",
-    "Surname": "Medina",
-    "Email": "marcos.medina@example.com",
-    "PasswordHash": "hashed_password_marcos",
-    "IsPremium": true
-  },
-  {
-    "Id": "f5a0bbbb-7c46-6c16-0b34-5d464c057890",
-    "Name": "Irene",
-    "Surname": "Garrido",
-    "Email": "irene.garrido@example.com",
-    "PasswordHash": "hashed_password_irene",
-    "IsPremium": false
-  },
-  {
-    "Id": "a6b1cccc-8d57-7d27-1c45-6e575d168901",
-    "Name": "Raul",
-    "Surname": "Cortes",
-    "Email": "raul.cortes@example.com",
-    "PasswordHash": "hashed_password_raul",
-    "IsPremium": true
-  },
-  {
-    "Id": "b7c2dddd-9e68-8e38-2d56-7f686e279012",
-    "Name": "Alba",
-    "Surname": "Cabrera",
-    "Email": "alba.cabrera@example.com",
-    "PasswordHash": "hashed_password_alba",
-    "IsPremium": false
-  },
-  {
-    "Id": "c8d3eeee-0f79-9f49-3e67-8a797f380123",
-    "Name": "Ivan",
-    "Surname": "Fraile",
-    "Email": "ivan.fraile@example.com",
-    "PasswordHash": "hashed_password_ivan",
-    "IsPremium": true
-  },
-  {
-    "Id": "d9e4ffff-1a80-0a50-4f78-9b808a491234",
-    "Name": "Marta",
-    "Surname": "Navarro",
-    "Email": "marta.navarro@example.com",
-    "PasswordHash": "hashed_password_marta",
-    "IsPremium": false
-  },
-  {
-    "Id": "e0f50000-2b91-1b61-5a89-0c919b502345",
-    "Name": "Samuel",
-    "Surname": "Serrano",
-    "Email": "samuel.serrano@example.com",
-    "PasswordHash": "hashed_password_samuel",
-    "IsPremium": true
-  },
-  {
-    "Id": "f1a61111-3c02-2c72-6b90-1d020c613456",
-    "Name": "Nerea",
-    "Surname": "Reyes",
-    "Email": "nerea.reyes@example.com",
-    "PasswordHash": "hashed_password_nerea",
-    "IsPremium": false
-  },
-  {
-    "Id": "a2b72222-4d13-3d83-7c01-2e131d724567",
-    "Name": "Ruben",
-    "Surname": "Mendez",
-    "Email": "ruben.mendez@example.com",
-    "PasswordHash": "hashed_password_ruben",
-    "IsPremium": true
-  },
-  {
-    "Id": "b3c83333-5e24-4e94-8d12-3f242e835678",
-    "Name": "Emma",
-    "Surname": "Leon",
-    "Email": "emma.leon@example.com",
-    "PasswordHash": "hashed_password_emma",
-    "IsPremium": false
-  },
-  {
-    "Id": "c4d94444-6f35-5f05-9e23-4a353f946789",
-    "Name": "Oscar",
-    "Surname": "Hidalgo",
-    "Email": "oscar.hidalgo@example.com",
-    "PasswordHash": "hashed_password_oscar",
-    "IsPremium": true
-  },
-  {
-    "Id": "d5e05555-7a46-6a16-0f34-5b464a057890",
-    "Name": "Claudia",
-    "Surname": "Gimenez",
-    "Email": "claudia.gimenez@example.com",
-    "PasswordHash": "hashed_password_claudia",
-    "IsPremium": false
-  },
-  {
-    "Id": "e6f16666-8b57-7b27-1a45-6c535b128901",
-    "Name": "Victor",
-    "Surname": "Pascual",
-    "Email": "victor.pascual@example.com",
-    "PasswordHash": "hashed_password_victor",
-    "IsPremium": true
-  },
-  {
-    "Id": "f7a27777-9c64-8c34-2b56-7d646c239012",
-    "Name": "Rocio",
-    "Surname": "Vicente",
-    "Email": "rocio.vicente@example.com",
-    "PasswordHash": "hashed_password_rocio",
-    "IsPremium": false
-  },
-  {
-    "Id": "a8b38888-0d75-9d45-3c67-8e757d340123",
+    "Id": "f3a4b5c6-d7e8-4ad9-0b1c-2d3e4f5a6b7c",
     "Name": "Miguel",
-    "Surname": "Lorenzo",
-    "Email": "miguel.lorenzo@example.com",
-    "PasswordHash": "hashed_password_miguel",
-    "IsPremium": true
-  },
-  {
-    "Id": "b9c49999-1e86-0e56-4d78-9f868e451234",
-    "Name": "Andrea",
-    "Surname": "Cruz",
-    "Email": "andrea.cruz@example.com",
-    "PasswordHash": "hashed_password_andrea",
+    "Surname": "Torres",
+    "Email": "miguel.torres@example.com",
+    "PasswordHash": "hash333",
     "IsPremium": false
   },
   {
-    "Id": "c0d5aaaa-2f97-1f67-5e89-0a979f562345",
-    "Name": "Cristian",
-    "Surname": "Herrero",
-    "Email": "cristian.herrero@example.com",
-    "PasswordHash": "hashed_password_cristian",
+    "Id": "a4b5c6d7-e8f9-4be0-1c2d-3e4f5a6b7c8d",
+    "Name": "Rosa",
+    "Surname": "Castro",
+    "Email": "rosa.castro@example.com",
+    "PasswordHash": "hash444",
     "IsPremium": true
   },
   {
-    "Id": "d1e6bbbb-3a08-2a78-6f90-1b080a673456",
-    "Name": "Alicia",
-    "Surname": "Flores",
-    "Email": "alicia.flores@example.com",
-    "PasswordHash": "hashed_password_alicia",
+    "Id": "b5c6d7e8-f9a0-4cf1-2d3e-4f5a6b7c8d9e",
+    "Name": "Pablo",
+    "Surname": "Mora",
+    "Email": "pablo.mora@example.com",
+    "PasswordHash": "hash555",
+    "IsPremium": false
+  },
+  {
+    "Id": "c6d7e8f9-a0b1-4da2-3e4f-5a6b7c8d9e0f",
+    "Name": "Carmen",
+    "Surname": "Ortega",
+    "Email": "carmen.ort@example.com",
+    "PasswordHash": "hash666",
+    "IsPremium": true
+  },
+  {
+    "Id": "d7e8f9a0-b1c2-4eb3-4f5a-6b7c8d9e0f1a",
+    "Name": "Sergio",
+    "Surname": "Vila",
+    "Email": "sergio.vila@example.com",
+    "PasswordHash": "hash777",
+    "IsPremium": false
+  },
+  {
+    "Id": "e8f9a0b1-c2d3-4fc4-5a6b-7c8d9e0f1a2b",
+    "Name": "Sara",
+    "Surname": "Cano",
+    "Email": "sara.cano@example.com",
+    "PasswordHash": "hash888",
+    "IsPremium": false
+  },
+  {
+    "Id": "f9a0b1c2-d3e4-4ad5-6b7c-8d9e0f1a2b3c",
+    "Name": "Andres",
+    "Surname": "Reyes",
+    "Email": "andres.reyes@example.com",
+    "PasswordHash": "hash999",
+    "IsPremium": true
+  },
+  {
+    "Id": "a0b1c2d3-e4f5-4be6-7b8c-9d0e1f2a3b4c",
+    "Name": "Marta",
+    "Surname": "Leon",
+    "Email": "marta.leon@example.com",
+    "PasswordHash": "hash000",
     "IsPremium": false
   }
 ]

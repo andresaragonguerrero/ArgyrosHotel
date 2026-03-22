@@ -1,502 +1,202 @@
 [
   {
-    "Id": "a1b2c3d4-e5f6-4a7b-8c9d-1e2f3a4b5c6d",
-    "UserId": "c2d6faae-4f9b-4f37-91b7-1a1f1d9d1234",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-06-01T14:00:00",
-    "EndDate": "2026-06-05T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 400
-  },
-  {
-    "Id": "b2c3d4e5-f6a7-4b8c-9d0e-2f3a4b5c6d7e",
-    "UserId": "d3e8fbbf-5a2c-4a9c-8f12-3b2f2a8b5678",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-07-10T14:00:00",
-    "EndDate": "2026-07-15T12:00:00",
+    "Id": "b0000001-1111-1111-1111-111111111111",
+    "UserId": "d1a2b3c4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": "f0000001-e001-4001-b001-a00000000001",
+    "StartDate": "2025-05-10T14:00:00",
+    "EndDate": "2025-05-12T12:00:00",
     "NumberOfGuests": 1,
-    "TotalPrice": 250
+    "TotalPrice": 120.00
   },
   {
-    "Id": "c3d4e5f6-a7b8-4c9d-0e1f-3a4b5c6d7e8f",
-    "UserId": "e4f9ccca-6b3d-5b0d-9a23-4c3d3b9c6789",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-08-05T14:00:00",
-    "EndDate": "2026-08-10T12:00:00",
+    "Id": "b0000002-1111-1111-1111-111111111111",
+    "UserId": "a2b3c4d5-e6f7-4b8c-9d0e-1f2a3b4c5d6e",
+    "RoomTypeId": "22222222-2222-2222-2222-222222222222",
+    "RoomId": "f0000006-e001-4001-b001-a00000000006",
+    "StartDate": "2025-06-01T14:00:00",
+    "EndDate": "2025-06-04T12:00:00",
     "NumberOfGuests": 2,
-    "TotalPrice": 500
+    "TotalPrice": 300.00
   },
   {
-    "Id": "d4e5f6a7-b8c9-4d0e-1f2a-4b5c6d7e8f9a",
-    "UserId": "f5a0dddb-7c4e-6c1e-0b34-5d4e4c0d7890",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
+    "Id": "b0000003-1111-1111-1111-111111111111",
+    "UserId": "b3c4d5e6-f7a8-4c9d-0e1f-2a3b4c5d6e7f",
+    "RoomTypeId": "55555555-5555-5555-5555-555555555555",
+    "RoomId": "f0000019-e001-4001-b001-a00000000019",
+    "StartDate": "2025-07-15T14:00:00",
+    "EndDate": "2025-07-16T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 300.00
+  },
+  {
+    "Id": "b0000004-1111-1111-1111-111111111111",
+    "UserId": "c4d5e6f7-a8b9-4da0-1e2f-3a4b5c6d7e8f",
+    "RoomTypeId": "33333333-3333-3333-3333-333333333333",
     "RoomId": null,
-    "StartDate": "2026-09-12T14:00:00",
-    "EndDate": "2026-09-15T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 750
+    "StartDate": "2025-08-20T14:00:00",
+    "EndDate": "2025-08-22T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 220.00
   },
   {
-    "Id": "e5f6a7b8-c9d0-4e1f-2a3b-5c6d7e8f9a0b",
-    "UserId": "a6b1eeee-8d5f-7d2f-1c45-6e5f5d1e8901",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": "101",
+    "Id": "b0000005-1111-1111-1111-111111111111",
+    "UserId": "d5e6f7a8-b9c0-4eb1-2f3a-4b5c6d7e8f9a",
+    "RoomTypeId": "44444444-4444-4444-4444-444444444444",
+    "RoomId": "f0000016-e001-4001-b001-a00000000016",
+    "StartDate": "2025-09-01T14:00:00",
+    "EndDate": "2025-09-05T12:00:00",
+    "NumberOfGuests": 3,
+    "TotalPrice": 800.00
+  },
+  {
+    "Id": "b0000006-1111-1111-1111-111111111111",
+    "UserId": "e6f7a8b9-c0d1-4fc2-3a4b-5c6d7e8f9a0b",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": "f0000002-e001-4001-b001-a00000000002",
+    "StartDate": "2025-10-10T14:00:00",
+    "EndDate": "2025-10-11T12:00:00",
+    "NumberOfGuests": 1,
+    "TotalPrice": 60.00
+  },
+  {
+    "Id": "b0000007-1111-1111-1111-111111111111",
+    "UserId": "f7a8b9c0-d1e2-4ad3-4b5c-6d7e8f9a0b1c",
+    "RoomTypeId": "22222222-2222-2222-2222-222222222222",
+    "RoomId": "f0000007-e001-4001-b001-a00000000007",
+    "StartDate": "2025-11-05T14:00:00",
+    "EndDate": "2025-11-07T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 200.00
+  },
+  {
+    "Id": "b0000008-1111-1111-1111-111111111111",
+    "UserId": "a8b9c0d1-e2f3-4be4-5c6d-7e8f9a0b1c2d",
+    "RoomTypeId": "55555555-5555-5555-5555-555555555555",
+    "RoomId": null,
+    "StartDate": "2025-12-24T14:00:00",
+    "EndDate": "2025-12-27T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 900.00
+  },
+  {
+    "Id": "b0000009-1111-1111-1111-111111111111",
+    "UserId": "b9c0d1e2-f3a4-4cf5-6d7e-8f9a0b1c2d3e",
+    "RoomTypeId": "33333333-3333-3333-3333-333333333333",
+    "RoomId": "f0000012-e001-4001-b001-a00000000012",
+    "StartDate": "2026-01-10T14:00:00",
+    "EndDate": "2026-01-12T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 220.00
+  },
+  {
+    "Id": "b0000010-1111-1111-1111-111111111111",
+    "UserId": "c0d1e2f3-a4b5-4da6-7e8f-9a0b1c2d3e4f",
+    "RoomTypeId": "44444444-4444-4444-4444-444444444444",
+    "RoomId": "f0000017-e001-4001-b001-a00000000017",
+    "StartDate": "2026-02-14T14:00:00",
+    "EndDate": "2026-02-16T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 400.00
+  },
+  {
+    "Id": "b0000011-1111-1111-1111-111111111111",
+    "UserId": "d1e2f3a4-b5c6-4eb7-8f9a-0b1c2d3e4f5a",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": "f0000003-e001-4001-b001-a00000000003",
+    "StartDate": "2026-03-01T14:00:00",
+    "EndDate": "2026-03-03T12:00:00",
+    "NumberOfGuests": 1,
+    "TotalPrice": 120.00
+  },
+  {
+    "Id": "b0000012-1111-1111-1111-111111111111",
+    "UserId": "e2f3a4b5-c6d7-4fc8-9a0b-1c2d3e4f5a6b",
+    "RoomTypeId": "22222222-2222-2222-2222-222222222222",
+    "RoomId": "f0000008-e001-4001-b001-a00000000008",
+    "StartDate": "2026-03-10T14:00:00",
+    "EndDate": "2026-03-11T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 100.00
+  },
+  {
+    "Id": "b0000013-1111-1111-1111-111111111111",
+    "UserId": "f3a4b5c6-d7e8-4ad9-0b1c-2d3e4f5a6b7c",
+    "RoomTypeId": "22222222-2222-2222-2222-222222222222",
+    "RoomId": null,
+    "StartDate": "2026-04-01T14:00:00",
+    "EndDate": "2026-04-05T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 400.00
+  },
+  {
+    "Id": "b0000014-1111-1111-1111-111111111111",
+    "UserId": "a4b5c6d7-e8f9-4be0-1c2d-3e4f5a6b7c8d",
+    "RoomTypeId": "55555555-5555-5555-5555-555555555555",
+    "RoomId": "f0000020-e001-4001-b001-a00000000020",
+    "StartDate": "2026-04-10T14:00:00",
+    "EndDate": "2026-04-15T12:00:00",
+    "NumberOfGuests": 4,
+    "TotalPrice": 1500.00
+  },
+  {
+    "Id": "b0000015-1111-1111-1111-111111111111",
+    "UserId": "b5c6d7e8-f9a0-4cf1-2d3e-4f5a6b7c8d9e",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": "f0000004-e001-4001-b001-a00000000004",
+    "StartDate": "2026-05-01T14:00:00",
+    "EndDate": "2026-05-02T12:00:00",
+    "NumberOfGuests": 1,
+    "TotalPrice": 60.00
+  },
+  {
+    "Id": "b0000016-1111-1111-1111-111111111111",
+    "UserId": "c6d7e8f9-a0b1-4da2-3e4f-5a6b7c8d9e0f",
+    "RoomTypeId": "44444444-4444-4444-4444-444444444444",
+    "RoomId": null,
     "StartDate": "2026-05-20T14:00:00",
     "EndDate": "2026-05-25T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 300
+    "NumberOfGuests": 2,
+    "TotalPrice": 1000.00
   },
   {
-    "Id": "f6a7b8c9-d0e1-4f2a-3b4c-6d7e8f9a0b1c",
-    "UserId": "b7c2ffff-9e6a-8e3a-2d56-7f6a6e2f9012",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
+    "Id": "b0000017-1111-1111-1111-111111111111",
+    "UserId": "d7e8f9a0-b1c2-4eb3-4f5a-6b7c8d9e0f1a",
+    "RoomTypeId": "33333333-3333-3333-3333-333333333333",
+    "RoomId": "f0000013-e001-4001-b001-a00000000013",
+    "StartDate": "2026-06-01T14:00:00",
+    "EndDate": "2026-06-03T12:00:00",
+    "NumberOfGuests": 2,
+    "TotalPrice": 220.00
+  },
+  {
+    "Id": "b0000018-1111-1111-1111-111111111111",
+    "UserId": "e8f9a0b1-c2d3-4fc4-5a6b-7c8d9e0f1a2b",
+    "RoomTypeId": "22222222-2222-2222-2222-222222222222",
+    "RoomId": "f0000009-e001-4001-b001-a00000000009",
     "StartDate": "2026-06-15T14:00:00",
     "EndDate": "2026-06-20T12:00:00",
     "NumberOfGuests": 2,
-    "TotalPrice": 450
+    "TotalPrice": 500.00
   },
   {
-    "Id": "a7b8c9d0-e1f2-4a3b-4c5d-7e8f9a0b1c2d",
-    "UserId": "c8d30000-0f7b-9f4b-3e67-8a7b7f3a0123",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-10-01T14:00:00",
-    "EndDate": "2026-10-07T12:00:00",
-    "NumberOfGuests": 4,
-    "TotalPrice": 1200
-  },
-  {
-    "Id": "b8c9d0e1-f2a3-4b4c-5d6e-8f9a0b1c2d3e",
-    "UserId": "d9e41111-1a8c-0a5c-4f78-9b8c8a4b1234",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-11-10T14:00:00",
-    "EndDate": "2026-11-12T12:00:00",
+    "Id": "b0000019-1111-1111-1111-111111111111",
+    "UserId": "f9a0b1c2-d3e4-4ad5-6b7c-8d9e0f1a2b3c",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": "f0000005-e001-4001-b001-a00000000005",
+    "StartDate": "2026-07-01T14:00:00",
+    "EndDate": "2026-07-05T12:00:00",
     "NumberOfGuests": 1,
-    "TotalPrice": 180
+    "TotalPrice": 240.00
   },
   {
-    "Id": "c9d0e1f2-a3b4-4c5d-6e7f-9a0b1c2d3e4f",
-    "UserId": "e0f52222-2b9d-1b6d-5a89-0c9d9b5c2345",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": "202",
-    "StartDate": "2026-12-20T14:00:00",
-    "EndDate": "2026-12-27T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 800
-  },
-  {
-    "Id": "d0e1f2a3-b4c5-4d6e-7f8a-0b1c2d3e4f5a",
-    "UserId": "f1a63333-3c0e-2c7e-6b90-1d0e0c6d3456",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-04-15T14:00:00",
-    "EndDate": "2026-04-18T12:00:00",
+    "Id": "b0000020-1111-1111-1111-111111111111",
+    "UserId": "a0b1c2d3-e4f5-4be6-7b8c-9d0e1f2a3b4c",
+    "RoomTypeId": "44444444-4444-4444-4444-444444444444",
+    "RoomId": "f0000018-e001-4001-b001-a00000000018",
+    "StartDate": "2026-08-01T14:00:00",
+    "EndDate": "2026-08-10T12:00:00",
     "NumberOfGuests": 3,
-    "TotalPrice": 600
-  },
-  {
-    "Id": "e1f2a3b4-c5d6-4e7f-8a9b-1c2d3e4f5a6b",
-    "UserId": "a2b74444-4d1f-3d8f-7c01-2e1f1d7e4567",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-06-25T14:00:00",
-    "EndDate": "2026-06-30T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 550
-  },
-  {
-    "Id": "f2a3b4c5-d6e7-4f8a-9b0c-2d3e4f5a6b7c",
-    "UserId": "b3c85555-5e20-4e90-8d12-3f202e8f5678",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-08-20T14:00:00",
-    "EndDate": "2026-08-23T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 210
-  },
-  {
-    "Id": "a3b4c5d6-e7f8-4a9b-0c1d-3e4f5a6b7c8d",
-    "UserId": "c4d96666-6f31-5f01-9e23-4a313f906789",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": "305",
-    "StartDate": "2026-09-05T14:00:00",
-    "EndDate": "2026-09-10T12:00:00",
-    "NumberOfGuests": 4,
-    "TotalPrice": 1100
-  },
-  {
-    "Id": "b4c5d6e7-f8a9-4b0c-1d2e-4f5a6b7c8d9e",
-    "UserId": "d5e07777-7a42-6a12-0f34-5b424a017890",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-07-25T14:00:00",
-    "EndDate": "2026-07-28T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 390
-  },
-  {
-    "Id": "c5d6e7f8-a9b0-4c1d-2e3f-5a6b7c8d9e0f",
-    "UserId": "e6f18888-8b53-7b23-1a45-6c535b128901",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-10-15T14:00:00",
-    "EndDate": "2026-10-18T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 280
-  },
-  {
-    "Id": "d6e7f8a9-b0c1-4d2e-3f4a-6b7c8d9e0f1a",
-    "UserId": "f7a29999-9c64-8c34-2b56-7d646c239012",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-03-10T14:00:00",
-    "EndDate": "2026-03-15T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 900
-  },
-  {
-    "Id": "e7f8a9b0-c1d2-4e3f-4a5b-7c8d9e0f1a2b",
-    "UserId": "a8b3aaaa-0d75-9d45-3c67-8e757d340123",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-11-20T14:00:00",
-    "EndDate": "2026-11-25T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 480
-  },
-  {
-    "Id": "f8a9b0c1-d2e3-4f4a-5b6c-8d9e0f1a2b3c",
-    "UserId": "b9c4bbbb-1e86-0e56-4d78-9f868e451234",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": "104",
-    "StartDate": "2026-01-15T14:00:00",
-    "EndDate": "2026-01-20T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 220
-  },
-  {
-    "Id": "a9b0c1d2-e3f4-4a5b-6c7d-9e0f1a2b3c4d",
-    "UserId": "c0d5cccc-2f97-1f67-5e89-0a979f562345",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-02-14T14:00:00",
-    "EndDate": "2026-02-18T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 600
-  },
-  {
-    "Id": "b0c1d2e3-f4a5-4b6c-7d8e-0f1a2b3c4d5e",
-    "UserId": "d1e6dddd-3a08-2a78-6f90-1b080a673456",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-04-20T14:00:00",
-    "EndDate": "2026-04-25T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 420
-  },
-  {
-    "Id": "c1d2e3f4-a5b6-4c7d-8e9f-1a2b3c4d5e6f",
-    "UserId": "e2f7eeee-4b19-3b89-7a01-2c191b784567",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-08-10T14:00:00",
-    "EndDate": "2026-08-15T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 310
-  },
-  {
-    "Id": "d2e3f4a5-b6c7-4d8e-9f0a-2b3c4d5e6f7a",
-    "UserId": "f3a8ffff-5c2a-4c9a-8b12-3d2a2c895678",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-09-20T14:00:00",
-    "EndDate": "2026-09-25T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 850
-  },
-  {
-    "Id": "e3f4a5b6-c7d8-4e9f-0a1b-3c4d5e6f7a8b",
-    "UserId": "a4b90000-6d3b-5d0b-9c23-4e3b3d9a6789",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": "401",
-    "StartDate": "2026-10-10T14:00:00",
-    "EndDate": "2026-10-15T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 520
-  },
-  {
-    "Id": "f4a5b6c7-d8e9-4f0a-1b2c-4d5e6f7a8b9c",
-    "UserId": "b5c01111-7e4c-6e1c-0d34-5f4c4e0b7890",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-05-01T14:00:00",
-    "EndDate": "2026-05-04T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 195
-  },
-  {
-    "Id": "a5b6c7d8-e9f0-4a1b-2c3d-5e6f7a8b9c0d",
-    "UserId": "c6d12222-8f5d-7f2d-1e45-6a5d5f1c8901",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-06-10T14:00:00",
-    "EndDate": "2026-06-14T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 640
-  },
-  {
-    "Id": "b6c7d8e9-f0a1-4b2c-3d4e-6f7a8b9c0d1e",
-    "UserId": "d7e23333-9a6e-8a3e-2f56-7b6e6a2d9012",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-12-01T14:00:00",
-    "EndDate": "2026-12-05T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 490
-  },
-  {
-    "Id": "c7d8e9f0-a1b2-4c3d-4e5f-7a8b9c0d1e2f",
-    "UserId": "e8f34444-0b7f-9b4f-3a67-8c7f7b3e0123",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-07-05T14:00:00",
-    "EndDate": "2026-07-08T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 230
-  },
-  {
-    "Id": "d8e9f0a1-b2c3-4d4e-5f6a-8b9c0d1e2f3a",
-    "UserId": "f9a45555-1c80-0c50-4b78-9d808c4f1234",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-11-01T14:00:00",
-    "EndDate": "2026-11-05T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 920
-  },
-  {
-    "Id": "e9f0a1b2-c3d4-4e5f-6a7b-9c0d1e2f3a4b",
-    "UserId": "a0b56666-2d91-1d61-5c89-0e919d502345",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-03-20T14:00:00",
-    "EndDate": "2026-03-24T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 410
-  },
-  {
-    "Id": "f0a1b2c3-d4e5-4f6a-7b8c-0d1e2f3a4b5c",
-    "UserId": "b1c67777-3e02-2e72-6d90-1f020e613456",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-02-10T14:00:00",
-    "EndDate": "2026-02-13T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 185
-  },
-  {
-    "Id": "a1b2c3d4-e5f6-4a7b-8c9d-1e2f3a4b5c6e",
-    "UserId": "c2d78888-4f13-3f83-7e01-2a131f724567",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-08-25T14:00:00",
-    "EndDate": "2026-08-30T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 680
-  },
-  {
-    "Id": "b2c3d4e5-f6a7-4b8c-9d0e-2f3a4b5c6d7f",
-    "UserId": "d3e89999-5a24-4a94-8f12-3b242a835678",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-04-05T14:00:00",
-    "EndDate": "2026-04-10T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 440
-  },
-  {
-    "Id": "c3d4e5f6-a7b8-4c9d-0e1f-3a4b5c6d7e8g",
-    "UserId": "e4f9aaaa-6b35-5b05-9a23-4c353b946789",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-05-12T14:00:00",
-    "EndDate": "2026-05-15T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 205
-  },
-  {
-    "Id": "d4e5f6a7-b8c9-4d0e-1f2a-4b5c6d7e8f9b",
-    "UserId": "f5a0bbbb-7c46-6c16-0b34-5d464c057890",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-06-20T14:00:00",
-    "EndDate": "2026-06-24T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 820
-  },
-  {
-    "Id": "e5f6a7b8-c9d0-4e1f-2a3b-5c6d7e8f9a0c",
-    "UserId": "a6b1cccc-8d57-7d27-1c45-6e575d168901",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": "502",
-    "StartDate": "2026-09-15T14:00:00",
-    "EndDate": "2026-09-20T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 510
-  },
-  {
-    "Id": "f6a7b8c9-d0e1-4f2a-3b4c-6d7e8f9a0b1d",
-    "UserId": "b7c2dddd-9e68-8e38-2d56-7f686e279012",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-10-20T14:00:00",
-    "EndDate": "2026-10-23T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 240
-  },
-  {
-    "Id": "a7b8c9d0-e1f2-4a3b-4c5d-7e8f9a0b1c2e",
-    "UserId": "c8d3eeee-0f79-9f49-3e67-8a797f380123",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-01-25T14:00:00",
-    "EndDate": "2026-01-30T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 660
-  },
-  {
-    "Id": "b8c9d0e1-f2a3-4b4c-5d6e-8f9a0b1c2d3f",
-    "UserId": "d9e4ffff-1a80-0a50-4f78-9b808a491234",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-12-10T14:00:00",
-    "EndDate": "2026-12-15T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 475
-  },
-  {
-    "Id": "c9d0e1f2-a3b4-4c5d-6e7f-9a0b1c2d3e4g",
-    "UserId": "e0f50000-2b91-1b61-5a89-0c919b502345",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-11-25T14:00:00",
-    "EndDate": "2026-11-28T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 225
-  },
-  {
-    "Id": "d0e1f2a3-b4c5-4d6e-7f8a-0b1c2d3e4f5b",
-    "UserId": "f1a61111-3c02-2c72-6b90-1d020c613456",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-04-10T14:00:00",
-    "EndDate": "2026-04-14T12:00:00",
-    "NumberOfGuests": 4,
-    "TotalPrice": 1050
-  },
-  {
-    "Id": "e1f2a3b4-c5d6-4e7f-8a9b-1c2d3e4f5a6c",
-    "UserId": "a2b72222-4d13-3d83-7c01-2e131d724567",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-06-05T14:00:00",
-    "EndDate": "2026-06-10T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 430
-  },
-  {
-    "Id": "f2a3b4c5-d6e7-4f8a-9b0c-2d3e4f5a6b7d",
-    "UserId": "b3c83333-5e24-4e94-8d12-3f242e835678",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-07-15T14:00:00",
-    "EndDate": "2026-07-20T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 290
-  },
-  {
-    "Id": "a3b4c5d6-e7f8-4a9b-0c1d-3e4f5a6b7c8e",
-    "UserId": "c4d94444-6f35-5f05-9e23-4a353f946789",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-08-10T14:00:00",
-    "EndDate": "2026-08-15T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 780
-  },
-  {
-    "Id": "b4c5d6e7-f8a9-4b0c-1d2e-4f5a6b7c8d9f",
-    "UserId": "d5e05555-7a46-6a16-0f34-5b464a057890",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-02-20T14:00:00",
-    "EndDate": "2026-02-25T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 395
-  },
-  {
-    "Id": "c5d6e7f8-a9b0-4c1d-2e3f-5a6b7c8d9e0g",
-    "UserId": "e6f16666-8b57-7b27-1a45-6c535b128901",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-03-05T14:00:00",
-    "EndDate": "2026-03-08T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 215
-  },
-  {
-    "Id": "d6e7f8a9-b0c1-4d2e-3f4a-6b7c8d9e0f1b",
-    "UserId": "f7a27777-9c64-8c34-2b56-7d646c239012",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-10-05T14:00:00",
-    "EndDate": "2026-10-10T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 710
-  },
-  {
-    "Id": "e7f8a9b0-c1d2-4e3f-4a5b-7c8d9e0f1a2c",
-    "UserId": "a8b38888-0d75-9d45-3c67-8e757d340123",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": "603",
-    "StartDate": "2026-11-05T14:00:00",
-    "EndDate": "2026-11-10T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 460
-  },
-  {
-    "Id": "f8a9b0c1-d2e3-4f4a-5b6c-8d9e0f1a2b3d",
-    "UserId": "b9c49999-1e86-0e56-4d78-9f868e451234",
-    "RoomTypeId": "66666666-7777-8888-9999-aaaaaaaaaaaa",
-    "RoomId": null,
-    "StartDate": "2026-12-15T14:00:00",
-    "EndDate": "2026-12-18T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 190
-  },
-  {
-    "Id": "a9b0c1d2-e3f4-4a5b-6c7d-9e0f1a2b3c4e",
-    "UserId": "c0d5aaaa-2f97-1f67-5e89-0a979f562345",
-    "RoomTypeId": "99999999-0000-1111-2222-bbbbbbbbbbbb",
-    "RoomId": null,
-    "StartDate": "2026-05-15T14:00:00",
-    "EndDate": "2026-05-20T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 890
-  },
-  {
-    "Id": "b0c1d2e3-f4a5-4b6c-7d8e-0f1a2b3c4d5f",
-    "UserId": "d1e6bbbb-3a08-2a78-6f90-1b080a673456",
-    "RoomTypeId": "11111111-2222-3333-4444-555555555555",
-    "RoomId": null,
-    "StartDate": "2026-01-10T14:00:00",
-    "EndDate": "2026-01-15T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 405
+    "TotalPrice": 1800.00
   }
 ]

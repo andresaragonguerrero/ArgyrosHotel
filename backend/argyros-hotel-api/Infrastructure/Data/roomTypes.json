@@ -1,0 +1,37 @@
+﻿[
+  {
+    "Id": "11111111-1111-1111-1111-111111111111",
+    "Name": "Single",
+    "BasePrice": 60,
+    "MaxGuests": 1,
+    "TotalRooms": 5
+  },
+  {
+    "Id": "22222222-2222-2222-2222-222222222222",
+    "Name": "Double",
+    "BasePrice": 100,
+    "MaxGuests": 2,
+    "TotalRooms": 6
+  },
+  {
+    "Id": "33333333-3333-3333-3333-333333333333",
+    "Name": "Twin",
+    "BasePrice": 110,
+    "MaxGuests": 2,
+    "TotalRooms": 4
+  },
+  {
+    "Id": "44444444-4444-4444-4444-444444444444",
+    "Name": "Suite",
+    "BasePrice": 200,
+    "MaxGuests": 3,
+    "TotalRooms": 3
+  },
+  {
+    "Id": "55555555-5555-5555-5555-555555555555",
+    "Name": "Deluxe",
+    "BasePrice": 300,
+    "MaxGuests": 4,
+    "TotalRooms": 2
+  }
+]
