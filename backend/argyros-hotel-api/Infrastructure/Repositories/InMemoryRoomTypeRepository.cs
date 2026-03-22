@@ -1,4 +1,4 @@
-﻿using ArgrosHotel.Domain.Hotel;
+﻿using argyros_hotel_api.Domain.Hotel;
 using argyros_hotel_api.Aplication.Interfaces;
 using System.Text.Json;
 

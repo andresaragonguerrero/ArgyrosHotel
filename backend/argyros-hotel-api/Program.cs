@@ -1,5 +1,5 @@
-using ArgrosHotel.Infrastructure.Repositories;
-using ArgrosHotel.Application.Interfaces;
+using argyros_hotel_api.Infrastructure.Repositories;
+using argyros_hotel_api.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

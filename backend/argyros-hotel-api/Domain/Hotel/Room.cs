@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Hotel
+namespace argyros_hotel_api.Domain.Hotel
 {
     // Clase que representa a una habitación de hotel
     public class Room

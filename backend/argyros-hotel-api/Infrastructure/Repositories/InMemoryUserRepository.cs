@@ -1,13 +1,8 @@
-using ArgrosHotel.Application.Interfaces;
-using ArgrosHotel.Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
+using argyros_hotel_api.Application.Interfaces;
+using argyros_hotel_api.Domain.Users;
 using System.Text.Json;
 
-namespace ArgrosHotel.Infrastructure.Repositories
+namespace argyros_hotel_api.Infrastructure.Repositories
 {
     // Implementación básica en memoria del repositorio de usuarios
     public class InMemoryUserRepository : IUserRepository

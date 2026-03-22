@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Bookings
+namespace argyros_hotel_api.Domain.Bookings
 {
     // Clase que representa una reserva de habitación de hotel
     // En lugar de incluir aquí el cálculo total,

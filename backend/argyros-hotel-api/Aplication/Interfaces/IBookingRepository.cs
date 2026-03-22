@@ -1,9 +1,9 @@
-using ArgrosHotel.Domain.Bookings;
+using argyros_hotel_api.Domain.Bookings;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ArgrosHotel.Application.Interfaces
+namespace argyros_hotel_api.Application.Interfaces
 {
     public interface IBookingRepository
     {

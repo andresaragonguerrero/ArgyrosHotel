@@ -1,8 +1,8 @@
-using ArgrosHotel.Domain.Users;
+using argyros_hotel_api.Domain.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ArgrosHotel.Application.Interfaces
+namespace argyros_hotel_api.Application.Interfaces
 {
     public interface IUserRepository
     {

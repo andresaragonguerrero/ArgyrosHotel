@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Bookings
+namespace argyros_hotel_api.Domain.Bookings
 {
     // Clase que representa a un servicio adicional asociado a una reserva de habitación de hotel
     public class BookingService

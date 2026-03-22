@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Hotel
+namespace argyros_hotel_api.Domain.Hotel
 {
     // Representa un tipo de habitación: individual, doble, suite, etc
     // Cada habitación tendrá una capacidad, un precio base y un número determinado de habitaciones disponibles

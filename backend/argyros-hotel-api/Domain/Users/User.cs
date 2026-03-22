@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Users
+namespace argyros_hotel_api.Domain.Users
 {
     // Los usuarios se distinguirán entre aquellos que son Premium y los que no
     public class User

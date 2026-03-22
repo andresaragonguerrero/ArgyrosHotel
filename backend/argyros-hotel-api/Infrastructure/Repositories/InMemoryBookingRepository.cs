@@ -1,13 +1,8 @@
-using ArgrosHotel.Application.Interfaces;
-using ArgrosHotel.Domain.Bookings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
+using argyros_hotel_api.Application.Interfaces;
+using argyros_hotel_api.Domain.Bookings;
 using System.Text.Json;
 
-namespace ArgrosHotel.Infrastructure.Repositories
+namespace argyros_hotel_api.Infrastructure.Repositories
 {
     // Implementación básica en memoria del repositorio de reservas
     public class InMemoryBookingRepository : IBookingRepository

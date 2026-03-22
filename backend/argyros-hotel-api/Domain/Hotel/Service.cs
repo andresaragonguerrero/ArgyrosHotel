@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace ArgrosHotel.Domain.Hotel
+namespace argyros_hotel_api.Domain.Hotel
 {
     // Representa un servicio adicional que puede ser contratado por los huéspedes: desayuno, actividad, evento, etc
     public class Service
