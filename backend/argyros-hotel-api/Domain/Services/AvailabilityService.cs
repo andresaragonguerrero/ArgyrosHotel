@@ -7,13 +7,62 @@
         // Recupera el rango de las fechas de la reserva:
         // InMemoryBookingRepository -> GetBookingsByRoomTypeAndDateRangeAsync(Guid roomTypeId, DateTime startDate, DateTime endDate)
 
-        // Verifica la disponibilidad comparando el número de reservas existentes con la cantidad total de habitaciones de ese tipo:
+        // Verifica la disponibilidad comparando el número de reservas existentes
+        // con la cantidad total de habitaciones de ese tipo:
         // InMemoryRoomRepository ->  GetByRoomTypeIdAsync(Guid roomTypeId)
 
-        // Verificar si se produce un solapamiento de fechas entre las reservas existentes y las fechas solicitadas
+        // Verificar si se produce un solapamiento de fechas
+        // entre las reservas existentes y las fechas solicitadas
 
         // Devuelve el resultado indicando si hay habitaciones disponibles
         // En caso de que haya, indicará también el número de ellas
         // De lo contrario, indicará que no hay disponibilidad
-    }
+
+        public class AvailabilityResult
+        {
+            public bool IsAvailable { get; }
+            public int AvailableRooms { get; }
+
+            public AvailabilityResult(bool isAvailable, int availableRooms)
+            {
+                IsAvailable = isAvailable;
+                AvailableRooms = availableRooms;
+            }
+        }
+
+        public class AvailabilityService
+        {
+            public AvailabilityResult CheckAvailability(
+                RoomType roomType,
+                IEnumerable<Booking> bookings,
+                DateTime requestedStart,
+                DateTime requestedEnd)
+            {
+                if (requestedStart >= requestedEnd)
+                    throw new ArgumentException("Invalid date range");
+
+                // Verificar si se produce un solapamiento de fechas
+                // entre las reservas existentes y las fechas solicitadas
+                var overlappingBookings = bookings.Where(b =>
+                    b.StartDate < requestedEnd &&
+                    b.EndDate > requestedStart
+                );
+
+                // Contar reservas activas en ese rango
+                var activeBookingsCount = overlappingBookings.Count();
+
+                // Calcular disponibilidad
+                var availableRooms = roomType.TotalRooms - activeBookingsCount;
+
+                if (availableRooms < 0)
+                    availableRooms = 0;
+
+                // Resultado
+                return new AvailabilityResult(
+                    availableRooms > 0,
+                    availableRooms
+                );
+            } // CheckAvailability method.end
+        } // AvailabilityService class.end
+    } // AvailabilityService.end
 }
