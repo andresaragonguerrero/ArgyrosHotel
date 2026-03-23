@@ -1,4 +1,6 @@
-﻿namespace argyros_hotel_api.Domain.Services
+﻿using argyros_hotel_api.Domain.Hotel;
+
+namespace argyros_hotel_api.Domain.Services
 {
     // Servicio encargado de la lógica relacionada con el cálculo del precio de las reservas
     // NO se incluirá la lógica del cálculo de impuestos, descuentos o promociones:

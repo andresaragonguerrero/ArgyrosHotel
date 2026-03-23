@@ -20,7 +20,7 @@ namespace argyros_hotel_api.Domain.Bookings
         public int NumberOfGuests { get; private set; }
 
         [JsonConstructor]
-        public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests)
+        public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests, decimal finalPrice)
         {
             if (userId == Guid.Empty)
                 throw new ArgumentException("UserId inválido", nameof(userId));

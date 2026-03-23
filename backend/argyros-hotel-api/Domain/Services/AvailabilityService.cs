@@ -1,7 +1,22 @@
-﻿namespace argyros_hotel_api.Domain.Services
+﻿using argyros_hotel_api.Domain.Bookings;
+using argyros_hotel_api.Domain.Hotel;
+
+namespace argyros_hotel_api.Domain.Services
 {
     // Servicio encargado de manejar la lógica relacionada con la disponibilidad de las habitaciones
     // Verifica la disponibilidad del tipo de habitación solicitada para las fechas dadas, considera reservas existentes
+    public class AvailabilityResult
+    {
+        public bool IsAvailable { get; }
+        public int AvailableRooms { get; }
+
+        public AvailabilityResult(bool isAvailable, int availableRooms)
+        {
+            IsAvailable = isAvailable;
+            AvailableRooms = availableRooms;
+        }
+    }
+
     public class AvailabilityService
     {
         // Recupera el rango de las fechas de la reserva:
@@ -17,52 +32,36 @@
         // Devuelve el resultado indicando si hay habitaciones disponibles
         // En caso de que haya, indicará también el número de ellas
         // De lo contrario, indicará que no hay disponibilidad
-
-        public class AvailabilityResult
+        public AvailabilityResult CheckAvailability(
+            RoomType roomType,
+            IEnumerable<Booking> bookings,
+            DateTime requestedStart,
+            DateTime requestedEnd)
         {
-            public bool IsAvailable { get; }
-            public int AvailableRooms { get; }
+            if (requestedStart >= requestedEnd)
+                throw new ArgumentException("Invalid date range");
 
-            public AvailabilityResult(bool isAvailable, int availableRooms)
-            {
-                IsAvailable = isAvailable;
-                AvailableRooms = availableRooms;
-            }
-        }
+            // Verificar si se produce un solapamiento de fechas
+            // entre las reservas existentes y las fechas solicitadas
+            var overlappingBookings = bookings.Where(b =>
+                b.StartDate < requestedEnd &&
+                b.EndDate > requestedStart
+            );
 
-        public class AvailabilityService
-        {
-            public AvailabilityResult CheckAvailability(
-                RoomType roomType,
-                IEnumerable<Booking> bookings,
-                DateTime requestedStart,
-                DateTime requestedEnd)
-            {
-                if (requestedStart >= requestedEnd)
-                    throw new ArgumentException("Invalid date range");
+            // Contar reservas activas en ese rango
+            var activeBookingsCount = overlappingBookings.Count();
 
-                // Verificar si se produce un solapamiento de fechas
-                // entre las reservas existentes y las fechas solicitadas
-                var overlappingBookings = bookings.Where(b =>
-                    b.StartDate < requestedEnd &&
-                    b.EndDate > requestedStart
-                );
+            // Calcular disponibilidad
+            var availableRooms = roomType.TotalRooms - activeBookingsCount;
 
-                // Contar reservas activas en ese rango
-                var activeBookingsCount = overlappingBookings.Count();
+            if (availableRooms < 0)
+                availableRooms = 0;
 
-                // Calcular disponibilidad
-                var availableRooms = roomType.TotalRooms - activeBookingsCount;
-
-                if (availableRooms < 0)
-                    availableRooms = 0;
-
-                // Resultado
-                return new AvailabilityResult(
-                    availableRooms > 0,
-                    availableRooms
-                );
-            } // CheckAvailability method.end
-        } // AvailabilityService class.end
+            // Resultado
+            return new AvailabilityResult(
+                availableRooms > 0,
+                availableRooms
+            );
+        } // CheckAvailability method.end
     } // AvailabilityService.end
 }

@@ -1,4 +1,6 @@
-﻿namespace argyros_hotel_api.Domain.Services
+﻿using argyros_hotel_api.Domain.Users;
+
+namespace argyros_hotel_api.Domain.Services
 {
     // Servicio encargado de la lógica relacionada con el cálculo de los descuentos aplicables a las reservas 
     public class DiscountService
