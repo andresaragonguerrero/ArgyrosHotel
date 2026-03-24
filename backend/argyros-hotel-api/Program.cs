@@ -1,5 +1,7 @@
-using argyros_hotel_api.Aplication.Interfaces;
+﻿using argyros_hotel_api.Aplication.Interfaces;
+using argyros_hotel_api.Application.DTOs;
 using argyros_hotel_api.Application.Interfaces;
+using argyros_hotel_api.Domain.Users;
 using argyros_hotel_api.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Inyecci�n de dependencias: repositorios
-// Inyecci�n de dependencias
+// Inyección de dependencias: repositorios
+// Inyección de dependencias
 builder.Services.AddSingleton<IUserRepository>(_ =>
     new InMemoryUserRepository(Path.Combine("Infrastructure", "Data", "users.json")));
 
@@ -128,6 +130,25 @@ app.MapGet("/bookingServices/{id}", async (Guid id, IBookingServiceRepository re
 app.MapGet("/bookingServices/byBooking/{bookingId}", async (Guid bookingId, IBookingServiceRepository repo) =>
 {
     return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
+});
+
+// Crear usuario
+// Falta por implementar el hash de contraseña (también validaciones, es un MVP)
+app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
+{
+    var passwordHash = request.Password; 
+
+    var user = new User(
+        Guid.NewGuid(),
+        request.Name,
+        request.Surname,
+        request.Email,
+        passwordHash,
+        request.IsPremium
+    );
+
+    await repo.AddAsync(user);
+    return Results.Created($"/users/{user.Id}", user);
 });
 
 app.Run();
