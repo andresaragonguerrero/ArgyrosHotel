@@ -2,10 +2,15 @@
 
 namespace argyros_hotel_api.Domain.Services
 {
+    public interface IPricingService
+    {
+        decimal CalculateBasePrice(RoomType roomType, DateTime startDate, DateTime endDate);
+    }
+
     // Servicio encargado de la lógica relacionada con el cálculo del precio de las reservas
     // NO se incluirá la lógica del cálculo de impuestos, descuentos o promociones:
     // esta funcionalidad se delegará a otros servicios especializados (DiscountService, TaxService)
-    public class PricingService
+    public class PricingService : IPricingService
     {
         public decimal CalculateBasePrice(
                     RoomType roomType,

@@ -2,8 +2,13 @@
 
 namespace argyros_hotel_api.Domain.Services
 {
+    public interface IDiscountService
+    {
+        decimal ApplyDiscount(User user, decimal basePrice);
+    }
+
     // Servicio encargado de la lógica relacionada con el cálculo de los descuentos aplicables a las reservas 
-    public class DiscountService
+    public class DiscountService : IDiscountService
     {
         // Tasa de descuento para los usuarios premium (10% de descuento actualmente)
         private const decimal PremiumDiscountRate = 0.10m;

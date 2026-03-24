@@ -36,6 +36,8 @@ builder.Services.AddSingleton<IBookingServiceRepository>(_ =>
 
 builder.Services.AddSingleton<AvailabilityService>();
 
+builder.Services.AddSingleton<IDiscountService, DiscountService>();
+
 var app = builder.Build();
 
 // Middleware
@@ -369,24 +371,109 @@ app.MapGet("/pricing", async (
     Guid roomTypeId,
     DateTime startDate,
     DateTime endDate,
-    IRoomTypeRepository roomTypeRepo,
-    [FromServices] PricingService pricingService) =>
+    [FromServices] IRoomTypeRepository roomTypeRepo,
+    [FromServices] IPricingService pricingService) =>
 {
     var roomType = await roomTypeRepo.GetByIdAsync(roomTypeId);
-    if (roomType is null)
-        return Results.BadRequest("RoomType no encontrado");
+    if (roomType == null)
+        return Results.NotFound("RoomType no encontrado");
 
-    var basePrice = pricingService.CalculateBasePrice(
-        roomType,
-        startDate,
-        endDate
-    );
+    decimal basePrice;
+    try
+    {
+        basePrice = pricingService.CalculateBasePrice(roomType, startDate, endDate);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+
+    return Results.Ok(new { BasePrice = basePrice });
+});
+
+// Endpoint para calcular el precio final con descuento
+app.MapGet("/discount", async (
+    Guid userId,
+    decimal basePrice,
+    IUserRepository userRepo,
+    [FromServices] IDiscountService discountService) =>
+{
+    var user = await userRepo.GetByIdAsync(userId);
+    if (user is null)
+        return Results.NotFound("Usuario no encontrado");
+
+    decimal finalPrice;
+    try
+    {
+        finalPrice = discountService.ApplyDiscount(user, basePrice);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 
     return Results.Ok(new
     {
+        UserId = userId,
+        BasePrice = basePrice,
+        FinalPrice = finalPrice,
+        user.IsPremium
+    });
+});
+
+// Endpoint para calcular el precio final de una reserva para un usuario
+app.MapGet("/calculatePrice", async (
+    Guid userId,
+    Guid roomTypeId,
+    DateTime startDate,
+    DateTime endDate,
+    IUserRepository userRepo,
+    IRoomTypeRepository roomTypeRepo,
+    [FromServices] IPricingService pricingService,
+    [FromServices] IDiscountService discountService) =>
+{
+    // Recuperar usuario
+    var user = await userRepo.GetByIdAsync(userId);
+    if (user is null)
+        return Results.NotFound("Usuario no encontrado");
+
+    // Recuperar RoomType
+    var roomType = await roomTypeRepo.GetByIdAsync(roomTypeId);
+    if (roomType is null)
+        return Results.NotFound("RoomType no encontrado");
+
+    // Calcular precio base
+    decimal basePrice;
+    try
+    {
+        basePrice = pricingService.CalculateBasePrice(roomType, startDate, endDate);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+
+    // Aplicar descuento
+    decimal finalPrice;
+    try
+    {
+        finalPrice = discountService.ApplyDiscount(user, basePrice);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+
+    // Devolver resultado
+    return Results.Ok(new
+    {
+        UserId = userId,
         RoomTypeId = roomTypeId,
-        Nights = (endDate - startDate).Days,
-        BasePrice = basePrice
+        StartDate = startDate,
+        EndDate = endDate,
+        BasePrice = basePrice,
+        FinalPrice = finalPrice,
+        user.IsPremium
     });
 });
 
