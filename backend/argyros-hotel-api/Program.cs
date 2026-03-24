@@ -57,6 +57,71 @@ app.MapGet("/users/{id}", async (Guid id, IUserRepository repo) =>
     return user is null ? Results.NotFound() : Results.Ok(user);
 });
 
+// Falta por implementar el hash de contraseña (también validaciones, es un MVP)
+app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
+{
+    var passwordHash = request.Password;
+
+    var user = new User(
+        Guid.NewGuid(),
+        request.Name,
+        request.Surname,
+        request.Email,
+        passwordHash,
+        request.IsPremium
+    );
+
+    await repo.AddAsync(user);
+
+    var response = new UserResponse
+    {
+        Id = user.Id,
+        Name = user.Name,
+        Surname = user.Surname,
+        Email = user.Email,
+        IsPremium = user.IsPremium
+    };
+
+    return Results.Created($"/users/{user.Id}", response);
+});
+
+app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null) return Results.NotFound();
+
+    var updated = new User(
+        id,
+        request.Name,
+        request.Surname,
+        request.Email,
+        request.Password,
+        request.IsPremium
+    );
+
+    await repo.UpdateAsync(updated);
+
+    var response = new UserResponse
+    {
+        Id = updated.Id,
+        Name = updated.Name,
+        Surname = updated.Surname,
+        Email = updated.Email,
+        IsPremium = updated.IsPremium
+    };
+
+    return Results.Ok(response);
+});
+
+app.MapDelete("/users/{id}", async (Guid id, IUserRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null) return Results.NotFound();
+
+    await repo.DeleteAsync(id);
+    return Results.NoContent();
+});
+
 // Bookings
 
 app.MapGet("/bookings", async (IBookingRepository repo) =>
@@ -130,72 +195,6 @@ app.MapGet("/bookingServices/{id}", async (Guid id, IBookingServiceRepository re
 app.MapGet("/bookingServices/byBooking/{bookingId}", async (Guid bookingId, IBookingServiceRepository repo) =>
 {
     return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
-});
-
-// Crear usuario
-// Falta por implementar el hash de contraseña (también validaciones, es un MVP)
-app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
-{
-    var passwordHash = request.Password;
-
-    var user = new User(
-        Guid.NewGuid(),
-        request.Name,
-        request.Surname,
-        request.Email,
-        passwordHash,
-        request.IsPremium
-    );
-
-    await repo.AddAsync(user);
-
-    var response = new UserResponse
-    {
-        Id = user.Id,
-        Name = user.Name,
-        Surname = user.Surname,
-        Email = user.Email,
-        IsPremium = user.IsPremium
-    };
-
-    return Results.Created($"/users/{user.Id}", response);
-});
-
-app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserRepository repo) =>
-{
-    var existing = await repo.GetByIdAsync(id);
-    if (existing is null) return Results.NotFound();
-
-    var updated = new User(
-        id,
-        request.Name,
-        request.Surname,
-        request.Email,
-        request.Password,
-        request.IsPremium
-    );
-
-    await repo.UpdateAsync(updated);
-
-    var response = new UserResponse
-    {
-        Id = updated.Id,
-        Name = updated.Name,
-        Surname = updated.Surname,
-        Email = updated.Email,
-        IsPremium = updated.IsPremium
-    };
-
-    return Results.Ok(response);
-});
-
-app.MapDelete("/users/{id}", async (Guid id, IUserRepository repo) =>
-{
-    var existing = await repo.GetByIdAsync(id);
-    if (existing is null) return Results.NotFound();
-
-    await repo.DeleteAsync(id);
-    return Results.NoContent();
 });
 
 app.Run();
