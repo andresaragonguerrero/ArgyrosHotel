@@ -1,6 +1,8 @@
-﻿using argyros_hotel_api.Aplication.Interfaces;
+﻿using argyros_hotel_api.Aplication.DTOs;
+using argyros_hotel_api.Aplication.Interfaces;
 using argyros_hotel_api.Application.DTOs;
 using argyros_hotel_api.Application.Interfaces;
+using argyros_hotel_api.Domain.Bookings;
 using argyros_hotel_api.Domain.Users;
 using argyros_hotel_api.Infrastructure.Repositories;
 
@@ -133,6 +135,83 @@ app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
 {
     var booking = await repo.GetByIdAsync(id);
     return booking is null ? Results.NotFound() : Results.Ok(booking);
+});
+
+app.MapPost("/bookings", async (
+    CreateBookingRequest request,
+    IBookingRepository bookingRepo,
+    IRoomTypeRepository roomTypeRepo,
+    IUserRepository userRepo) =>
+{
+    var roomType = await roomTypeRepo.GetByIdAsync(request.RoomTypeId);
+    if (roomType is null)
+        return Results.BadRequest("RoomType no encontrado");
+
+    var user = await userRepo.GetByIdAsync(request.UserId);
+    if (user is null)
+        return Results.BadRequest("Usuario no encontrado");
+
+    var existingBookings = await bookingRepo
+        .GetBookingsByRoomTypeAndDateRangeAsync(
+            request.RoomTypeId,
+            request.StartDate,
+            request.EndDate);
+
+    if (existingBookings.Count() >= roomType.TotalRooms)
+        return Results.BadRequest("No hay disponibilidad");
+
+    var booking = new Booking(
+        Guid.NewGuid(),
+        request.UserId,
+        request.RoomTypeId,
+        request.StartDate,
+        request.EndDate,
+        request.NumberOfGuests,
+        0m // luego metes PricingService
+    );
+
+    await bookingRepo.AddAsync(booking);
+
+    return Results.Created($"/bookings/{booking.Id}", booking);
+});
+
+app.MapPut("/bookings/{id}", async (
+    Guid id,
+    UpdateBookingRequest request,
+    IBookingRepository bookingRepo,
+    IRoomTypeRepository roomTypeRepo) =>
+{
+    var existing = await bookingRepo.GetByIdAsync(id);
+    if (existing is null)
+        return Results.NotFound();
+
+    var roomType = await roomTypeRepo.GetByIdAsync(request.RoomTypeId);
+    if (roomType is null)
+        return Results.BadRequest("RoomType no encontrado");
+
+    var updated = new Booking(
+        id,
+        request.UserId,
+        request.RoomTypeId,
+        request.StartDate,
+        request.EndDate,
+        request.NumberOfGuests,
+        0m
+    );
+
+    await bookingRepo.UpdateAsync(updated);
+
+    return Results.Ok(updated);
+});
+
+app.MapDelete("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null)
+        return Results.NotFound();
+
+    await repo.DeleteAsync(id);
+    return Results.NoContent();
 });
 
 // RoomTypes
