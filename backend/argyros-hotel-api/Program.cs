@@ -3,9 +3,10 @@ using argyros_hotel_api.Aplication.Interfaces;
 using argyros_hotel_api.Application.DTOs;
 using argyros_hotel_api.Application.Interfaces;
 using argyros_hotel_api.Domain.Bookings;
+using argyros_hotel_api.Domain.Services;
 using argyros_hotel_api.Domain.Users;
 using argyros_hotel_api.Infrastructure.Repositories;
-using argyros_hotel_api.Domain.Services;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -361,6 +362,32 @@ app.MapGet("/availability", async (
     );
 
     return Results.Ok(finalResult);
+});
+
+// Endpoint para calcular el precio base de una reserva (sin servicios adicionales)
+app.MapGet("/pricing", async (
+    Guid roomTypeId,
+    DateTime startDate,
+    DateTime endDate,
+    IRoomTypeRepository roomTypeRepo,
+    [FromServices] PricingService pricingService) =>
+{
+    var roomType = await roomTypeRepo.GetByIdAsync(roomTypeId);
+    if (roomType is null)
+        return Results.BadRequest("RoomType no encontrado");
+
+    var basePrice = pricingService.CalculateBasePrice(
+        roomType,
+        startDate,
+        endDate
+    );
+
+    return Results.Ok(new
+    {
+        RoomTypeId = roomTypeId,
+        Nights = (endDate - startDate).Days,
+        BasePrice = basePrice
+    });
 });
 
 app.Run();
