@@ -5,6 +5,7 @@ using argyros_hotel_api.Application.Interfaces;
 using argyros_hotel_api.Domain.Bookings;
 using argyros_hotel_api.Domain.Users;
 using argyros_hotel_api.Infrastructure.Repositories;
+using argyros_hotel_api.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,8 @@ builder.Services.AddSingleton<IServiceRepository>(_ =>
 
 builder.Services.AddSingleton<IBookingServiceRepository>(_ =>
     new InMemoryBookingServiceRepository(Path.Combine("Infrastructure", "Data", "bookingServices.json")));
+
+builder.Services.AddSingleton<AvailabilityService>();
 
 var app = builder.Build();
 
@@ -310,6 +313,54 @@ app.MapDelete("/bookingServices/{id}", async (Guid id, IBookingServiceRepository
 
     await repo.DeleteAsync(id);
     return Results.NoContent();
+});
+
+// Endpoint para verificar la disponibilidad de un RoomType en un rango de fechas
+app.MapGet("/availability", async (
+    Guid roomTypeId,
+    DateTime startDate,
+    DateTime endDate,
+    IRoomTypeRepository roomTypeRepo,
+    IBookingRepository bookingRepo,
+    AvailabilityService availabilityService) =>
+{
+    var roomType = await roomTypeRepo.GetByIdAsync(roomTypeId);
+    if (roomType is null)
+        return Results.BadRequest("RoomType no encontrado");
+
+    var bookings = await bookingRepo
+        .GetBookingsByRoomTypeAndDateRangeAsync(
+            roomTypeId,
+            startDate,
+            endDate);
+
+    var result = availabilityService.CheckAvailability(
+        roomType,
+        bookings,
+        startDate,
+        endDate
+    );
+
+    if (result.IsAvailable)
+    {
+        return Results.Ok(result);
+    }
+
+    var allBookings = await bookingRepo.GetAllAsync();
+
+    var nextDate = availabilityService.FindNextAvailableDate(
+        roomType,
+        allBookings.Where(b => b.RoomTypeId == roomTypeId),
+        endDate
+    );
+
+    var finalResult = new AvailabilityResult(
+        false,
+        0,
+        nextDate
+    );
+
+    return Results.Ok(finalResult);
 });
 
 app.Run();
