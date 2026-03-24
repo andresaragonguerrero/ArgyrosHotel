@@ -161,4 +161,32 @@ app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
     return Results.Created($"/users/{user.Id}", response);
 });
 
+app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null) return Results.NotFound();
+
+    var updated = new User(
+        id,
+        request.Name,
+        request.Surname,
+        request.Email,
+        request.Password,
+        request.IsPremium
+    );
+
+    await repo.UpdateAsync(updated);
+
+    var response = new UserResponse
+    {
+        Id = updated.Id,
+        Name = updated.Name,
+        Surname = updated.Surname,
+        Email = updated.Email,
+        IsPremium = updated.IsPremium
+    };
+
+    return Results.Ok(response);
+});
+
 app.Run();
