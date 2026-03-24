@@ -151,4 +151,6 @@ app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
     return Results.Created($"/users/{user.Id}", user);
 });
 
+
+
 app.Run();

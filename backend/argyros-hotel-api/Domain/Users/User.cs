@@ -36,6 +36,7 @@ namespace argyros_hotel_api.Domain.Users
         }
 
         public void UpgradeToPremium() => IsPremium = true;
+
         public void DowngradePremium() => IsPremium = false;
     }
 }
