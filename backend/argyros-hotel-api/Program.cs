@@ -136,7 +136,7 @@ app.MapGet("/bookingServices/byBooking/{bookingId}", async (Guid bookingId, IBoo
 // Falta por implementar el hash de contraseña (también validaciones, es un MVP)
 app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
 {
-    var passwordHash = request.Password; 
+    var passwordHash = request.Password;
 
     var user = new User(
         Guid.NewGuid(),
@@ -148,9 +148,17 @@ app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
     );
 
     await repo.AddAsync(user);
-    return Results.Created($"/users/{user.Id}", user);
+
+    var response = new UserResponse
+    {
+        Id = user.Id,
+        Name = user.Name,
+        Surname = user.Surname,
+        Email = user.Email,
+        IsPremium = user.IsPremium
+    };
+
+    return Results.Created($"/users/{user.Id}", response);
 });
-
-
 
 app.Run();
