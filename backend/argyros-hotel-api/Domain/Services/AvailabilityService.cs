@@ -9,11 +9,16 @@ namespace argyros_hotel_api.Domain.Services
     {
         public bool IsAvailable { get; }
         public int AvailableRooms { get; }
+        public DateTime? NextAvailableDate { get; }
 
-        public AvailabilityResult(bool isAvailable, int availableRooms)
+        public AvailabilityResult(
+            bool isAvailable, 
+            int availableRooms, 
+            DateTime? nextAvailableDate = null)
         {
             IsAvailable = isAvailable;
             AvailableRooms = availableRooms;
+            NextAvailableDate = nextAvailableDate;
         }
     }
 
@@ -38,6 +43,7 @@ namespace argyros_hotel_api.Domain.Services
             DateTime requestedStart,
             DateTime requestedEnd)
         {
+
             if (requestedStart >= requestedEnd)
                 throw new ArgumentException("Invalid date range");
 
@@ -63,5 +69,34 @@ namespace argyros_hotel_api.Domain.Services
                 availableRooms
             );
         } // CheckAvailability method.end
+
+        public DateTime? FindNextAvailableDate(
+            RoomType roomType,
+            IEnumerable<Booking> allBookings,
+            DateTime fromDate)
+        {
+            var date = fromDate;
+
+            // Buscar el siguiente día disponible dentro de un año
+            for (int i = 0; i < 365; i++)
+            {
+                var nextDay = date.AddDays(1);
+
+                var overlappingBookings = allBookings.Where(b =>
+                    b.StartDate < nextDay &&
+                    b.EndDate > date
+                );
+
+                var activeBookingsCount = overlappingBookings.Count();
+                var availableRooms = roomType.TotalRooms - activeBookingsCount;
+
+                if (availableRooms > 0)
+                    return nextDay;
+
+                date = nextDay;
+            }
+
+            return null;
+        }// FindNextAvailableDate method.end
     } // AvailabilityService.end
 }

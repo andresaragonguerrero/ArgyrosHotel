@@ -167,7 +167,7 @@ app.MapPost("/bookings", async (
         request.StartDate,
         request.EndDate,
         request.NumberOfGuests,
-        0m // luego metes PricingService
+        0m // PricingService
     );
 
     await bookingRepo.AddAsync(booking);
