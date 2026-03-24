@@ -189,4 +189,13 @@ app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserReposi
     return Results.Ok(response);
 });
 
+app.MapDelete("/users/{id}", async (Guid id, IUserRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null) return Results.NotFound();
+
+    await repo.DeleteAsync(id);
+    return Results.NoContent();
+});
+
 app.Run();
