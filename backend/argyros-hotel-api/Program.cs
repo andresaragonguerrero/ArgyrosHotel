@@ -276,4 +276,40 @@ app.MapGet("/bookingServices/byBooking/{bookingId}", async (Guid bookingId, IBoo
     return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
 });
 
+app.MapPost("/bookingServices", async (
+    CreateBookingServiceRequest request,
+    IBookingServiceRepository repo,
+    IBookingRepository bookingRepo,
+    IServiceRepository serviceRepo) =>
+{
+    var booking = await bookingRepo.GetByIdAsync(request.BookingId);
+    if (booking is null)
+        return Results.BadRequest("Booking no encontrado");
+
+    var service = await serviceRepo.GetByIdAsync(request.ServiceId);
+    if (service is null)
+        return Results.BadRequest("Service no encontrado");
+
+    var bookingService = new BookingService(
+        Guid.NewGuid(),
+        request.BookingId,
+        request.ServiceId,
+        service.Price
+    );
+
+    await repo.AddAsync(bookingService);
+
+    return Results.Created($"/bookingServices/{bookingService.Id}", bookingService);
+});
+
+app.MapDelete("/bookingServices/{id}", async (Guid id, IBookingServiceRepository repo) =>
+{
+    var existing = await repo.GetByIdAsync(id);
+    if (existing is null)
+        return Results.NotFound();
+
+    await repo.DeleteAsync(id);
+    return Results.NoContent();
+});
+
 app.Run();

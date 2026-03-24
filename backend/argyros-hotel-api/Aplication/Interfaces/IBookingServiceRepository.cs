@@ -7,5 +7,7 @@ namespace argyros_hotel_api.Aplication.Interfaces
         Task<BookingService?> GetByIdAsync(Guid id);
         Task<IEnumerable<BookingService>> GetAllAsync();
         Task<IEnumerable<BookingService>> GetByBookingIdAsync(Guid bookingId);
+        Task AddAsync(BookingService bookingService);
+        Task DeleteAsync(Guid id);
     }
 }

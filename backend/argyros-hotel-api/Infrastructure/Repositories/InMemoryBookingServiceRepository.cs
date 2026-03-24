@@ -32,5 +32,20 @@ namespace argyros_hotel_api.Infrastructure.Repositories
             var services = _bookingServices.Where(bs => bs.BookingId == bookingId);
             return Task.FromResult(services.AsEnumerable());
         }
+
+        public Task AddAsync(BookingService bookingService)
+        {
+            _bookingServices.Add(bookingService);
+            return Task.CompletedTask;
+        }
+
+        public Task DeleteAsync(Guid id)
+        {
+            var existing = _bookingServices.FirstOrDefault(bs => bs.Id == id);
+            if (existing != null)
+                _bookingServices.Remove(existing);
+
+            return Task.CompletedTask;
+        }
     }
 }
