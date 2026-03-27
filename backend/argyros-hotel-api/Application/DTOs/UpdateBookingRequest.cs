@@ -1,4 +1,4 @@
-﻿namespace argyros_hotel_api.Aplication.DTOs
+﻿namespace argyros_hotel_api.Application.DTOs
 {
     public class UpdateBookingRequest
     {

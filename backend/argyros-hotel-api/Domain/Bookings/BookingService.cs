@@ -6,8 +6,11 @@ namespace argyros_hotel_api.Domain.Bookings
     public class BookingService
     {
         public Guid Id { get; private set; }
+
         public Guid BookingId { get; private set; }
+
         public Guid ServiceId { get; private set; }
+
         public decimal TotalPrice { get; private set; }
 
         [JsonConstructor]

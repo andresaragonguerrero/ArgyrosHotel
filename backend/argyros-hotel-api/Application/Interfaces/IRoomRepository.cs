@@ -1,6 +1,6 @@
 ﻿using argyros_hotel_api.Domain.Hotel;
 
-namespace argyros_hotel_api.Aplication.Interfaces
+namespace argyros_hotel_api.Application.Interfaces
 {    
     public interface IRoomRepository
     {

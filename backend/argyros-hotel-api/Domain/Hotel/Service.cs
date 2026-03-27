@@ -6,7 +6,9 @@ namespace argyros_hotel_api.Domain.Hotel
     public class Service
     {
         public Guid Id { get; private set; }
+
         public string Name { get; private set; }
+
         public decimal Price { get; private set; }
 
         [JsonConstructor]

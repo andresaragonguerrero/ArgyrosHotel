@@ -1,6 +1,4 @@
-﻿using argyros_hotel_api.Aplication.DTOs;
-using argyros_hotel_api.Aplication.Interfaces;
-using argyros_hotel_api.Application.DTOs;
+﻿using argyros_hotel_api.Application.DTOs;
 using argyros_hotel_api.Application.Interfaces;
 using argyros_hotel_api.Domain.Bookings;
 using argyros_hotel_api.Domain.Services;
@@ -34,9 +32,9 @@ builder.Services.AddSingleton<IServiceRepository>(_ =>
 builder.Services.AddSingleton<IBookingServiceRepository>(_ =>
     new InMemoryBookingServiceRepository(Path.Combine("Infrastructure", "Data", "bookingServices.json")));
 
-builder.Services.AddSingleton<AvailabilityService>();
-
-builder.Services.AddSingleton<IDiscountService, DiscountService>();
+builder.Services.AddScoped<IPricingService, PricingService>();
+builder.Services.AddScoped<IDiscountService, DiscountService>();
+builder.Services.AddScoped<ISavingService, SavingService>();
 
 var app = builder.Build();
 
@@ -323,7 +321,7 @@ app.MapGet("/availability", async (
     DateTime endDate,
     IRoomTypeRepository roomTypeRepo,
     IBookingRepository bookingRepo,
-    AvailabilityService availabilityService) =>
+    [FromServices] AvailabilityService availabilityService) =>
 {
     var roomType = await roomTypeRepo.GetByIdAsync(roomTypeId);
     if (roomType is null)

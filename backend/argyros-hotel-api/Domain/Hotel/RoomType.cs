@@ -7,9 +7,13 @@ namespace argyros_hotel_api.Domain.Hotel
     public class RoomType
     {
         public Guid Id { get; private set; }
+
         public string Name { get; private set; }
+
         public int Capacity { get; private set; }
+
         public decimal BasePrice { get; private set; }
+
         public int TotalRooms { get; private set; }
 
         [JsonConstructor]
