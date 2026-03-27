@@ -21,11 +21,6 @@ namespace argyros_hotel_api.Infrastructure.Repositories
             }
         }
 
-        //public InMemoryBookingRepository(List<Booking>? initialBookings = null)
-        //{
-        //    _bookings = initialBookings ?? new List<Booking>();
-        //}
-
         public Task AddAsync(Booking booking)
         {
             _bookings.Add(booking);

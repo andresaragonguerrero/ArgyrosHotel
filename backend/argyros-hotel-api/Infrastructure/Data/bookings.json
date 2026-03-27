@@ -6,8 +6,7 @@
     "RoomId": "f0000001-e001-4001-b001-a00000000001",
     "StartDate": "2025-05-10T14:00:00",
     "EndDate": "2025-05-12T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 120.00
+    "NumberOfGuests": 1
   },
   {
     "Id": "b0000002-1111-1111-1111-111111111111",
@@ -16,8 +15,7 @@
     "RoomId": "f0000006-e001-4001-b001-a00000000006",
     "StartDate": "2025-06-01T14:00:00",
     "EndDate": "2025-06-04T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 300.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000003-1111-1111-1111-111111111111",
@@ -26,8 +24,7 @@
     "RoomId": "f0000019-e001-4001-b001-a00000000019",
     "StartDate": "2025-07-15T14:00:00",
     "EndDate": "2025-07-16T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 300.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000004-1111-1111-1111-111111111111",
@@ -36,8 +33,7 @@
     "RoomId": null,
     "StartDate": "2025-08-20T14:00:00",
     "EndDate": "2025-08-22T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 220.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000005-1111-1111-1111-111111111111",
@@ -46,8 +42,7 @@
     "RoomId": "f0000016-e001-4001-b001-a00000000016",
     "StartDate": "2025-09-01T14:00:00",
     "EndDate": "2025-09-05T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 800.00
+    "NumberOfGuests": 3
   },
   {
     "Id": "b0000006-1111-1111-1111-111111111111",
@@ -56,8 +51,7 @@
     "RoomId": "f0000002-e001-4001-b001-a00000000002",
     "StartDate": "2025-10-10T14:00:00",
     "EndDate": "2025-10-11T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 60.00
+    "NumberOfGuests": 1
   },
   {
     "Id": "b0000007-1111-1111-1111-111111111111",
@@ -66,8 +60,7 @@
     "RoomId": "f0000007-e001-4001-b001-a00000000007",
     "StartDate": "2025-11-05T14:00:00",
     "EndDate": "2025-11-07T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 200.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000008-1111-1111-1111-111111111111",
@@ -76,8 +69,7 @@
     "RoomId": null,
     "StartDate": "2025-12-24T14:00:00",
     "EndDate": "2025-12-27T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 900.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000009-1111-1111-1111-111111111111",
@@ -86,8 +78,7 @@
     "RoomId": "f0000012-e001-4001-b001-a00000000012",
     "StartDate": "2026-01-10T14:00:00",
     "EndDate": "2026-01-12T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 220.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000010-1111-1111-1111-111111111111",
@@ -96,8 +87,7 @@
     "RoomId": "f0000017-e001-4001-b001-a00000000017",
     "StartDate": "2026-02-14T14:00:00",
     "EndDate": "2026-02-16T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 400.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000011-1111-1111-1111-111111111111",
@@ -106,8 +96,7 @@
     "RoomId": "f0000003-e001-4001-b001-a00000000003",
     "StartDate": "2026-03-01T14:00:00",
     "EndDate": "2026-03-03T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 120.00
+    "NumberOfGuests": 1
   },
   {
     "Id": "b0000012-1111-1111-1111-111111111111",
@@ -116,8 +105,7 @@
     "RoomId": "f0000008-e001-4001-b001-a00000000008",
     "StartDate": "2026-03-10T14:00:00",
     "EndDate": "2026-03-11T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 100.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000013-1111-1111-1111-111111111111",
@@ -126,8 +114,7 @@
     "RoomId": null,
     "StartDate": "2026-04-01T14:00:00",
     "EndDate": "2026-04-05T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 400.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000014-1111-1111-1111-111111111111",
@@ -136,8 +123,7 @@
     "RoomId": "f0000020-e001-4001-b001-a00000000020",
     "StartDate": "2026-04-10T14:00:00",
     "EndDate": "2026-04-15T12:00:00",
-    "NumberOfGuests": 4,
-    "TotalPrice": 1500.00
+    "NumberOfGuests": 4
   },
   {
     "Id": "b0000015-1111-1111-1111-111111111111",
@@ -146,8 +132,7 @@
     "RoomId": "f0000004-e001-4001-b001-a00000000004",
     "StartDate": "2026-05-01T14:00:00",
     "EndDate": "2026-05-02T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 60.00
+    "NumberOfGuests": 1
   },
   {
     "Id": "b0000016-1111-1111-1111-111111111111",
@@ -156,8 +141,7 @@
     "RoomId": null,
     "StartDate": "2026-05-20T14:00:00",
     "EndDate": "2026-05-25T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 1000.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000017-1111-1111-1111-111111111111",
@@ -166,8 +150,7 @@
     "RoomId": "f0000013-e001-4001-b001-a00000000013",
     "StartDate": "2026-06-01T14:00:00",
     "EndDate": "2026-06-03T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 220.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000018-1111-1111-1111-111111111111",
@@ -176,8 +159,7 @@
     "RoomId": "f0000009-e001-4001-b001-a00000000009",
     "StartDate": "2026-06-15T14:00:00",
     "EndDate": "2026-06-20T12:00:00",
-    "NumberOfGuests": 2,
-    "TotalPrice": 500.00
+    "NumberOfGuests": 2
   },
   {
     "Id": "b0000019-1111-1111-1111-111111111111",
@@ -186,8 +168,7 @@
     "RoomId": "f0000005-e001-4001-b001-a00000000005",
     "StartDate": "2026-07-01T14:00:00",
     "EndDate": "2026-07-05T12:00:00",
-    "NumberOfGuests": 1,
-    "TotalPrice": 240.00
+    "NumberOfGuests": 1
   },
   {
     "Id": "b0000020-1111-1111-1111-111111111111",
@@ -196,7 +177,6 @@
     "RoomId": "f0000018-e001-4001-b001-a00000000018",
     "StartDate": "2026-08-01T14:00:00",
     "EndDate": "2026-08-10T12:00:00",
-    "NumberOfGuests": 3,
-    "TotalPrice": 1800.00
+    "NumberOfGuests": 3
   }
 ]

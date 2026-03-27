@@ -172,8 +172,7 @@ app.MapPost("/bookings", async (
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests,
-        0m // PricingService
+        request.NumberOfGuests
     );
 
     await bookingRepo.AddAsync(booking);
@@ -201,8 +200,7 @@ app.MapPut("/bookings/{id}", async (
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests,
-        0m
+        request.NumberOfGuests
     );
 
     await bookingRepo.UpdateAsync(updated);
@@ -473,6 +471,40 @@ app.MapGet("/calculatePrice", async (
         EndDate = endDate,
         BasePrice = basePrice,
         FinalPrice = finalPrice,
+        user.IsPremium
+    });
+});
+
+app.MapGet("/savings", async (
+    Guid userId,
+    IUserRepository userRepo,
+    IBookingRepository bookingRepo,
+    IRoomTypeRepository roomTypeRepo,
+    [FromServices] ISavingService savingService) =>
+{
+    // Obtener usuario
+    var user = await userRepo.GetByIdAsync(userId);
+    if (user is null)
+        return Results.NotFound("Usuario no encontrado");
+
+    // Obtener reservas del usuario
+    var bookings = await bookingRepo.GetAllAsync();
+    var userBookings = bookings.Where(b => b.UserId == userId);
+
+    // Obtener todos los tipos de habitación
+    var roomTypes = await roomTypeRepo.GetAllAsync();
+
+    // Calcular ahorro
+    var totalSavings = savingService.CalculateTotalSavings(
+        user,
+        userBookings,
+        roomTypes
+    );
+
+    return Results.Ok(new
+    {
+        UserId = userId,
+        TotalSavings = totalSavings,
         user.IsPremium
     });
 });

@@ -5,14 +5,15 @@ namespace argyros_hotel_api.Application.DTOs
         public Guid Id { get; set; }
 
         public Guid UserId { get; set; }
+
         public Guid RoomTypeId { get; set; }
+
         public Guid? RoomId { get; set; }
 
         public DateTime StartDate { get; set; }
+
         public DateTime EndDate { get; set; }
 
         public int NumberOfGuests { get; set; }
-
-        public decimal TotalPrice { get; set; }
     }
 }
