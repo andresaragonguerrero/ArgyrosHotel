@@ -1,0 +1,123 @@
+:host {
+    height: 6.25rem;
+
+    position: relative;
+    padding: 0 var(--space-8);
+    overflow: hidden;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid var(--primary-200);
+    background-color: var(--surface-color);
+
+    // backdrop-filter: blur(6px);
+}
+
+.header__brand-logo {
+    height: 6rem !important;
+    width: 6rem !important;
+
+    padding: 0;
+
+    color: var(--primary-color);
+}
+
+.header__brand,
+.header__meta {
+    height: 100%;
+
+    padding: var(--space-3) 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__nav {
+    padding: 0 var(--space-8);
+
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.header__nav-link {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.header__nav-link--auth {
+    color: var(--accent-color);
+}
+
+.header__contact-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+
+    color: var(--text-subtle);
+
+    cursor: pointer;
+}
+
+.header__contact-icon {
+    color: var(--secondary-color);
+}
+
+.header__contact {
+    padding-right: var(--space-2);
+
+    display: grid;
+    gap: var(--space-2);
+}
+
+.header__contact-label {
+    color: inherit;
+    margin: 0;
+}
+
+.header__settings {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+
+    border-left: 1px solid var(--primary-200);
+}
+
+.header__settings-item {
+    padding-left: var(--space-2);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+
+    color: var(--text-subtle);
+
+    cursor: pointer;
+}
+
+.header__lang-icon {
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.header__lang-label,
+.header__settings-label {
+    color: inherit;
+    margin: 0;
+}
+
+.icon svg {
+    height: 100%;
+    width: 100%;
+}
