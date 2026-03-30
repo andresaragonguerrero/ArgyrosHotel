@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
 
+// Components
+import { Header } from '../../shared/components/header/header';
+import { Footer } from '../../shared/components/footer/footer';
+
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [
+    Header,
+    Footer,
+  ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
