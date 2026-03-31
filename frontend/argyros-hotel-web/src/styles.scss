@@ -1,3 +1,5 @@
+// iconos: https://yesicon.app/mynaui
+
 :root {
     --primary-font-family: "Inter", sans-serif;
     --secondary-font-family: "Krub", sans-serif;
@@ -191,6 +193,10 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.icon {
+    flex-shrink: 0;
 }
 
 /* ── Tipografía Hotel ────────────────────────────

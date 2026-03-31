@@ -49,10 +49,6 @@
     letter-spacing: 0.06em;
 }
 
-.header__nav-link--auth {
-    color: var(--accent-color);
-}
-
 .header__contact-item {
     display: flex;
     justify-content: flex-start;
@@ -118,8 +114,6 @@
 .icon {
     height: auto;
     width: clamp(18px, 2.5vw + 0.5rem, 24px);
-
-    flex-shrink: 0;
 }
 
 .icon svg {
