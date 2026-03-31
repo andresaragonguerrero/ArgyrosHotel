@@ -9,7 +9,7 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 12rem 12rem 12rem;
-    gap: var(--space-10);
+    gap: var(--space-9);
 
     background: linear-gradient(180deg,
             var(--primary-color) 0%,
@@ -17,7 +17,10 @@
 }
 
 .footer__list {
+    padding: var(--space-2);
+
     display: grid;
+    place-items: center;
     gap: var(--space-4);
 }
 
@@ -25,8 +28,19 @@
     color: var(--primary-200);
 }
 
+.footer__promo {
+    padding: var(--space-2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer__social {
-    padding-bottom: var(--space-2);
+    width: 100%;
+
+    padding: 0 var(--space-2) var(--space-2);
 
     display: flex;
     justify-content: space-between;
@@ -48,7 +62,6 @@
     background-color: var(--primary-200);
 }
 
-
 .footer__social .icon {
     height: auto;
     width: clamp(18px, 3vw + 0.5rem, 28px);
@@ -67,7 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--space-10);
+    gap: var(--space-9);
 
     border-top: 1px solid var(--primary-200);
 
@@ -75,7 +88,10 @@
 }
 
 .footer__author-link {
+    padding: 0 var(--space-2);
+
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: var(--space-2);
 
