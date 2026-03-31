@@ -1,9 +1,9 @@
 :host {
     height: 6.25rem;
 
-    position: relative;
+    position: sticky;
+    top: 0;
     padding: 0 var(--space-8);
-    overflow: hidden;
     z-index: 10;
 
     display: flex;
@@ -12,8 +12,6 @@
 
     border-bottom: 2px solid var(--primary-200);
     background-color: var(--surface-color);
-
-    // backdrop-filter: blur(6px);
 }
 
 .header__brand-logo {
@@ -115,6 +113,13 @@
 .header__settings-label {
     color: inherit;
     margin: 0;
+}
+
+.icon {
+    height: auto;
+    width: clamp(18px, 2.5vw + 0.5rem, 24px);
+
+    flex-shrink: 0;
 }
 
 .icon svg {
