@@ -1,19 +1,23 @@
 .footer__info,
 .footer__author {
-    padding: var(--space-6) 0;
+    padding: var(--space-6) var(--space-3);
 
     text-align: center;
 }
 
 .footer__info {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: 12rem 12rem 12rem;
     gap: var(--space-9);
 
     background: linear-gradient(180deg,
             var(--primary-color) 0%,
             var(--primary-900) 100%);
+}
+
+.footer__info>* {
+    flex: 0 0 12rem;
 }
 
 .footer__list {
@@ -78,6 +82,7 @@
 
 .footer__author {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: var(--space-9);
@@ -113,4 +118,14 @@
 .icon svg {
     height: 100%;
     width: 100%;
+}
+
+@media (min-width: 200px) and (max-width: 1200px) {
+    .footer__info {
+        gap: var(--space-7);
+    }
+
+    .footer__author {
+        gap: var(--space-5);
+    }
 }
