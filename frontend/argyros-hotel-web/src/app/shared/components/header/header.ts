@@ -9,9 +9,10 @@ import { CommonModule } from '@angular/common';
 })
 export class Header {
   isOpen = false;
+  isDropdownOpen = false;
+
   languages = ['Español', 'Francés', 'Inglés'];
   selectedLanguage = 'Español';
-
   isDark = localStorage.getItem('theme') === 'dark';
 
   constructor() {
@@ -27,11 +28,32 @@ export class Header {
     this.isOpen = false;
   }
 
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+    this.updateBodyScroll();
+  }
+
+  closeDropdown() {
+    this.isDropdownOpen = false;
+    this.updateBodyScroll();
+  }
+
+  private updateBodyScroll() {
+    document.body.style.overflow = this.isDropdownOpen ? 'hidden' : '';
+  }
+
   @HostListener('document:click', ['$event'])
-  onClickOutside(event: MouseEvent) {
+  onGlobalClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    if (!target.closest('.header__lang')) {
+
+    if (this.isOpen && !target.closest('.header__lang')) {
       this.isOpen = false;
+    }
+
+    if (this.isDropdownOpen &&
+      !target.closest('.header__dropdown-menu') &&
+      !target.closest('.header__dropdown-trigger')) {
+      this.closeDropdown();
     }
   }
 
