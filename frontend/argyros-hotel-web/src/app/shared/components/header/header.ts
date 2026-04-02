@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 export class Header {
   isOpen = false;
   isDropdownOpen = false;
+  isSidebarOpen = false;
 
   languages = ['Español', 'Francés', 'Inglés'];
   selectedLanguage = 'Español';
@@ -28,13 +29,23 @@ export class Header {
     this.isOpen = false;
   }
 
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    this.isDropdownOpen = false; // cierra el otro
+  }
+
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    this.updateBodyScroll();
+    this.isSidebarOpen = false; // cierra el otro
   }
 
   closeDropdown() {
     this.isDropdownOpen = false;
+    this.updateBodyScroll();
+  }
+
+  closeSidebar() {
+    this.isSidebarOpen = false;
     this.updateBodyScroll();
   }
 
@@ -55,6 +66,19 @@ export class Header {
       !target.closest('.header__dropdown-trigger')) {
       this.closeDropdown();
     }
+
+    if (this.isSidebarOpen &&
+      !target.closest('.header__sidebar') &&
+      !target.closest('.header__sidebar-trigger')) {
+      this.closeSidebar();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.isOpen = false;
+    this.isSidebarOpen = false;
+    this.isDropdownOpen = false;
   }
 
   toggleDark() {

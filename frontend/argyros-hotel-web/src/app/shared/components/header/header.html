@@ -12,7 +12,7 @@
     </svg>
 
     <!-- menú de navegación -->
-    <nav class="header__nav">
+    <nav class="header__nav" aria-label="nav">
         <a class="header__nav-link text-body" href="#home">Inicio</a>
         <a class="header__nav-link text-body" href="#reservations">Reservas</a>
         <a class="header__nav-link text-body" href="#services">Servicios</a>
@@ -96,25 +96,61 @@
     </div>
 </div>
 
-<button class="header__dropdown-trigger" (click)="toggleDropdown()">
+<div class="header__controls">
 
-    <div class="header__dropdown-label">
+    <!-- sidebar -->
+    <button class="header__sidebar-trigger" (click)="toggleSidebar()" aria-label="sidebar">
 
-        <span class="text-body">Más</span>
-
-        <!-- icono de más -->
-        <svg class="icon header__dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2"
-                d="M11.5 4h1v1h-1zm0 7.5h1v1h-1zm0 7.5h1v1h-1z" />
+        <!-- icono del menú -->
+        <svg class="icon header__sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
         </svg>
-    </div>
+    </button>
 
-</button>
+    <!-- dropdown menú-->
+    <button class="header__dropdown-trigger" (click)="toggleDropdown()">
+
+        <div class="header__dropdown-label">
+
+            <span class="text-body">Más</span>
+
+            <!-- icono de más -->
+            <svg class="icon header__dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2"
+                    d="M11.5 4h1v1h-1zm0 7.5h1v1h-1zm0 7.5h1v1h-1z" />
+            </svg>
+        </div>
+    </button>
+</div>
+
+@if (isSidebarOpen) {
+<aside class="header__sidebar" animate.enter="sidebar-enter" animate.leave="sidebar-leave" aria-label="sidebar">
+
+    <!-- botón de cerrar menú -->
+    <button class="header__close-trigger" (click)="closeSidebar()">
+
+        <!-- icono de cerrar menú -->
+        <svg class="icon header__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+        </svg>
+    </button>
+
+    <!-- listado de enlaces -->
+    <a class="header__nav-link text-body" href="#home">Inicio</a>
+    <a class="header__nav-link text-body" href="#reservations">Reservas</a>
+    <a class="header__nav-link text-body" href="#services">Servicios</a>
+    <a class="header__nav-link text-body" href="#events">Eventos</a>
+    <a class="header__nav-link text-body" href="#promotions">Promociones</a>
+    <a class="header__nav-link text-body" href="#gallery">Galería</a>
+
+</aside>
+}
 
 @if (isDropdownOpen) {
 
 <!-- menú lateral -->
-<aside class="header__dropdown-menu" animate.enter="menu-enter" animate.leave="menu-leave">
+<aside class="header__dropdown-menu" animate.enter="menu-enter" animate.leave="menu-leave" aria-label="dropdown-menu">
 
     <!-- botón de cerrar menú -->
     <button class="header__close-trigger" (click)="closeDropdown()">
@@ -202,8 +238,3 @@
     </div>
 </aside>
 }
-
-<!--icono del menú -->
-<!-- <svg class="icon header__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
-    </svg> -->
