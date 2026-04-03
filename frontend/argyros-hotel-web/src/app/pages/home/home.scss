@@ -2,11 +2,12 @@
     height: 100dvh;
 
     position: relative;
-    padding: var(--space-5) var(--space-10) var(--space-8);
+    padding: var(--space-8);
 
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
+    gap: var(--space-8);
 
     overflow: hidden;
 }
@@ -38,11 +39,16 @@
 }
 
 .article__motto {
-    max-width: 40%;
+    width: 70%;
 
+    margin: var(--space-6) auto 0;
     align-self: center;
-    justify-self: self-start;
+    justify-self: start;
     z-index: 2;
+}
+
+.article__motto--wrapper {
+    max-width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -63,8 +69,11 @@
 
 .article__motto-brand::before {
     content: '';
-    flex-grow: 1;
+
     height: 2px;
+
+    flex-grow: 1;
+
     background-color: var(--accent-300);
 }
 
@@ -82,12 +91,15 @@
 }
 
 .article__booking {
-    height: var(--space-9);
+    height: 5rem;
     width: 70%;
+    overflow: hidden;
 
+    position: relative;
+    margin: 0 auto;
     padding: var(--space-2);
-    align-self: center;
-    justify-self: center;
+    align-self: end;
+    justify-self: start;
     gap: var(--space-2);
     z-index: 2;
 
@@ -95,9 +107,21 @@
     justify-content: center;
     align-items: center;
 
+    background: transparent;
     box-shadow: var(--shadow-sm);
+}
+
+.article__booking::after {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
     background-color: var(--background-color);
-    opacity: 80%;
+    opacity: 0.8;
+
+    backdrop-filter: blur(8px);
 }
 
 .article__booking-button {
@@ -119,8 +143,19 @@
 .article__booking .icon {
     height: 24px;
     width: 24px;
+
+    color: var(--secondary-color);
+}
+
+.article__booking-promo {
+    border: 2px solid var(--accent-color);
 }
 
 .article__booking-booking {
+    color: var(--text-color);
     background-color: var(--accent-color);
+}
+
+.article__booking-label {
+    color: var(--text-subtle);
 }
