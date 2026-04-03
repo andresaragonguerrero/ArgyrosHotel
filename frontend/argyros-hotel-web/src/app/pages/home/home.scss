@@ -82,8 +82,8 @@
 }
 
 .article__booking {
-    height: var(--space-8);
-    width: 60%;
+    height: var(--space-9);
+    width: 70%;
 
     padding: var(--space-2);
     align-self: center;
@@ -119,4 +119,8 @@
 .article__booking .icon {
     height: 24px;
     width: 24px;
+}
+
+.article__booking-booking {
+    background-color: var(--accent-color);
 }
