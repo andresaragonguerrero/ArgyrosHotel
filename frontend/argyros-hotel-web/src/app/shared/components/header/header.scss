@@ -1,10 +1,12 @@
 :host {
     height: 6.25rem;
+    width: 100dvw;
 
-    position: sticky;
+    position: fixed;
     top: 0;
-    padding: 0 var(--space-8);
+    left: 0;
     z-index: 10;
+    padding: 0 var(--space-8);
 
     display: flex;
     justify-content: space-between;
@@ -12,7 +14,8 @@
     gap: var(--space-4);
 
     border-bottom: 2px solid var(--primary-200);
-    background-color: var(--surface-color);
+
+    background-color: var(--surface-raised);
 }
 
 .header__brand-logo {
@@ -184,7 +187,7 @@
     justify-content: flex-start;
     gap: var(--space-1);
 
-    background-color: var(--surface-color);
+    background-color: var(--surface-raised);
 }
 
 .header__lang-button {
@@ -212,11 +215,11 @@
 
 .header__lang-item:hover {
     outline: 1px solid var(--primary-color);
-    background-color: var(--surface-color);
+    background-color: var(--surface-raised);
 }
 
 .header__lang-item .header__lang-button {
-    color: var(--surface-color);
+    color: var(--surface-raised);
     transition: color .5s ease-out;
 }
 
@@ -507,7 +510,7 @@
         height: 100%;
         width: 100%;
 
-        color: var(--surface-color);
+        color: var(--surface-raised);
 
         transition: color .5s ease-out,
             transform .2s ease-out;
@@ -532,7 +535,7 @@
         align-items: flex-start;
         gap: var(--space-6);
 
-        background-color: var(--surface-color);
+        background-color: var(--surface-raised);
     }
 
     .header__nav-link {
