@@ -217,7 +217,7 @@ a {
 
 .text-h1 {
     font-family: 'Alfa Slab One', serif;
-    font-size: clamp(2.2rem, 4.5vw + 0.5rem, 4rem);
+    font-size: clamp(1.9rem, 4vw + 0.4rem, 3.5rem);
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -225,49 +225,49 @@ a {
 
 .text-h2 {
     font-family: 'Alfa Slab One', serif;
-    font-size: clamp(1.7rem, 3vw + 0.5rem, 2.8rem);
+    font-size: clamp(1.5rem, 2.6vw + 0.4rem, 2.4rem);
     font-weight: 400;
     line-height: 1.15;
 }
 
 .text-h3 {
     font-family: 'Alfa Slab One', serif;
-    font-size: clamp(1.3rem, 2vw + 0.4rem, 2rem);
+    font-size: clamp(1.15rem, 1.8vw + 0.35rem, 1.75rem);
     font-weight: 400;
     line-height: 1.2;
 }
 
 .text-subtitle-lg {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(1.05rem, 1.5vw + 0.3rem, 1.45rem);
+    font-size: clamp(0.95rem, 1.3vw + 0.25rem, 1.3rem);
     font-weight: 700;
     line-height: 1.3;
 }
 
 .text-subtitle {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(0.95rem, 1vw + 0.25rem, 1.2rem);
+    font-size: clamp(0.85rem, 0.9vw + 0.2rem, 1.1rem);
     font-weight: 700;
     line-height: 1.35;
 }
 
 .text-body-lg {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(1rem, 1vw + 0.4rem, 1.2rem);
+    font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
     font-weight: 400;
     line-height: 1.75;
 }
 
 .text-body {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(0.9rem, 0.8vw + 0.4rem, 1.1rem);
+    font-size: clamp(0.8rem, 0.7vw + 0.35rem, 1rem);
     font-weight: 400;
     line-height: 1.75;
 }
 
 .text-body-sm {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(0.8rem, 0.6vw + 0.35rem, 0.95rem);
+    font-size: clamp(0.75rem, 0.55vw + 0.3rem, 0.875rem);
     font-weight: 400;
     line-height: 1.7;
 }
