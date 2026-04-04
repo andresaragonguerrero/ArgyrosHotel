@@ -258,5 +258,48 @@
 
 @media (max-width: 520px) {
 
-    // cambio de estilos
+    @media (max-width: 520px) {
+        .section__hero {
+            padding: var(--space-10) var(--space-4) var(--space-4);
+        }
+
+        .article__motto--wrapper {
+            max-width: 85%;
+        }
+
+        .article__motto .text-h1 {
+            font-size: clamp(1.75rem, 8vw, 3rem);
+        }
+
+        .article__booking {
+            width: 100%;
+
+            margin: 0;
+            padding: var(--space-3);
+            gap: var(--space-3);
+        }
+
+        .article__booking-button {
+            padding: var(--space-2);
+        }
+
+        .article__booking-label {
+            font-size: 0.875rem;
+        }
+
+        .article__booking .text-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+        }
+
+        .article__booking .icon {
+            height: 20px;
+            width: 20px;
+        }
+
+        .article__motto-brand {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+        }
+    }
 }
