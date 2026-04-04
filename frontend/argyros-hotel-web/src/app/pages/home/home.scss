@@ -1,3 +1,5 @@
+// ------ HERO ------
+
 .section__hero {
     height: 100dvh;
 
@@ -124,9 +126,29 @@
     backdrop-filter: blur(8px);
 }
 
-.article__booking-button {
+.article__booking-date {
     height: 100%;
     width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.article__booking-date--button {
+    width: 100%;
+}
+
+.article__booking-room,
+.article__booking-promo,
+.article__booking-booking {
+    width: 70%;
+}
+
+.article__booking-button {
+    height: 100%;
 
     display: flex;
     justify-content: center;
@@ -135,6 +157,7 @@
 
     border: none;
     background: transparent;
+
     box-shadow: var(--shadow-sm);
 
     cursor: pointer;
@@ -148,7 +171,8 @@
 }
 
 .article__booking-promo {
-    border: 2px solid var(--accent-color);
+    outline: 1px solid transparent;
+    border: 1px solid var(--accent-color);
 }
 
 .article__booking-booking {
@@ -158,4 +182,81 @@
 
 .article__booking-label {
     color: var(--text-subtle);
+}
+
+@media (max-width: 1800px) {
+
+    .article__motto,
+    .article__booking {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1650px) {
+
+    .article__motto--wrapper {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .section__hero {
+        padding: var(--space-10) var(--space-8) var(--space-6);
+        grid-template-rows: auto auto;
+    }
+
+    .article__motto,
+    .article__booking {
+        width: 100%;
+    }
+
+    .article__motto {
+        margin-top: 0;
+    }
+
+    .article__motto--wrapper {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .section__hero {
+        grid-template-rows: auto 1fr;
+    }
+
+    .article__motto--wrapper {
+        max-width: 55%;
+    }
+
+    .article__booking {
+        min-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article__booking>* {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .article__motto--wrapper {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 620px) {
+
+    .section__hero {
+        padding: var(--space-10) var(--space-5) var(--space-6);
+    }
+}
+
+@media (max-width: 520px) {
+
+    // cambio de estilos
 }
