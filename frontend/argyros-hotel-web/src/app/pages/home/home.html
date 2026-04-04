@@ -1,18 +1,6 @@
 <app-header></app-header>
 
 <main class="main">
-    <!-- 
-    - añadir una sección con la información de los servicios
-    - mostrarla en un carrusel
-
-        - WiFi gratuito
-        - Piscina
-        - Gimnasio
-        - Desayuno
-        - Parking
-        - Lavandería
-    -->
-
     <!-- añadir una sección como introducción para las habitaciones -->
 
     <!-- añadir una sección como introducción para los eventos -->
@@ -93,6 +81,198 @@
         </article>
     </section>
 
+    <!-- 
+    - A PARTIR DEL COMIENZO DE ESTA SECCIÓN... 
+    - OPCIÓN 1: EN EL HEADER SE AÑADIRÁ UN BOTÓN DE RESERVA DE HABITACIÓN
+    - OPCIÓN 2: EL ARTICLE__BOOKING PASARÁ A OCUPAR EL HEADER: HABRÁ UN EFECTO DE AMPLIADO
+    - OPCIÓN 3: EL ARTICLE__BOOKING PERMANECERÁ FIJADO ABAJO DE LA PÁGINA
+
+    - añadir una sección con la información de los servicios
+    - mostrarla en un carrusel
+
+    - Servicios de hotel:
+        - Atención personalizada
+        - WiFi gratuito
+        - Piscina
+        - Gimnasio
+
+    - Servicios para miembros:
+        - Desayuno
+        - Cena de bienvenida
+        - Lavandería
+        - Translado al aeropuerto
+        - Parking
+    -->
+
+    <section class="section section__booking-services">
+
+        <!-- presentación de los servicios -->
+        <article class="article__presentation">
+            <h2 class="services__title text-h2">Servicios</h2>
+            <p class="services__description text-subtitle-lg">Nuestros servicios</p>
+            <p class="services__description text-subtitle-lg">
+                Os presentamos la variedad de servicios que podrás contratar. Si
+                eres socio del hotel, podrás disfrutar de descuentos en varios de ellos.
+            </p>
+        </article>
+
+        <!-- carrusel de los servicios -->
+        <article class="article__services">
+
+            <!-- filtros -->
+            <ul class="services__filters">
+
+                <li class="services__filter text-label">
+                    <button class="services__filter-button">Generales</button>
+                </li>
+
+                <li class="services__filter text-label">
+                    <button class="services__filter-button">Miembros</button>
+                </li>
+
+                <li class="services__filter text-label">
+                    <button class="services__filter-button">Populares</button>
+                </li>
+
+            </ul>
+
+            <div class="services__list-wrapper">
+
+                <!-- botón de desplazamiento -->
+                <button class="services__button-slide services__button-slide--prev" (click)="scrollPrev()"
+                    [disabled]="isAtStart">
+                    <svg class="icon services__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
+                    </svg>
+                </button>
+
+                <div class="services__viewport" #viewport (scroll)="updateScrollProgress()">
+
+                    <!-- lista -->
+                    <ul class="services__list">
+
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__card">
+
+                            <!-- imagen -->
+                            <img class="services__card-image"
+                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                alt="WiFi Gratuito">
+
+                            <!-- información del servicio -->
+                            <div class="services__card-info">
+
+                                <p class="services__card-title text-body">WiFi Gratuito</p>
+
+                                <p class="services__card-description text-body-sm">
+                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- botón de desplazamiento -->
+                <button class="services__button-slide services__button-slide--next" (click)="scrollNext()"
+                    [disabled]="isAtEnd">
+                    <svg class="icon services__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
+                    </svg>
+                </button>
+
+                <!-- barra de progreso -->
+                <div class="services__progress">
+                    <div class="services__progress-bar" [style.width.%]="scrollProgress">
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
 </main>
 
 <app-footer></app-footer>

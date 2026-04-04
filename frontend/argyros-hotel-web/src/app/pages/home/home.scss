@@ -347,10 +347,6 @@
             letter-spacing: 0.08em;
         }
 
-        // .article__booking-button .icon {
-        //     display: none;
-        // }
-
         .article__booking .icon {
             height: 20px;
             width: 20px;
@@ -361,4 +357,309 @@
             letter-spacing: 0.15em;
         }
     }
+}
+
+// ------ SERVICES ------
+.section__booking-services {
+    padding: var(--space-6) var(--space-4);
+
+    display: grid;
+    grid-template-columns: 30% 1fr;
+
+    background-color: var(--background-color);
+}
+
+.article__presentation {
+    padding: 0 var(--space-4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-5);
+}
+
+.services__description {
+    color: var(--text-muted);
+}
+
+.article__services {
+    padding: var(--space-4);
+
+    display: grid;
+    justify-content: flex-start;
+    gap: var(--space-2);
+
+    border-left: 1px solid var(--primary-200);
+}
+
+.services__filters {
+    max-height: 4rem;
+
+    padding-bottom: var(--space-2);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.services__filter-button {
+    overflow: hidden;
+
+    position: relative;
+    margin: auto auto;
+    padding: var(--space-2) var(--space-4);
+    z-index: 1;
+
+    border: none;
+    outline: 1px solid var(--primary-200);
+    color: var(--text-muted);
+    background-color: var(--surface-color);
+
+    cursor: pointer;
+
+    transition: outline .3s ease-out,
+        color .3s ease-out,
+        background-color .3s ease-out;
+}
+
+.services__filter-button::after {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-color: var(--primary-50);
+
+    transform: scale(0);
+
+    transition: height .3s ease-out, transform .3s ease-out;
+}
+
+.services__filter-button:hover::after {
+    transform: scale(1);
+    background-color: var(--primary-50);
+}
+
+.services__filter-button:hover {
+    outline: 1px solid var(--primary-300);
+    color: var(--primary-600);
+}
+
+.services__filter-button:active {
+    background-color: var(--primary-100);
+}
+
+.services__filter-button.active {
+    border-color: var(--primary-color);
+    color: var(--text-inverse);
+    background-color: var(--primary-color);
+
+    box-shadow: var(--shadow-md);
+}
+
+.services__filter-button.active:hover {
+    outline: 1px solid var(--primary-600);
+    background-color: var(--primary-600);
+}
+
+.services__filter-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.services__list-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.services__button-slide {
+    overflow: hidden;
+
+    position: absolute;
+    padding: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    outline: 1px solid var(--primary-200);
+    border-radius: 50%;
+
+    background-color: var(--surface-color);
+
+    cursor: pointer;
+
+    transition: outline .3s ease-out,
+        background-color .3s ease-out;
+}
+
+.services__button-slide::after {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-color: var(--primary-50);
+
+    border-radius: inherit;
+
+    transform: scale(0);
+
+    transition: transform .3s ease-out;
+}
+
+.services__button-slide:hover {
+    outline: 1px solid var(--primary-300);
+    background-color: var(--primary-50);
+}
+
+.services__button-slide:hover::after {
+    transform: scale(1);
+}
+
+.services__button-slide:hover .icon {
+    color: var(--primary-700);
+}
+
+.services__button-slide:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.services__button-slide:disabled {
+    opacity: 0.4;
+    border-color: var(--primary-100);
+    cursor: not-allowed;
+}
+
+.services__button-slide:disabled:hover {
+    background-color: var(--surface-color);
+    border-color: var(--primary-100);
+}
+
+.services__button-slide:disabled .icon {
+    color: var(--primary-300);
+}
+
+.services__button-slide--prev {
+    left: var(--space-3);
+}
+
+.services__button-slide--next {
+    right: var(--space-3);
+}
+
+.services__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-padding: 0 var(--space-1);
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    cursor: grab;
+}
+
+.services__viewport:active {
+    cursor: grabbing;
+}
+
+.services__list {
+    position: relative;
+    padding: var(--space-2) 4px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.services__card {
+    width: 18rem;
+    overflow: hidden;
+
+    flex: 0 0 18rem;
+
+    outline: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+    background-color: var(--surface-color);
+
+    scroll-snap-align: start;
+}
+
+.services__card:hover {
+    outline: 1px solid var(--primary-200);
+}
+
+.services__card-image {
+    height: 14rem;
+    width: 100%;
+
+    padding: 2px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.services__card-info {
+    padding: var(--space-3);
+
+    display: grid;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-3);
+
+    background-color: var(--surface-color);
+}
+
+.services__card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.services__card-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.services__card-info .text-body {
+    text-transform: uppercase;
+}
+
+.section__booking-services .icon {
+    height: 24px;
+    width: 24px;
+
+    color: var(--primary-600);
+}
+
+.services__progress {
+    height: 4px;
+    width: 100%;
+    margin-top: var(--space-3);
+
+    background-color: var(--primary-100);
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.services__progress-bar {
+    height: 100%;
+    width: 0;
+
+    background-color: var(--primary-color);
+    border-radius: inherit;
+
+    transition: width 0.2s ease;
 }
