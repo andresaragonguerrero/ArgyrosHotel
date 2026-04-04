@@ -1,10 +1,9 @@
 // ------ HERO ------
-
 .section__hero {
     height: 100dvh;
 
     position: relative;
-    padding: var(--space-8);
+    padding: var(--space-10) var(--space-8) var(--space-6);
 
     display: grid;
     grid-template-rows: 1fr auto;
@@ -155,12 +154,32 @@
     align-items: center;
     gap: var(--space-2);
 
+    outline: 1px solid transparent;
     border: none;
-    background: transparent;
 
     box-shadow: var(--shadow-sm);
 
     cursor: pointer;
+
+    transition: background-color .3s ease-out,
+        outline .3s ease-out,
+        transform 70ms ease-out;
+}
+
+.article__booking-button:hover {
+    outline: 1px solid var(--secondary-color);
+    background-color: var(--surface-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.article__booking-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 transparent;
+}
+
+.article__booking-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .article__booking .icon {
@@ -168,20 +187,56 @@
     width: 24px;
 
     color: var(--secondary-color);
+
+    transition: color 0.3s ease;
+}
+
+.article__booking-button:hover .icon {
+    color: var(--secondary-600);
 }
 
 .article__booking-promo {
-    outline: 1px solid transparent;
-    border: 1px solid var(--accent-color);
+    outline: 1px solid var(--accent-color);
+
+    color: var(--accent-color);
+    background-color: transparent;
+}
+
+.article__booking-promo:hover {
+    outline: 1px solid var(--accent-600);
+}
+
+.article__booking-promo:active {
+    background-color: var(--accent-100);
 }
 
 .article__booking-booking {
-    color: var(--text-color);
+    color: var(--text-inverse);
     background-color: var(--accent-color);
+    font-weight: 700;
+}
+
+.article__booking-booking:hover {
+    outline: 1px solid var(--accent-600);
+    background-color: var(--accent-600);
+}
+
+.article__booking-booking:active {
+    background-color: var(--accent-700);
 }
 
 .article__booking-label {
     color: var(--text-subtle);
+    transition: color 0.3s ease;
+}
+
+.article__booking-button:hover .article__booking-label {
+    color: var(--text-muted);
+}
+
+.article__booking .separator-icon {
+    color: var(--text-subtle);
+    opacity: 0.5;
 }
 
 @media (max-width: 1800px) {
@@ -291,6 +346,10 @@
             font-size: 0.65rem;
             letter-spacing: 0.08em;
         }
+
+        // .article__booking-button .icon {
+        //     display: none;
+        // }
 
         .article__booking .icon {
             height: 20px;
