@@ -1,7 +1,16 @@
 <app-header></app-header>
 
 <main class="main">
-    <!-- añadir una sección como introducción para las habitaciones -->
+    <!-- 
+    añadir una sección como introducción para las habitaciones 
+
+    - tipos de habitación:
+        - individual
+        - doble
+        - familiar
+        - suite
+        - deluxe
+    -->
 
     <!-- añadir una sección como introducción para los eventos -->
 
@@ -92,6 +101,7 @@
 
     - Servicios de hotel:
         - Atención personalizada
+        - Servicio de habitaciones
         - WiFi gratuito
         - Piscina
         - Gimnasio
@@ -108,33 +118,18 @@
 
         <!-- presentación de los servicios -->
         <article class="article__presentation">
-            <h2 class="services__title text-h2">Servicios</h2>
-            <p class="services__description text-subtitle-lg">Nuestros servicios</p>
+            <h2 class="services__title text-h2">Habitaciones</h2>
             <p class="services__description text-subtitle-lg">
-                Os presentamos la variedad de servicios que podrás contratar. Si
-                eres socio del hotel, podrás disfrutar de descuentos en varios de ellos.
+                Nuestras habitaciones combinan elegancia y comodidad a precios accesibles, adaptándose a todo tipo de
+                viajeros. Desde la acogedora individual y la práctica doble, hasta las amplias familiares, cada espacio
+                está pensado para el descanso. Las suites ofrecen un toque de distinción y mayor privacidad, mientras
+                que las deluxe destacan por su diseño cuidado. Todo ello con el encanto del Mediterráneo a pocos pasos
+                del mar.
             </p>
         </article>
 
-        <!-- carrusel de los servicios -->
+        <!-- carrusel de las habitaciones -->
         <article class="article__services">
-
-            <!-- filtros -->
-            <ul class="services__filters">
-
-                <li class="services__filter text-label">
-                    <button class="services__filter-button">Generales</button>
-                </li>
-
-                <li class="services__filter text-label">
-                    <button class="services__filter-button">Miembros</button>
-                </li>
-
-                <li class="services__filter text-label">
-                    <button class="services__filter-button">Populares</button>
-                </li>
-
-            </ul>
 
             <div class="services__list-wrapper">
 
@@ -148,7 +143,7 @@
 
                 <div class="services__viewport" #viewport (scroll)="updateScrollProgress()">
 
-                    <!-- lista -->
+                    <!-- lista de habitaciones -->
                     <ul class="services__list">
 
                         <li class="services__card">
@@ -156,102 +151,50 @@
                             <!-- imagen -->
                             <img class="services__card-image"
                                 src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
+                                alt="Individual">
 
-                            <!-- información del servicio -->
+                            
+                            <!-- información de la habitación -->
                             <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
+                                <h3 class="services__card-title text-body-lg">Individual</h3>
+                                <p class="services__card-description text-body">Precio: 100€</p>
+                                <button class="services__card-more">Ver más</button>
                             </div>
+
                         </li>
+                        
                         <li class="services__card">
 
                             <!-- imagen -->
                             <img class="services__card-image"
                                 src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
+                                alt="Individual">
 
-                            <!-- información del servicio -->
+                            
+                            <!-- información de la habitación -->
                             <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
+                                <h3 class="services__card-title text-body-lg">Individual</h3>
+                                <p class="services__card-description text-body">Precio: 100€</p>
+                                <button class="services__card-more">Ver más</button>
                             </div>
+
                         </li>
+
                         <li class="services__card">
 
                             <!-- imagen -->
                             <img class="services__card-image"
                                 src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
+                                alt="Individual">
 
-                            <!-- información del servicio -->
+                            
+                            <!-- información de la habitación -->
                             <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
+                                <h3 class="services__card-title text-body-lg">Individual</h3>
+                                <p class="services__card-description text-body">Precio: 100€</p>
+                                <button class="services__card-more">Ver más</button>
                             </div>
-                        </li>
-                        <li class="services__card">
 
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
-
-                            <!-- información del servicio -->
-                            <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="services__card">
-
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
-
-                            <!-- información del servicio -->
-                            <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="services__card">
-
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="WiFi Gratuito">
-
-                            <!-- información del servicio -->
-                            <div class="services__card-info">
-
-                                <p class="services__card-title text-body">WiFi Gratuito</p>
-
-                                <p class="services__card-description text-body-sm">
-                                    WiFi gratuito en todas las habitaciones y zonas comunes dentro del hotel.
-                                </p>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -272,6 +215,25 @@
                 </div>
             </div>
         </article>
+    </section>
+
+    <section>
+        <!-- filtros -->
+        <!-- <ul class="services__filters">
+
+            <li class="services__filter text-label">
+                <button class="services__filter-button">Generales</button>
+            </li>
+
+            <li class="services__filter text-label">
+                <button class="services__filter-button">Miembros</button>
+            </li>
+
+            <li class="services__filter text-label">
+                <button class="services__filter-button">Populares</button>
+            </li>
+
+        </ul> -->
     </section>
 </main>
 

@@ -1,5 +1,4 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
-
 // Components
 import { Header } from '../../shared/components/header/header';
 import { Footer } from '../../shared/components/footer/footer';
@@ -14,11 +13,9 @@ import { Footer } from '../../shared/components/footer/footer';
   styleUrl: './home.scss',
 })
 export class Home implements AfterViewInit {
-
   // código para el carrusel
   @ViewChild('viewport', { static: false })
   viewport!: ElementRef<HTMLDivElement>;
-
   isAtStart = true;
   isAtEnd = false;
   scrollProgress = 0;
@@ -43,8 +40,15 @@ export class Home implements AfterViewInit {
       this.scrollLeftStart = el.scrollLeft;
     });
 
-    el.addEventListener('mouseleave', () => this.isDragging = false);
-    el.addEventListener('mouseup', () => this.isDragging = false);
+    el.addEventListener('mouseleave', () => {
+      this.isDragging = false;
+      el.classList.remove('grabbing');
+    });
+
+    el.addEventListener('mouseup', () => {
+      this.isDragging = false;
+      el.classList.remove('grabbing');
+    });
 
     el.addEventListener('mousemove', (e) => {
       if (!this.isDragging) return;
@@ -66,10 +70,9 @@ export class Home implements AfterViewInit {
   private doScroll(direction: number) {
     const el = this.viewport.nativeElement;
     const card = el.querySelector('.services__card') as HTMLElement;
-
     if (!card) return;
 
-    const gap = 50;
+    const gap = Number(getComputedStyle(el.querySelector('.services__list')!).gap) || 0;
     const scrollAmount = (card.offsetWidth + gap) * direction;
 
     el.scrollBy({
@@ -77,11 +80,11 @@ export class Home implements AfterViewInit {
       behavior: 'smooth'
     });
   }
+
   updateScrollProgress() {
     if (!this.viewport) return;
 
     const el = this.viewport.nativeElement;
-
     const maxScroll = el.scrollWidth - el.clientWidth;
 
     if (maxScroll <= 0) {
@@ -95,10 +98,8 @@ export class Home implements AfterViewInit {
 
   updateButtonState() {
     const el = this.viewport.nativeElement;
-
     this.isAtStart = el.scrollLeft <= 2;
     this.isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
-
     this.cdr.detectChanges();
   }
 }

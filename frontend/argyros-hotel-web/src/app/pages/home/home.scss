@@ -1,6 +1,7 @@
 // ------ HERO ------
 .section__hero {
     height: 100dvh;
+    overflow: hidden;
 
     position: relative;
     padding: var(--space-8) var(--space-8) var(--space-6);
@@ -10,7 +11,7 @@
     grid-template-columns: 1fr;
     gap: var(--space-8);
 
-    overflow: hidden;
+    box-shadow: var(--shadow-lg);
 }
 
 .section__hero-image {
@@ -359,24 +360,25 @@
     }
 }
 
-// ------ SERVICES ------
+// ------ HABITACIONES ------
+
 .section__booking-services {
-    padding: var(--space-6) var(--space-4);
+    padding: var(--space-8);
 
     display: grid;
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 40% 1fr;
 
     background-color: var(--background-color);
 }
 
 .article__presentation {
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-2);
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: var(--space-5);
+    gap: var(--space-6);
 }
 
 .services__description {
@@ -384,90 +386,11 @@
 }
 
 .article__services {
-    padding: var(--space-4);
-
     display: grid;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: var(--space-2);
 
     border-left: 1px solid var(--primary-200);
-}
-
-.services__filters {
-    max-height: 4rem;
-
-    padding-bottom: var(--space-2);
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.services__filter-button {
-    overflow: hidden;
-
-    position: relative;
-    margin: auto auto;
-    padding: var(--space-2) var(--space-4);
-    z-index: 1;
-
-    border: none;
-    outline: 1px solid var(--primary-200);
-    color: var(--text-muted);
-    background-color: var(--surface-color);
-
-    cursor: pointer;
-
-    transition: outline .3s ease-out,
-        color .3s ease-out,
-        background-color .3s ease-out;
-}
-
-.services__filter-button::after {
-    content: '';
-
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-
-    background-color: var(--primary-50);
-
-    transform: scale(0);
-
-    transition: height .3s ease-out, transform .3s ease-out;
-}
-
-.services__filter-button:hover::after {
-    transform: scale(1);
-    background-color: var(--primary-50);
-}
-
-.services__filter-button:hover {
-    outline: 1px solid var(--primary-300);
-    color: var(--primary-600);
-}
-
-.services__filter-button:active {
-    background-color: var(--primary-100);
-}
-
-.services__filter-button.active {
-    border-color: var(--primary-color);
-    color: var(--text-inverse);
-    background-color: var(--primary-color);
-
-    box-shadow: var(--shadow-md);
-}
-
-.services__filter-button.active:hover {
-    outline: 1px solid var(--primary-600);
-    background-color: var(--primary-600);
-}
-
-.services__filter-button:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
 }
 
 .services__list-wrapper {
@@ -557,6 +480,7 @@
 }
 
 .services__viewport {
+    max-width: 26rem;
     overflow-x: auto;
     overflow-y: hidden;
 
@@ -584,10 +508,13 @@
 }
 
 .services__card {
-    width: 18rem;
+    height: 32rem;
+    width: 26rem;
     overflow: hidden;
 
-    flex: 0 0 18rem;
+    position: relative;
+
+    flex: 0 0 26rem;
 
     outline: 1px solid transparent;
     box-shadow: var(--shadow-sm);
@@ -601,24 +528,23 @@
 }
 
 .services__card-image {
-    height: 14rem;
+    height: 100%;
     width: 100%;
-
-    padding: 2px;
 
     object-fit: cover;
     object-position: center;
 }
 
 .services__card-info {
-    padding: var(--space-3);
+    position: absolute;
+    inset: 0;
+    padding: 0 0 var(--space-8);
 
-    display: grid;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: var(--space-3);
-
-    background-color: var(--surface-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-5);
 }
 
 .services__card-title {
@@ -662,4 +588,85 @@
     border-radius: inherit;
 
     transition: width 0.2s ease;
+}
+
+// 
+
+.services__filters {
+    max-height: 4rem;
+
+    padding-bottom: var(--space-2);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+
+    border-bottom: 1px solid var(--primary-200);
+}
+
+.services__filter-button {
+    overflow: hidden;
+
+    position: relative;
+    margin: auto auto;
+    padding: var(--space-1) var(--space-4);
+    z-index: 1;
+
+    border: none;
+    outline: 1px solid var(--primary-200);
+    color: var(--text-muted);
+    background-color: var(--surface-color);
+
+    cursor: pointer;
+
+    transition: outline .3s ease-out,
+        color .3s ease-out,
+        background-color .3s ease-out;
+}
+
+.services__filter-button::after {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-color: var(--primary-50);
+
+    transform: scale(0);
+
+    transition: height .3s ease-out, transform .3s ease-out;
+}
+
+.services__filter-button:hover::after {
+    transform: scale(1);
+    background-color: var(--primary-50);
+}
+
+.services__filter-button:hover {
+    outline: 1px solid var(--primary-300);
+    color: var(--primary-600);
+}
+
+.services__filter-button:active {
+    background-color: var(--primary-100);
+}
+
+.services__filter-button.active {
+    border-color: var(--primary-color);
+    color: var(--text-inverse);
+    background-color: var(--primary-color);
+
+    box-shadow: var(--shadow-md);
+}
+
+.services__filter-button.active:hover {
+    outline: 1px solid var(--primary-600);
+    background-color: var(--primary-600);
+}
+
+.services__filter-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
