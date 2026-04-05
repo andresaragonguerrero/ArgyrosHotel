@@ -118,20 +118,21 @@
 
         <!-- presentación de los servicios -->
         <article class="article__presentation">
+
             <h2 class="services__title text-h2">Habitaciones</h2>
             <p class="services__description text-subtitle-lg">
-                Nuestras habitaciones combinan elegancia y comodidad a precios accesibles, adaptándose a todo tipo de
-                viajeros. Desde la acogedora individual y la práctica doble, hasta las amplias familiares, cada espacio
-                está pensado para el descanso. Las suites ofrecen un toque de distinción y mayor privacidad, mientras
-                que las deluxe destacan por su diseño cuidado. Todo ello con el encanto del Mediterráneo a pocos pasos
+                Nuestras habitaciones combinan elegancia y comodidad a precios accesibles, adaptándose a todo tipo
+                de
+                viajeros. Desde la acogedora individual y la práctica doble, hasta las amplias familiares, cada
+                espacio
+                está pensado para el descanso. Las suites ofrecen un toque de distinción y mayor privacidad,
+                mientras
+                que las deluxe destacan por su diseño cuidado. Todo ello con el encanto del Mediterráneo a pocos
+                pasos
                 del mar.
             </p>
-        </article>
 
-        <!-- carrusel de las habitaciones -->
-        <article class="article__services">
-
-            <div class="services__list-wrapper">
+            <div class="services__sliders">
 
                 <!-- botón de desplazamiento -->
                 <button class="services__button-slide services__button-slide--prev" (click)="scrollPrev()"
@@ -141,64 +142,6 @@
                     </svg>
                 </button>
 
-                <div class="services__viewport" #viewport (scroll)="updateScrollProgress()">
-
-                    <!-- lista de habitaciones -->
-                    <ul class="services__list">
-
-                        <li class="services__card">
-
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="Individual">
-
-                            
-                            <!-- información de la habitación -->
-                            <div class="services__card-info">
-                                <h3 class="services__card-title text-body-lg">Individual</h3>
-                                <p class="services__card-description text-body">Precio: 100€</p>
-                                <button class="services__card-more">Ver más</button>
-                            </div>
-
-                        </li>
-                        
-                        <li class="services__card">
-
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="Individual">
-
-                            
-                            <!-- información de la habitación -->
-                            <div class="services__card-info">
-                                <h3 class="services__card-title text-body-lg">Individual</h3>
-                                <p class="services__card-description text-body">Precio: 100€</p>
-                                <button class="services__card-more">Ver más</button>
-                            </div>
-
-                        </li>
-
-                        <li class="services__card">
-
-                            <!-- imagen -->
-                            <img class="services__card-image"
-                                src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
-                                alt="Individual">
-
-                            
-                            <!-- información de la habitación -->
-                            <div class="services__card-info">
-                                <h3 class="services__card-title text-body-lg">Individual</h3>
-                                <p class="services__card-description text-body">Precio: 100€</p>
-                                <button class="services__card-more">Ver más</button>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-
                 <!-- botón de desplazamiento -->
                 <button class="services__button-slide services__button-slide--next" (click)="scrollNext()"
                     [disabled]="isAtEnd">
@@ -207,10 +150,78 @@
                             d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
                     </svg>
                 </button>
+            </div>
+        </article>
 
-                <!-- barra de progreso -->
-                <div class="services__progress">
-                    <div class="services__progress-bar" [style.width.%]="scrollProgress">
+        <!-- carrusel de las habitaciones -->
+        <article class="article__services">
+
+            <div class="services__container">
+
+                <div class="services__carousel-wrapper">
+                    <div class="services__viewport" #viewport (scroll)="updateScrollProgress()">
+
+                        <!-- lista de habitaciones -->
+                        <ul class="services__list">
+                            <li class="services__card">
+
+                                <!-- imagen -->
+                                <img class="services__card-image"
+                                    src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                    alt="Individual">
+
+                                <!-- información de la habitación -->
+                                <div class="services__card-info">
+                                    <h3 class="services__card-title text-body-lg">Individual</h3>
+                                    <p class="services__card-description text-body">Precio: 100€</p>
+                                    <button class="services__card-more">Ver más</button>
+                                </div>
+                            </li>
+                            <li class="services__card">
+
+                                <!-- imagen -->
+                                <img class="services__card-image"
+                                    src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                    alt="Individual">
+
+                                <!-- información de la habitación -->
+                                <div class="services__card-info">
+                                    <h3 class="services__card-title text-body-lg">Individual</h3>
+                                    <p class="services__card-description text-body">Precio: 100€</p>
+                                    <button class="services__card-more">Ver más</button>
+                                </div>
+                            </li>
+                            <li class="services__card">
+
+                                <!-- imagen -->
+                                <img class="services__card-image"
+                                    src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                                    alt="Individual">
+
+                                <!-- información de la habitación -->
+                                <div class="services__card-info">
+                                    <h3 class="services__card-title text-body-lg">Individual</h3>
+                                    <p class="services__card-description text-body">Precio: 100€</p>
+                                    <button class="services__card-more">Ver más</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- barra de progreso -->
+                    <div class="services__progress">
+                        <div class="services__progress-bar" [style.width.%]="scrollProgress">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__sidebar">
+                    <div class="services__sidebar-image">
+                        <img src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                            alt="Servicios adicionales 1">
+                    </div>
+                    <div class="services__sidebar-image">
+                        <img src="https://c.pxhere.com/images/c4/85/6d9a6845926709a3bb3729e7889c-1439651.jpg!d"
+                            alt="Servicios adicionales 2">
                     </div>
                 </div>
             </div>
