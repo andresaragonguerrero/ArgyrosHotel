@@ -1,5 +1,5 @@
 :host {
-    height: 6.25rem;
+    height: 5.5rem;
     width: 100dvw;
 
     position: fixed;
@@ -19,8 +19,8 @@
 }
 
 .header__brand-logo {
-    height: 6rem !important;
-    width: 6rem !important;
+    height: 5rem !important;
+    width: 5rem !important;
 
     padding: 0;
 
@@ -31,15 +31,15 @@
 .header__meta {
     height: 100%;
 
-    padding: var(--space-3) 0;
+    padding: var(--space-2) 0;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .header__nav {
-    padding: 0 var(--space-8);
+    padding: 0 var(--space-6);
 
     display: flex;
     justify-items: flex-start;
@@ -418,7 +418,7 @@
         width: 100dvw;
 
         position: fixed;
-        top: 6.25rem;
+        top: 5.5rem;
         right: 0;
         padding: var(--space-2);
 
@@ -524,7 +524,7 @@
         width: 100dvw;
 
         position: fixed;
-        top: 6.25rem;
+        top: 5.5rem;
         right: 0;
         padding: var(--space-6);
         z-index: 9;
