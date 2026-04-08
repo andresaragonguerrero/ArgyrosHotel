@@ -159,6 +159,8 @@
 
     box-shadow: var(--shadow-sm);
 
+    letter-spacing: 1px;
+
     cursor: pointer;
 
     transition: background-color .3s ease-out,
@@ -660,23 +662,38 @@
     scroll-snap-align: start;
 }
 
+.services__card::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(to top,
+            rgba(12, 39, 64, 0.85) 0%,
+            rgba(12, 39, 64, 0.4) 50%,
+            transparent 100%);
+
+    transition: opacity .3s ease-out;
+}
+
 .services__card::after {
     content: '';
 
     position: absolute;
     inset: 0;
+    z-index: 2;
 
-    background-color: var(--primary-600);
-    opacity: 50%;
+    background-color: var(--primary-color);
+    opacity: 0;
 
     transform: scale(0);
-
-    transition: background-color .3s ease-out,
-        transform .3s ease-out;
+    transition: opacity 0.3s ease-out,
+        transform 0.15s ease-out;
 }
 
 .services__card:hover::after {
-    background-color: var(--primary-600);
+    opacity: 0.2;
     transform: scale(1);
 }
 
@@ -686,12 +703,19 @@
 
     object-fit: cover;
     object-position: center;
+
+    transition: transform .3s ease-out;
+}
+
+.services__card:hover .services__card-image {
+    transform: scale(1.05);
 }
 
 .services__card-info {
     position: absolute;
     inset: 0;
     padding: 0 0 var(--space-6);
+    z-index: 3;
 
     display: flex;
     flex-direction: column;
@@ -701,18 +725,47 @@
 }
 
 .services__card-title {
-    color: var(--primary-color);
-    font-weight: 700;
-    text-transform: uppercase;
+    padding: var(--space-1) var(--space-2);
+
+    outline: 1px solid var(--text-inverse);
+
+    color: var(--text-inverse);
+    font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
+    letter-spacing: 0.5px;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .services__card-description {
-    color: var(--text-muted);
-    line-height: 1.6;
+    color: var(--background-color);
+    font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.services__card-info .text-body {
-    text-transform: uppercase;
+.services__card-button {
+    padding: var(--space-2) var(--space-4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    color: var(--text-inverse);
+    background-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-out;
+}
+
+.services__card-button:hover {
+    background-color: var(--accent-600);
+    box-shadow: var(--shadow-lg);
 }
 
 .section__booking-services .icon {
