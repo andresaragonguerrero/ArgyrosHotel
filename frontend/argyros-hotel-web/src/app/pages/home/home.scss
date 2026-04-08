@@ -376,7 +376,6 @@
 
     position: relative;
     margin: 0 auto;
-    padding: var(--space-8) var(--space-4);
 
     display: flex;
     flex-direction: column;
@@ -404,31 +403,32 @@
     z-index: 1;
 
     display: inline-block;
+        align-self: flex-end;
 
     letter-spacing: 0.15em;
     color: var(--accent-color);
 }
 
-.services__title {
-    position: relative;
-    z-index: 1;
-    margin-top: calc(var(--space-2) * -1);
+.services__overline::before {
+    content: '';
 
-    color: var(--primary-color);
-}
+    height: 2px;
 
-.services__divider {
-    width: 66px;
-    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: calc(-1 * (100vw - 700px) / 2);
+    right: 7rem;
 
-    position: relative;
-    margin-top: calc(var(--space-3) * -1);
-    z-index: 1;
-
-    border-radius: 999px;
     background: linear-gradient(to right,
             var(--accent-color),
             var(--accent-300));
+}
+
+.services__title {
+    position: relative;
+    z-index: 1;
+
+    color: var(--primary-color);
 }
 
 .services__description {
@@ -504,6 +504,7 @@
     overflow: hidden;
 
     position: relative;
+    margin-top: auto;
     margin-left: auto;
 
     display: flex;
@@ -683,13 +684,13 @@
 .services__card-info {
     position: absolute;
     inset: 0;
-    padding: 0 0 var(--space-8);
+    padding: 0 0 var(--space-6);
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    gap: var(--space-5);
+    gap: var(--space-3);
 }
 
 .services__card-title {
@@ -763,10 +764,6 @@
     .article__presentation {
         padding: var(--space-6) var(--space-4);
         gap: var(--space-4);
-    }
-
-    .services__divider {
-        width: 50px;
     }
 
     .services__highlight {

@@ -290,7 +290,16 @@ a {
 
 .text-label {
     font-family: 'Gentium Book Plus', serif;
-    font-size: clamp(0.7rem, 0.5vw + 0.25rem, 0.85rem);
+    font-size: clamp(0.85rem, 0.6vw + 0.25rem, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.text-label-sm {
+    font-family: 'Gentium Book Plus', serif;
+    font-size: clamp(0.75rem, 0.5vw + 0.25rem, 0.9rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
