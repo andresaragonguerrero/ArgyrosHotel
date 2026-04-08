@@ -403,7 +403,7 @@
     z-index: 1;
 
     display: inline-block;
-        align-self: flex-end;
+    align-self: flex-end;
 
     letter-spacing: 0.15em;
     color: var(--accent-color);
@@ -422,6 +422,13 @@
     background: linear-gradient(to right,
             var(--accent-color),
             var(--accent-300));
+
+    clip-path: inset(0 0 0 100%);
+    transition: clip-path 2s cubic-bezier(0.2, 1, 0.4, 1);
+}
+
+.services__overline.is-visible::before {
+    clip-path: inset(0 0 0 0);
 }
 
 .services__title {

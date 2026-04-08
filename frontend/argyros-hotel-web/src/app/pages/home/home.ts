@@ -23,11 +23,28 @@ export class Home implements AfterViewInit {
   private startX = 0;
   private scrollLeftStart = 0;
 
+  // código para el overline
+  @ViewChild('overline', { static: false })
+  overline!: ElementRef<HTMLElement>;
+
   constructor(private readonly cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.initDragScroll();
     this.updateButtonState();
+
+    // código para el overview
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.overline.nativeElement.classList.add('is-visible');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(this.overline.nativeElement);
   }
 
   private initDragScroll() {
