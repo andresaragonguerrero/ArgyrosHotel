@@ -364,17 +364,17 @@
 // ------ HABITACIONES ------
 
 .section__booking-services {
-    padding: var(--space-8);
+    padding: var(--space-6);
 
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 40% minmax(0, 1fr);
 
     background-color: var(--background-color);
 }
 
 .article__presentation {
     max-width: 700px;
-    overflow: hidden;
+    overflow: visible;
 
     position: relative;
     margin: 0 auto;
@@ -862,206 +862,88 @@
 
 @media (max-width: 1800px) {
     .section__booking-services {
-        grid-template-columns: 30% auto;
-        padding: var(--space-6);
+        padding: var(--space-6) var(--space-4);
+        grid-template-columns: 35% minmax(0, 1fr);
     }
 }
 
-// @media (max-width: 1400px) {
-//     .section__booking-services {
-//         grid-template-columns: 35% auto;
-//         padding: var(--space-6);
-//     }
-// }
+@media (max-width: 1650px) {
+    .section__booking-services {
+        grid-template-columns: 30% minmax(0, 1fr);
+    }
+}
 
-// @media (max-width: 1300px) {
-//     .section__booking-services {
-//         grid-template-columns: 30% auto;
-//     }
-// }
+@media (max-width: 1500px) {
+    .section__booking-services {
+        grid-template-columns: 25% minmax(0, 1fr);
+    }
+}
 
-// @media (max-width: 1200px) {
-//     .section__booking-services {
-//         grid-template-columns: 1fr;
-//         gap: var(--space-8);
-//     }
+@media (max-width: 1450px) {
+    .section__booking-services {
+        padding: var(--space-8) var(--space-6);
 
-//     .article__presentation {
-//         max-width: 100%;
-//     }
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        gap: var(--space-4);
+    }
 
-//     .article__brand-logo {
-//         right: 0;
-//         opacity: 30%;
-//     }
+    .article__presentation {
+        width: 100%;
+        max-width: 100%;
+    }
 
-//     .services__overline::before {
-//         left: 0;
-//     }
-// }
+    .article__brand-logo {
+        height: 24rem !important;
+        width: 24rem !important;
 
-// @media (max-width: 900px) {
-//     .section__booking-services {
-//         padding: var(--space-5);
-//         gap: var(--space-6);
-//     }
+        top: 50%;
+        right: -2rem;
+        transform: translateY(-55%);
+        z-index: 0;
+    }
 
-//     .article__services {
-//         padding-left: 0;
-//     }
+    .services__description {
+        max-width: 60%;
+    }
 
-//     .services__container {
-//         flex-direction: column;
-//         align-items: stretch;
-//     }
+    .services__overline::before {
+        left: 0;
+        right: 7rem;
+    }
 
-//     .services__carousel-wrapper {
-//         width: 100%;
-//         max-width: 100%;
-//     }
+    .services__sliders {
+        display: none;
+    }
 
-//     .services__viewport {
-//         max-width: 100%;
-//     }
+    .article__services {
+        width: 100%;
+        max-width: 1200px;
+        overflow: hidden;
+        padding: 0;
 
-//     .services__sidebar {
-//         flex-direction: row;
-//         gap: var(--space-2);
-//     }
+        padding: var(--space-4) 0;
 
-//     .services__sidebar-card {
-//         height: 20rem;
-//         width: calc((100% - var(--space-2)) / 2);
-//         flex: 1;
-//     }
-// }
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: var(--space-2);
+    }
 
-// @media (max-width: 768px) {
-//     .section__booking-services {
-//         padding: var(--space-4);
-//         gap: var(--space-5);
-//     }
+    .services__container {
+        width: 100%;
+        max-width: 100%;
 
-//     .article__brand-logo {
-//         height: 20rem !important;
-//         width: 20rem !important;
-//         opacity: 20%;
-//     }
+        justify-content: center;
+        gap: var(--space-4);
+    }
 
-//     .services__sliders {
-//         height: 3.5rem;
-//     }
-
-//     .services__button-slide {
-//         padding: var(--space-2);
-//     }
-
-//     .services__card {
-//         height: 28rem;
-//         width: 22rem;
-//         flex: 0 0 22rem;
-//     }
-// }
-
-// @media (max-width: 640px) {
-//     .section__booking-services {
-//         padding: var(--space-3);
-//     }
-
-//     .article__presentation {
-//         gap: var(--space-4);
-//     }
-
-//     .services__overline::before {
-//         display: none;
-//     }
-
-//     .services__sidebar {
-//         flex-direction: column;
-//     }
-
-//     .services__sidebar-card {
-//         width: 100%;
-//         height: 18rem;
-//     }
-
-//     .services__card {
-//         height: 24rem;
-//         width: 100%;
-//         flex: 0 0 calc(100% - var(--space-4));
-//     }
-
-//     .services__viewport {
-//         padding: 0 var(--space-2);
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     .section__booking-services {
-//         padding: var(--space-2);
-//     }
-
-//     .article__brand-logo {
-//         height: 16rem !important;
-//         width: 16rem !important;
-//         right: -4rem;
-//     }
-
-//     .services__sliders {
-//         min-width: 100%;
-//         justify-content: space-between;
-//     }
-
-//     .services__button-slide--prev {
-//         left: 0;
-//     }
-
-//     .services__button-slide--next {
-//         right: 0;
-//     }
-// }
-
-// @media (max-width: 768px) {
-//     .article__presentation {
-//         padding: var(--space-6) var(--space-4);
-//         gap: var(--space-4);
-//     }
-
-//     .services__highlight {
-//         padding: var(--space-3) var(--space-4);
-//         flex-wrap: wrap;
-//     }
-
-//     .services__cta {
-//         width: 100%;
-//         justify-content: center;
-//     }
-// }
-
-// @media (max-width: 768px) {
-//     .article__brand-logo {
-//         height: 20rem !important;
-//         width: 20rem !important;
-//         right: -4rem;
-//         opacity: 0.25;
-//     }
-
-//     .article__presentation {
-//         padding: var(--space-6) var(--space-4);
-//         gap: var(--space-4);
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     .article__brand-logo {
-//         height: 16rem !important;
-//         width: 16rem !important;
-//         right: -3rem;
-//         opacity: 0.2;
-//     }
-// }
-
-// 
+    .services__viewport {
+        padding: var(--space-2);
+        margin: calc(var(--space-2) * -1);
+    }
+}
 
 .services__filters {
     max-height: 4rem;
