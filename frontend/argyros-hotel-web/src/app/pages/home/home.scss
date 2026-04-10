@@ -609,11 +609,13 @@
 
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-2);
 }
 
 .services__carousel-wrapper {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -622,6 +624,8 @@
 
     overflow-x: auto;
     overflow-y: hidden;
+
+    flex: 1;
 
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -790,6 +794,8 @@
     height: 100%;
     width: 0;
 
+    flex: 0 0 auto;
+
     background-color: var(--primary-color);
     border-radius: inherit;
 
@@ -804,13 +810,13 @@
 }
 
 .services__sidebar-card {
-    height: calc((32rem - var(--space-2)) / 2);
     width: 100%;
     overflow: hidden;
 
     position: relative;
 
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: flex-end;
 
@@ -869,8 +875,6 @@
 .services__sidebar-image {
     will-change: transform;
 }
-
-
 
 
 
