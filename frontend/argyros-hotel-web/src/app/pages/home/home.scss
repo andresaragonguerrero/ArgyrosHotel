@@ -876,6 +876,12 @@
     will-change: transform;
 }
 
+@media (max-width: 1300px) {
+    .services__sliders {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
 
     .section__booking-services {
