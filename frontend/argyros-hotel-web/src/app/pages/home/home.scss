@@ -447,12 +447,13 @@
 }
 
 .services__description {
-    max-width: 65ch;
+    max-width: 90%;
 
     position: relative;
     z-index: 1;
 
     line-height: 1.7;
+    font-weight: 500;
     color: var(--text-muted);
 }
 
@@ -468,8 +469,7 @@
     align-self: flex-start;
     gap: var(--space-2);
 
-    border: 1px solid var(--primary-200);
-    outline: 1px solid transparent;
+    outline: 1px solid var(--primary-200);
 
     color: var(--primary-600);
     background-color: transparent;
@@ -485,7 +485,7 @@
     inset: 0;
     z-index: -1;
 
-    transform: scaleX(0);
+    transform: scale(0);
 
     background-color: var(--primary-50);
 
@@ -498,7 +498,7 @@
 }
 
 .services__cta:hover::before {
-    transform: scaleX(1);
+    transform: scale(1);
 }
 
 .services__cta:focus-visible {
@@ -527,17 +527,18 @@
 }
 
 .services__button-slide {
+    height: 3rem;
+    width: 3rem;
     overflow: hidden;
 
     position: relative;
-    padding: var(--space-3);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    border: none;
     outline: 1px solid var(--primary-200);
-    border-radius: 50%;
 
     background-color: var(--surface-color);
 
@@ -547,16 +548,13 @@
         background-color .3s ease-out;
 }
 
-.services__button-slide::after {
+.services__button-slide::before {
     content: '';
 
     position: absolute;
     inset: 0;
-    z-index: -1;
 
     background-color: var(--primary-50);
-
-    border-radius: inherit;
 
     transform: scale(0);
 
@@ -568,8 +566,12 @@
     background-color: var(--primary-50);
 }
 
-.services__button-slide:hover::after {
+.services__button-slide:hover::before {
     transform: scale(1);
+}
+
+.services__button-slide .icon {
+    z-index: 1;
 }
 
 .services__button-slide:hover .icon {
