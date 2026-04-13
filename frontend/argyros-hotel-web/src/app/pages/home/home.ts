@@ -86,10 +86,10 @@ export class Home implements AfterViewInit {
 
   private doScroll(direction: number) {
     const el = this.viewport.nativeElement;
-    const card = el.querySelector('.services__card') as HTMLElement;
+    const card = el.querySelector('.rooms__card') as HTMLElement;
     if (!card) return;
 
-    const gap = Number(getComputedStyle(el.querySelector('.services__list')!).gap) || 0;
+    const gap = Number(getComputedStyle(el.querySelector('.rooms__list')!).gap) || 0;
     const scrollAmount = (card.offsetWidth + gap) * direction;
 
     el.scrollBy({
