@@ -960,21 +960,23 @@
 .section__booking-services {
     position: relative;
     background-color: var(--background-color);
+    background-attachment: fixed;
 }
 
 .services__header {
     height: 60dvh;
-    overflow: hidden;
+
+    background-image: url("https://welcometoalicante.info/wp-content/uploads/2024/05/Playa_del_Postiguet_Alicante_Espana_2014-07-04_DD_47-1-scaled.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     position: relative;
     padding: var(--space-8) var(--space-6);
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    box-shadow: var(--shadow-md);
 }
 
 .services__header::after {
