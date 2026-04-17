@@ -379,12 +379,13 @@
 .section__introduction-gallery .section__introduction-image {
     object-fit: cover;
     box-shadow: var(--shadow-md);
-    transition: transform 0.4s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
 .section__introduction-gallery .section__introduction-image:first-child {
     width: 70%;
     height: 35rem;
+
     position: relative;
     z-index: 1;
     transform: translate(-15%, -10%);
@@ -393,25 +394,30 @@
 .section__introduction-gallery .section__introduction-image:last-child {
     width: 55%;
     height: 25rem;
+
     position: absolute;
     z-index: 2;
     bottom: 10%;
     right: 5%;
+
     border: 8px solid var(--background-color);
 }
 
 .section__introduction-text {
     position: relative;
+    padding: var(--space-2);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--space-8);
-    padding: var(--space-4);
+    gap: var(--space-4);
+
 }
 
 .section__introduction-title {
     position: relative;
     z-index: 1;
+
     color: var(--primary-color);
     line-height: 1.1;
     font-size: 3rem;
@@ -423,23 +429,26 @@
 }
 
 .section__introduction-description {
+    max-width: 55ch;
+
     position: relative;
     z-index: 1;
-    max-width: 55ch;
+
     line-height: 1.9;
     font-weight: 400;
     color: var(--text-muted);
-    margin-bottom: var(--space-4);
 }
 
 .section__introduction-text .article__brand-logo {
     height: 35rem !important;
     width: 35rem !important;
+
     position: absolute;
     top: 50%;
     right: -10%;
     transform: translateY(-50%);
     z-index: 0;
+    
     color: var(--surface-color) !important;
     opacity: 0.25;
     pointer-events: none;
@@ -448,8 +457,8 @@
 @media (max-width: 1024px) {
     .section__introduction {
         grid-template-columns: 1fr;
-        padding: var(--space-10) var(--space-6);
-        gap: var(--space-10);
+        padding: var(--space-6) var(--space-4);
+        gap: var(--space-2);
     }
 
     .section__introduction-gallery {
