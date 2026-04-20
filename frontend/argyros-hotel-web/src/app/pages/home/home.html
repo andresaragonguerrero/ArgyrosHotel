@@ -448,82 +448,6 @@
     <!-- Sección para eventos: https://www.hotelalbufera.com/es/, https://www.ibersol.es/es/ (será igual que "habitaciones")-->
     <section class="section section__booking-events">
 
-        <article class="article__body">
-            <div class="events__container">
-
-                <div class="events__carousel-wrapper">
-
-                    <div class="events__viewport" #viewport (scroll)="updateScrollProgress()">
-
-                        <ul class="events__list">
-
-                            <li class="events__card">
-                                <img class="events__card-image"
-                                    src="https://www.vendomtalents.com/image/news/news-main.1731513958.jpg"
-                                    alt="Salón principal">
-
-                                <div class="events__card-info">
-                                    <h3 class="events__card-title text-caption">Salón principal</h3>
-                                    <button class="events__card-button text-label">Reservar</button>
-                                </div>
-                            </li>
-
-                            <li class="events__card">
-                                <img class="events__card-image"
-                                    src="https://tpepinshospitality.com/wp-content/uploads/2025/09/What-Are-the-Best-Tampa-Venues-for-Weddings-in-2025.jpg"
-                                    alt="Decoración sala">
-
-                                <div class="events__card-info">
-                                    <h3 class="events__card-title text-body">Sala de eventos</h3>
-                                    <button class="events__card-button text-label">Reservar</button>
-                                </div>
-                            </li>
-
-                            <li class="events__card">
-                                <img class="events__card-image"
-                                    src="https://cms.thuecat.org/o/adaptive-media/image/118948216/Preview-1280x0/image"
-                                    alt="Sala de reuniones">
-
-                                <div class="events__card-info">
-                                    <h3 class="events__card-title text-body">Sala de reuniones</h3>
-                                    <button class="events__card-button text-label">Reservar</button>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-bar" [style.width.%]="scrollProgress"></div>
-                    </div>
-                </div>
-
-                <div class="events__sidebar">
-
-                    <div class="events__sidebar-card">
-                        <img class="events__sidebar-image"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/2022_-_Americus_Hotel_-_Single_Room_-_Allentown_PA.jpg/960px-2022_-_Americus_Hotel_-_Single_Room_-_Allentown_PA.jpg?_=20220118214419"
-                            alt="Habitación individual">
-
-                        <div class="events__sidebar-info">
-                            <h3 class="events__sidebar-title text-body">Individual</h3>
-                        </div>
-                    </div>
-
-                    <div class="events__sidebar-card">
-                        <img class="events__sidebar-image"
-                            src="https://theloftonvenue.com/wp-content/uploads/2025/08/The-Lofton-2025-Showcase-Wedding-Reception-Table-Florals-1366x2048.webp"
-                            alt="Habitación doble">
-
-                        <div class="events__sidebar-info">
-                            <h3 class="events__sidebar-title text-body">Sala de eventos</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </article>
-
         <!-- esta vez el header se situará a la derecha y el cuerpo a la izquierda -->
         <!-- Título, banner (eventos) y descripción de los eventos -->
         <article class="article__header">
@@ -558,21 +482,75 @@
                     <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
                 </svg>
             </a>
+        </article>
 
-            <div class="sliders">
+        <!-- Galería mansonry -->
+        <article class="article__body">
 
-                <button class="button-slide button-slide--prev" (click)="scrollPrev()" [disabled]="isAtStart">
-                    <svg class="icon events__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
-                    </svg>
-                </button>
+            <!-- imágenes -->
+            <!-- sala de reuniones grande -> https://easy-peasy.ai: https://media.easy-peasy.ai/f09f0f33-8a28-43ac-ac79-74ee9ef896aa/3041bdc8-1df2-4fc3-bfc8-918c84a5433d_medium.webp -->
+            <!-- sala de reuniones pequeña -> https://easy-peasy.ai: https://media.easy-peasy.ai/87fbad08-c9d9-48b9-89ce-37c8174f7bfc/e1ff82f3-e9d6-49d7-bd41-f4b1df021ddb_medium.webp -->
+            <!-- salón de celebración -> https://talkofthetownatlanta.com: https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room.jpg -->
+            <!-- salón de celebración -> https://talkofthetownatlanta.com: https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room3.jpg -->
+            <!-- salón de celebración -> https://talkofthetownatlanta.com: https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room2.jpg -->
 
-                <button class="button-slide button-slide--next" (click)="scrollNext()" [disabled]="isAtEnd">
-                    <svg class="icon events__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="currentColor"
-                            d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
-                    </svg>
-                </button>
+            <!-- https://www.youtube.com/shorts/oSVhQuoCizQ -->
+            <div class="events__carousel">
+
+                <div class="events__carousel-item">
+                    <img class="events__carousel-image" src="https://media.easy-peasy.ai/f09f0f33-8a28-43ac-ac79-74ee9ef896aa/3041bdc8-1df2-4fc3-bfc8-918c84a5433d_medium.webp"
+                        alt="sala de reuniones grande">
+
+                    <!-- información de la sala de eventos -->
+                    <div class="events__card-info">
+                        <h3 class="events__card-title text-caption">Sala de reuniones grande</h3>
+                        <button class="events__card-button text-label">Resérvala</button>
+                    </div>
+                </div>
+
+                <div class="events__carousel-item">
+                    <img class="events__carousel-image" src="https://media.easy-peasy.ai/87fbad08-c9d9-48b9-89ce-37c8174f7bfc/e1ff82f3-e9d6-49d7-bd41-f4b1df021ddb_medium.webp"
+                        alt="sala de reuniones pequeña">
+
+                    <!-- información de la sala de eventos -->
+                    <div class="events__card-info">
+                        <h3 class="events__card-title text-caption">Sala de reuniones pequeña</h3>
+                        <button class="events__card-button text-label">Resérvala</button>
+                    </div>
+                </div>
+
+                <div class="events__carousel-item">
+                    <img class="events__carousel-image" src="https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room.jpg"
+                        alt="salón de celebración">
+
+                    <!-- información de la sala de eventos -->
+                    <div class="events__card-info">
+                        <h3 class="events__card-title text-caption">Salón de celebración</h3>
+                        <button class="events__card-button text-label">Resérvala</button>
+                    </div>
+                </div>
+
+                <div class="events__carousel-item">
+                    <img class="events__carousel-image" src="https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room3.jpg"
+                        alt="salón de celebración">
+
+                    <!-- información de la sala de eventos -->
+                    <div class="events__card-info">
+                        <h3 class="events__card-title text-caption">Salón de celebración</h3>
+                        <button class="events__card-button text-label">Resérvala</button>
+                    </div>
+                </div>
+
+                <div class="events__carousel-item">
+                    <img class="events__carousel-image" src="https://talkofthetownatlanta.com/wp-content/uploads/2024/06/north-on-5th-talk-of-the-town-tasting-room2.jpg"
+                        alt="salón de celebración">
+
+                    <!-- información de la sala de eventos -->
+                    <div class="events__card-info">
+                        <h3 class="events__card-title text-caption">Salón de celebración</h3>
+                        <button class="events__card-button text-label">Resérvala</button>
+                    </div>
+                </div>
             </div>
         </article>
     </section>
