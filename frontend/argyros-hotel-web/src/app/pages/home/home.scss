@@ -1549,7 +1549,7 @@
 }
 
 .events__carousel {
-    height: 700px;
+    height: 600px;
     max-height: 80vh;
     width: 100%;
     overflow: hidden;
@@ -1610,6 +1610,52 @@
     flex: 8 1 0%;
 }
 
+.events__item-label {
+    position: absolute;
+    padding: var(--space-1) var(--space-2);
+    bottom: var(--space-2);
+    right: var(--space-2);
+    z-index: 4;
+
+    color: var(--text-inverse);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    border: 1px solid var(--text-inverse);
+
+    opacity: 1;
+    transition: opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.events__carousel-item:hover .events__item-label {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+}
+
+.events__card-info {
+    position: absolute;
+    inset: 0;
+    padding: 0 0 var(--space-5);
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-3);
+
+    opacity: 0;
+    transform: translateY(24px);
+
+    background: transparent;
+    transition: opacity 0.35s ease,
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .events__carousel-image {
     width: 100%;
     height: 100%;
@@ -1632,26 +1678,6 @@
     filter: grayscale(0%) saturate(1.05) contrast(1.05) brightness(1);
 }
 
-.events__card-info {
-    position: absolute;
-    inset: 0;
-    padding: 0 0 var(--space-5);
-    z-index: 3;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    gap: var(--space-3);
-
-    opacity: 0;
-    transform: translateY(24px);
-
-    background: transparent;
-    transition: opacity 0.35s ease, 
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 .events__carousel-item:hover .events__card-info {
     opacity: 1;
     transform: translateY(0);
@@ -1667,7 +1693,6 @@
     font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
     letter-spacing: 0.6px;
 
-    backdrop-filter: blur(6px);
     background: rgba(0, 0, 0, 0.25);
 
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
