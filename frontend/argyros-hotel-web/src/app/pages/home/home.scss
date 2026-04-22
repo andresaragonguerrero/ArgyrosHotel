@@ -1821,7 +1821,6 @@
     padding: var(--space-2) var(--space-4);
 }
 
-
 .entertainment__cta {
     overflow: hidden;
 
@@ -1857,3 +1856,135 @@
     outline: 2px solid var(--accent-color);
     outline-offset: 4px;
 }
+
+.entertainment__body {
+    width: 80dvw;
+
+    position: relative;
+    margin: -3rem auto 0;
+    z-index: 3;
+
+    background-color: transparent;
+}
+
+.entertainment__content {
+    width: 100%;
+    overflow: hidden;
+
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+}
+
+.entertainment__body .button-slide {
+    height: 3rem;
+    width: 3rem;
+
+    position: absolute;
+    padding: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    outline: 1px solid var(--primary-200);
+
+    background-color: var(--surface-color);
+
+    cursor: pointer;
+
+    transition:
+        outline 0.3s ease-out,
+        background-color 0.3s ease-out;
+}
+
+.entertainment__body .button-slide--prev {
+    // left: -24px;
+}
+
+.entertainment__body .button-slide--next {
+    // right: -24px;
+}
+
+
+.entertainment__body .button-slide::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--primary-50);
+
+    transform: scale(0);
+
+    transition: transform 0.3s ease-out;
+}
+
+.entertainment__body .button-slide:hover {
+    outline: 1px solid var(--primary-300);
+    background-color: var(--primary-50);
+}
+
+.entertainment__body .button-slide:hover::before {
+    transform: scale(1);
+}
+
+.entertainment__body .button-slide .icon {
+    z-index: 1;
+}
+
+.entertainment__body .button-slide:hover .icon {
+    color: var(--primary-700);
+}
+
+.entertainment__body .button-slide:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.entertainment__body .button-slide:disabled {
+    opacity: 0.5;
+    border-color: var(--primary-100);
+    cursor: not-allowed;
+}
+
+.entertainment__body .button-slide:disabled:hover {
+    background-color: var(--surface-color);
+    border-color: var(--primary-100);
+}
+
+.entertainment__body .button-slide:disabled .icon {
+    color: var(--primary-300);
+}
+
+.entertainment__item {
+    position: relative;
+    padding: var(--space-4);
+
+    display: grid;
+    flex: 0 0 25%;
+}
+
+.entertainment__card-info {
+    display: grid;
+    gap: var(--space-4);
+}
+
+
+// EFECTOS DE PRESENTACIÓN DE IMÁGENES INTERESANTES:
+
+/*
+
+- https://www.granshotelsdecatalunya.com/
+
+- https://www.ohlaboutiquehotels.com/es/ohla-barcelona/
+
+- 
+
+*/

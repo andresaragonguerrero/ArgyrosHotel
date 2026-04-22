@@ -581,7 +581,8 @@
                 <h2 class="entertainment__title text-h2">Entretenimiento</h2>
 
                 <p class="entertainment__description text-subtitle-lg">
-                    Descubre una selección de eventos de entretenimiento diseñados para hacer tu estancia más cómoda y especial.
+                    Descubre una selección de eventos de entretenimiento diseñados para hacer tu estancia más cómoda y
+                    especial.
                 </p>
 
                 <p class="entertainment__benefits text-subtitle-lg">
@@ -592,7 +593,92 @@
             </div>
         </article>
 
-        <article class="entertainment__body"></article>
+        <article class="entertainment__body">
+
+            <!-- botón de desplazamiento -->
+            <button class="button-slide button-slide--prev" (click)="scrollPrevEnt()" [disabled]="isAtStartEnt">
+                <svg class="icon entertainment__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
+                </svg>
+            </button>
+
+            <ul #entViewport class="entertainment__content" (scroll)="updateButtonStateEnt()">
+
+                <li class="entertainment__item">
+
+                    <img class="" src="" alt="">
+
+                    <div class="entertainment__card-info">
+                        <h3 class="entertainment__card-title text-label">Noches de cine</h3>
+                        <p class="entertainment__card-description text-body">
+                            Reposición de películas clásicas cada jueves a las 22h.
+                        </p>
+                        <button class="entertainment__card-cta text-body">Más información</button>
+                    </div>
+                </li>
+
+                <li class="entertainment__item">
+
+                    <img class="" src="" alt="">
+
+                    <div class="entertainment__card-info">
+                        <h3 class="entertainment__card-title text-label">Alquiler de bicicletas</h3>
+                        <p class="entertainment__card-description text-body">
+                            Se ofrece un alquiler gratuito de bicicletas a cada residente para su uso exclusivo por el
+                            pueblo.
+                        </p>
+                        <button class="entertainment__card-cta text-body">Más información</button>
+                    </div>
+                </li>
+
+                <li class="entertainment__item">
+
+                    <img class="" src="" alt="">
+
+                    <div class="entertainment__card-info">
+                        <h3 class="entertainment__card-title text-label">Actuaciones musicales en vivo</h3>
+                        <p class="entertainment__card-description text-body">
+                            Disfruta de la variedad de actuaciones musicales en vivo que ofrecemos los viernes y fines
+                            de semana.
+                        </p>
+                        <button class="entertainment__card-cta text-body">Más información</button>
+                    </div>
+                </li>
+
+                <li class="entertainment__item">
+
+                    <img class="" src="" alt="">
+
+                    <div class="entertainment__card-info">
+                        <h3 class="entertainment__card-title text-label">Actividades para niños</h3>
+                        <p class="entertainment__card-description text-body">
+                            Se ofrece una amplia variedad de actividades lúdicas orientadas a los pequeños.
+                        </p>
+                        <button class="entertainment__card-cta text-body">Más información</button>
+                    </div>
+                </li>
+
+                <li class="entertainment__item">
+
+                    <img class="" src="" alt="">
+
+                    <div class="entertainment__card-info">
+                        <h3 class="entertainment__card-title text-label">Zona de juegos acuáticos y deportivos</h3>
+                        <p class="entertainment__card-description text-body">
+                            Los residentes tendrán a su disposición zonas dedicadas a deportes y a juegos acuáticos.
+                        </p>
+                        <button class="entertainment__card-cta text-body">Más información</button>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- botón de desplazamiento -->
+            <button class="button-slide button-slide--next" (click)="scrollNextEnt()" [disabled]="isAtEndEnt">
+                <svg class="icon entertainment__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
+                </svg>
+            </button>
+        </article>
     </section>
 
     <!-- 

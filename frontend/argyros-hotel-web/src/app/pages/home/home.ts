@@ -14,10 +14,14 @@ import { Footer } from '../../shared/components/footer/footer';
 })
 export class Home implements AfterViewInit {
   // código para el carrusel
-  @ViewChild('viewport', { static: false })
-  viewport!: ElementRef<HTMLDivElement>;
+  @ViewChild('viewport', { static: false }) viewport!: ElementRef<HTMLDivElement>;
+  @ViewChild('entViewport', { static: false }) entViewport!: ElementRef<HTMLUListElement>;
+
   isAtStart = true;
   isAtEnd = false;
+  isAtStartEnt = true;
+  isAtEndEnt = false;
+
   scrollProgress = 0;
   private isDragging = false;
   private startX = 0;
@@ -32,6 +36,7 @@ export class Home implements AfterViewInit {
   ngAfterViewInit() {
     this.initDragScroll();
     this.updateButtonState();
+    this.updateButtonStateEnt();
 
     // código para el overview
     const observer = new IntersectionObserver(
@@ -117,6 +122,37 @@ export class Home implements AfterViewInit {
     const el = this.viewport.nativeElement;
     this.isAtStart = el.scrollLeft <= 2;
     this.isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+    this.cdr.detectChanges();
+  }
+
+  scrollNextEnt() {
+    this.doScrollEnt(1);
+  }
+
+  scrollPrevEnt() {
+    this.doScrollEnt(-1);
+  }
+
+  private doScrollEnt(direction: number) {
+    const el = this.entViewport.nativeElement;
+    const card = el.querySelector('.entertainment__item') as HTMLElement;
+    if (!card) return;
+
+    const gap = Number(getComputedStyle(el).gap.replace('px', '')) || 0;
+    const scrollAmount = (card.offsetWidth + gap) * direction;
+
+    el.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  updateButtonStateEnt() {
+    if (!this.entViewport) return;
+
+    const el = this.entViewport.nativeElement;
+    this.isAtStartEnt = el.scrollLeft <= 2;
+    this.isAtEndEnt = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
     this.cdr.detectChanges();
   }
 }
