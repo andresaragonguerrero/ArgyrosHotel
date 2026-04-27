@@ -358,6 +358,7 @@
 
 .section__introduction {
     overflow: hidden;
+
     padding: var(--space-6) 10%;
 
     display: grid;
@@ -469,7 +470,7 @@
 // ------ HABITACIONES ------
 
 .section__booking-rooms {
-    padding: var(--space-6);
+    padding: var(--space-6) 10%;
 
     display: grid;
     grid-template-columns: 40% 60%;
@@ -1046,6 +1047,8 @@
 
 .section__booking-services {
     position: relative;
+    padding: var(--space-6) 0;
+
     background-color: var(--background-color);
     background-attachment: fixed;
 }
@@ -1059,7 +1062,7 @@
     background-attachment: fixed;
 
     position: relative;
-    padding: var(--space-8) var(--space-6);
+    // padding: var(--space-8) var(--space-6);
 
     display: flex;
     justify-content: center;
@@ -1396,7 +1399,7 @@
 // ------ EVENTOS ------
 
 .section__booking-events {
-    padding: var(--space-6);
+    padding: var(--space-6) 10%;
 
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -1745,6 +1748,8 @@
 
 .section__entertainment {
     position: relative;
+    padding: var(--space-6) 0;
+
     background-color: var(--background-color);
     background-attachment: fixed;
 }
@@ -1759,7 +1764,7 @@
     background-attachment: fixed;
 
     position: relative;
-    padding: var(--space-8) var(--space-6);
+    // padding: var(--space-8) var(--space-6);
 
     display: flex;
     justify-content: center;
@@ -1861,7 +1866,7 @@
     width: 80dvw;
 
     position: relative;
-    padding-bottom: var(--space-6);
+    // padding-bottom: var(--space-6);
     margin: -3rem auto 0;
     z-index: 3;
 
@@ -2015,8 +2020,11 @@
 }
 
 .entertainment__card-title {
+    height: 3rem;
+
+    padding: 0 var(--space-2);
+
     display: inline-block;
-    padding: var(--space-1) var(--space-2);
 
     color: var(--text-color);
     backdrop-filter: blur(2px);
