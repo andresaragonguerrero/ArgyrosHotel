@@ -155,4 +155,12 @@ export class Home implements AfterViewInit {
     this.isAtEndEnt = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
     this.cdr.detectChanges();
   }
+
+  setActiveEvent(index: number) {
+  const items = document.querySelectorAll('.events__carousel-item');
+
+  items.forEach((el, i) => {
+    el.classList.toggle('is-active', i === index);
+  });
+}
 }
