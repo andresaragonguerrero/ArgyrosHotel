@@ -157,10 +157,10 @@ export class Home implements AfterViewInit {
   }
 
   setActiveEvent(index: number) {
-  const items = document.querySelectorAll('.events__carousel-item');
+    const items = document.querySelectorAll('.events__carousel-item');
 
-  items.forEach((el, i) => {
-    el.classList.toggle('is-active', i === index);
-  });
-}
+    items.forEach((el, i) => {
+      el.classList.toggle('is-active', i === index);
+    });
+  }
 }
