@@ -360,7 +360,7 @@
 .section__introduction {
     overflow: hidden;
 
-    padding: var(--space-6) 10%;
+    padding: var(--space-10) 10% var(--space-4);
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -371,11 +371,12 @@
 }
 
 .section__introduction-gallery {
+    height: fit-content;
+
     position: relative;
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 45rem;
 }
 
 .section__introduction-gallery .section__introduction-image {
@@ -390,7 +391,7 @@
 
     position: relative;
     z-index: 1;
-    transform: translate(-15%, -10%);
+    transform: translateX(-15%);
 }
 
 .section__introduction-gallery .section__introduction-image:last-child {
