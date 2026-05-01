@@ -60,7 +60,8 @@
     align-items: center;
     gap: var(--space-3);
 
-    color: var(--accent-300);
+    // color: var(--accent-300);
+    color: #FC8C4D;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
@@ -74,7 +75,8 @@
 
     flex-grow: 1;
 
-    background-color: var(--accent-300);
+    // background-color: var(--accent-300);
+    background-color: #FC8C4D;
 }
 
 .article__motto h1 {
@@ -84,7 +86,8 @@
 }
 
 .article__motto .text-h1 {
-    color: var(--text-inverse);
+    // color: var(--text-inverse);
+    color: #FFFFFF;
     line-height: 1.1;
 
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
