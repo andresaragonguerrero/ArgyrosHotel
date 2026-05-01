@@ -839,9 +839,11 @@
 .rooms__card-title {
     padding: var(--space-1) var(--space-2);
 
-    outline: 1px solid var(--text-inverse);
+    // outline: 1px solid var(--text-inverse);
+    outline: 1px solid #FFFFFF;
 
-    color: var(--text-inverse);
+    // color: var(--text-inverse);
+    color: #FFFFFF;
     font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
     letter-spacing: 0.5px;
 
@@ -849,7 +851,8 @@
 }
 
 .rooms__card-description {
-    color: var(--background-color);
+    // color: var(--background-color);
+    color: #F0F7FC;
     font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
     font-weight: 600;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -972,11 +975,13 @@
 .rooms__sidebar-title {
     padding: var(--space-1) var(--space-2);
 
-    color: var(--text-inverse);
+    // color: var(--text-inverse);
+    color: #FFFFFF;
     font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem);
     letter-spacing: 0.5px;
 
-    outline: 1px solid var(--text-inverse);
+    // outline: 1px solid var(--text-inverse);
+    outline: 1px solid #FFFFFF;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
