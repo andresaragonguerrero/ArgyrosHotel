@@ -360,7 +360,7 @@
 .section__introduction {
     overflow: hidden;
 
-    padding: var(--space-10) 10% var(--space-4);
+    padding: var(--space-9) 10%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -472,7 +472,7 @@
 // ------ HABITACIONES ------
 
 .section__booking-rooms {
-    padding: var(--space-7) 10%;
+    padding: var(--space-9) 10%;
 
     display: grid;
     grid-template-columns: 40% 60%;
@@ -1049,14 +1049,14 @@
 
 .section__booking-services {
     position: relative;
-    padding: var(--space-7) 0;
+    padding: var(--space-9) 0;
 
     background-color: var(--background-color);
     background-attachment: fixed;
 }
 
 .services__header {
-    height: 60dvh;
+    height: 80dvh;
 
     background-image: url("https://welcometoalicante.info/wp-content/uploads/2024/05/Playa_del_Postiguet_Alicante_Espana_2014-07-04_DD_47-1-scaled.webp");
     background-size: cover;
@@ -1401,7 +1401,7 @@
 // ------ EVENTOS ------
 
 .section__booking-events {
-    padding: var(--space-7) 10%;
+    padding: var(--space-9) 10%;
 
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -1685,14 +1685,14 @@
 
 .section__entertainment {
     position: relative;
-    padding: var(--space-7) 0;
+    padding: var(--space-9) 0;
 
     background-color: var(--background-color);
     background-attachment: fixed;
 }
 
 .entertainment__header {
-    height: 60dvh;
+    height: 80dvh;
 
     /* Ermal Murati */
     background-image: url("https://images.pexels.com/photos/27830772/pexels-photo-27830772.jpeg");
@@ -2010,21 +2010,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: var(--primary-100);
 }
 
 .section__quote .article__brand-logo,
 .section__storytelling .article__brand-logo {
     height: auto;
-    width: 28rem;
+    width: 22rem;
 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-
-    color: var(--primary-200);
+    color: var(--primary-300);
     opacity: 0.2;
 
     z-index: 0;
