@@ -363,7 +363,7 @@
 .section__introduction {
     overflow: hidden;
 
-    padding: var(--space-9) 10%;
+    padding: var(--space-9) 5%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -475,7 +475,7 @@
 // ------ HABITACIONES ------
 
 .section__booking-rooms {
-    padding: var(--space-9) 10%;
+    padding: var(--space-9) 5%;
 
     display: grid;
     grid-template-columns: 40% 60%;
@@ -1414,7 +1414,7 @@
 // ------ EVENTOS ------
 
 .section__booking-events {
-    padding: var(--space-9) 10%;
+    padding: var(--space-9) 5%;
 
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -2027,7 +2027,7 @@
     overflow: hidden;
 
     position: relative;
-    padding: var(--space-11) 10%;
+    padding: var(--space-11) 5%;
 
     display: flex;
     justify-content: center;
