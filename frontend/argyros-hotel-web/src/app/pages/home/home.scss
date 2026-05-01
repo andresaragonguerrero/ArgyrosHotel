@@ -1116,7 +1116,8 @@
 
 .services__title {
     letter-spacing: 0.02em;
-    color: var(--text-inverse);
+    // color: var(--text-inverse);
+    color: #FFFFFF;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -1124,7 +1125,8 @@
 .services__benefits {
     max-width: 90%;
 
-    color: var(--background-color);
+    // color: var(--background-color);
+    color: #F0F7FC;
     line-height: 1.8;
     font-weight: 600;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
@@ -1142,9 +1144,11 @@
     padding: var(--space-3) var(--space-6);
 
     border: none;
-    outline: 1px solid var(--text-inverse);
+    // outline: 1px solid var(--text-inverse);
+    outline: 1px solid #FFFFFF;
 
-    color: var(--text-inverse);
+    // color: var(--text-inverse);
+    color: #FFFFFF;
     background-color: transparent;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -1157,7 +1161,8 @@
 }
 
 .services__cta:hover {
-    color: var(--text-muted);
+    // color: var(--text-muted);
+    color: #FFFFFF;
     background-color: var(--text-inverse);
 }
 
