@@ -138,53 +138,15 @@
     gap: var(--space-2);
 }
 
-.article__booking-date--button {
-    width: 100%;
-}
-
 .article__booking-room,
 .article__booking-promo,
 .article__booking-booking {
     width: 70%;
 }
 
-.article__booking-button {
+.section__hero .button {
     height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-2);
-
-    outline: 1px solid transparent;
-    border: none;
-
-    box-shadow: var(--shadow-sm);
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s ease-out,
-        outline 0.3s ease-out,
-        transform 70ms ease-out;
-}
-
-.article__booking-button:hover {
-    outline: 1px solid var(--secondary-color);
-    background-color: var(--surface-hover);
-    box-shadow: var(--shadow-md);
-}
-
-.article__booking-button:active {
-    transform: scale(0.98);
-    box-shadow: 0 0 0 transparent;
-}
-
-.article__booking-button:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+    width: 100%;
 }
 
 .article__booking .icon {

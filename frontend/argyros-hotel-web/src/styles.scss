@@ -203,8 +203,6 @@ a {
 
    Alfa Slab One  → títulos (display, h1, h2, h3)
    Gentium Book Plus → todo lo demás
-   Base mínima accesible: 1rem (≥16px) en cuerpo
-   Los títulos escalan entre ~viewport móvil y escritorio
 ─────────────────────────────────────────────────── */
 
 .text-display {
@@ -305,3 +303,162 @@ a {
     text-transform: uppercase;
     line-height: 1.4;
 }
+
+/* ── Jerarquía botones ────────────────────────────
+
+    Categorizados por jerarquía y tamaño
+─────────────────────────────────────────────────── */
+
+.button {
+    height: 100%;
+
+    position: relative;
+    padding: var(--space-2) var(--space-4);
+    z-index: 1;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2);
+
+    border: none;
+    border-radius: 0;
+
+    letter-spacing: 2px;
+
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+    cursor: pointer;
+}
+
+.button:hover {
+    letter-spacing: 3px;
+    border-radius: var(--space-1) var(--space-5);
+    box-shadow: var(--shadow-sm);
+}
+
+.button--primary {
+    background-color: var(--accent-400);
+    color: var(--text-inverse);
+
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.button--primary:hover {
+    background-color: var(--accent-color);
+}
+
+.button--primary:active {
+    background-color: var(--primary-800);
+    color: var(--text-inverse);
+}
+
+.button--primary:focus-visible {
+    background-color: var(--primary-color);
+    color: var(--text-inverse);
+}
+
+.button--secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.button--secondary:hover {
+    background-color: var(--primary-50);
+}
+
+.button--secondary:active {
+    background-color: var(--secondary-800);
+    color: var(--text-inverse);
+}
+
+.button--secondary:focus-visible {
+    background-color: var(--secondary-color);
+    color: var(--text-inverse);
+}
+
+.button--ghost {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.button--ghost:hover {
+    background-color: var(--primary-50);
+    color: var(--primary-700);
+}
+
+.button--ghost:active {
+    background-color: var(--primary-100);
+    color: var(--primary-800);
+}
+
+.button--ghost:focus-visible {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.button--icon {
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.button--icon:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-color);
+}
+
+.button--icon:active {
+    background-color: var(--background-muted);
+    color: var(--text-color);
+}
+
+.button--icon:focus-visible {
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.button--card {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.button--card:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-color);
+}
+
+.button--card:active {
+    background-color: var(--background-muted);
+    color: var(--text-color);
+}
+
+.button--card:focus-visible {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.button--input {
+    background-color: var(--surface-color);
+    color: var(--text-muted);
+}
+
+.button--input:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-color);
+}
+
+.button--input:active {
+    background-color: var(--background-muted);
+    color: var(--text-color);
+}
+
+.button--input:focus-visible {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.button--sm {}
+
+.button--md {}
+
+.button--lg {}
