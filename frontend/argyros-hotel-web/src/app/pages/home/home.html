@@ -163,7 +163,7 @@
                 cada habitación combina elegancia mediterránea con confort moderno.
             </p>
 
-            <a href="#" class="rooms__cta text-body">
+            <a href="#" class="button button--secondary text-body">
                 <span>Explorar todas las opciones</span>
                 <svg class="icon rooms__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
@@ -173,14 +173,14 @@
             <div class="sliders">
 
                 <!-- botón de desplazamiento -->
-                <button class="button-slide button-slide--prev" (click)="scrollPrev()" [disabled]="isAtStart">
+                <button class="button button--ghost button--prev" (click)="scrollPrev()" [disabled]="isAtStart">
                     <svg class="icon rooms__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
                     </svg>
                 </button>
 
                 <!-- botón de desplazamiento -->
-                <button class="button-slide button-slide--next" (click)="scrollNext()" [disabled]="isAtEnd">
+                <button class="button button--ghost button--next" (click)="scrollNext()" [disabled]="isAtEnd">
                     <svg class="icon rooms__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="currentColor"
                             d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
@@ -212,7 +212,7 @@
                                 <div class="rooms__card-info">
                                     <h3 class="rooms__card-title text-caption">Suite Deluxe</h3>
                                     <p class="rooms__card-description text-caption">Precio: 100€</p>
-                                    <button class="rooms__card-button text-label">Resérvala</button>
+                                    <button class="button button--card text-label">Resérvala</button>
                                 </div>
                             </li>
                             <li class="rooms__card">
@@ -226,7 +226,7 @@
                                 <div class="rooms__card-info">
                                     <h3 class="rooms__card-title text-body">Suite</h3>
                                     <p class="rooms__card-description text-caption">Precio: 80€</p>
-                                    <button class="rooms__card-button text-label">Resérvala</button>
+                                    <button class="button button--card text-label">Resérvala</button>
                                 </div>
                             </li>
                             <li class="rooms__card">
@@ -240,7 +240,7 @@
                                 <div class="rooms__card-info">
                                     <h3 class="rooms__card-title text-body">Familiar</h3>
                                     <p class="rooms__card-description text-caption">Precio: 40€</p>
-                                    <button class="rooms__card-button text-label">Resérvala</button>
+                                    <button class="button button--card text-label">Resérvala</button>
                                 </div>
                             </li>
                         </ul>

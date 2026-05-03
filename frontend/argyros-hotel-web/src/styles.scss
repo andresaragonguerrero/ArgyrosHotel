@@ -310,19 +310,15 @@ a {
 ─────────────────────────────────────────────────── */
 
 .button {
-    height: 100%;
-
     position: relative;
     padding: var(--space-2) var(--space-4);
     z-index: 1;
 
     display: inline-flex;
-    justify-content: center;
     align-items: center;
     gap: var(--space-2);
 
     border: none;
-    border-radius: 0;
 
     letter-spacing: 2px;
 
@@ -333,11 +329,14 @@ a {
 
 .button:hover {
     letter-spacing: 3px;
-    border-radius: var(--space-1) var(--space-5);
     box-shadow: var(--shadow-sm);
 }
 
 .button--primary {
+    justify-content: center;
+
+    border-radius: 0;
+
     background-color: var(--accent-400);
     color: var(--text-inverse);
 
@@ -345,6 +344,7 @@ a {
 }
 
 .button--primary:hover {
+    border-radius: var(--space-1) var(--space-5);
     background-color: var(--accent-color);
 }
 
@@ -359,15 +359,19 @@ a {
 }
 
 .button--secondary {
-    background-color: transparent;
+    outline: 1px solid var(--primary-200);
+
+    background-color: var(--surface-color);
     color: var(--primary-color);
 }
 
 .button--secondary:hover {
-    background-color: var(--primary-50);
+    background-color: var(--surface-hover);
 }
 
 .button--secondary:active {
+    outline: 1px solid var(--accent-color);
+    
     background-color: var(--secondary-800);
     color: var(--text-inverse);
 }
@@ -378,13 +382,37 @@ a {
 }
 
 .button--ghost {
-    background-color: transparent;
+    overflow: hidden;
+
+    border-radius: 0;
+    outline: 1px solid var(--primary-200);
+
+    background-color: var(--surface-color);
     color: var(--primary-color);
 }
 
-.button--ghost:hover {
+.button--ghost::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
     background-color: var(--primary-50);
+
+    transform: scale(0);
+
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.button--ghost:hover {
+    border-radius: var(--space-1) var(--space-3);
+
+    background-color: var(--surface-hover);
     color: var(--primary-700);
+}
+
+.button--ghost:hover::before {
+    transform: scale(1);
 }
 
 .button--ghost:active {
@@ -393,8 +421,20 @@ a {
 }
 
 .button--ghost:focus-visible {
+    // quizás haya que añadir un outline y un outline-offset: 2px
     background-color: transparent;
     color: var(--primary-color);
+}
+
+.button--ghost:disabled {
+    opacity: 0.5;
+    border-color: var(--primary-100);
+    cursor: not-allowed;
+}
+
+.button--ghost:disabled:hover {
+    background-color: var(--surface-color);
+    border-color: var(--primary-100);
 }
 
 .button--icon {
@@ -418,13 +458,16 @@ a {
 }
 
 .button--card {
-    background-color: var(--surface-color);
-    color: var(--text-color);
+    outline: 1px solid transparent;
+    border-radius: 0;
+
+    box-shadow: var(--shadow-md);
+    background-color: #FFFFFF;
+    color: #0C2740;
 }
 
 .button--card:hover {
-    background-color: var(--surface-hover);
-    color: var(--text-color);
+    border-radius: var(--space-1) var(--space-3);
 }
 
 .button--card:active {
@@ -438,11 +481,17 @@ a {
 }
 
 .button--input {
+    justify-content: center;
+
+    border-radius: 0;
+
     background-color: var(--surface-color);
     color: var(--text-muted);
 }
 
 .button--input:hover {
+    border-radius: var(--space-1) var(--space-5);
+
     background-color: var(--surface-hover);
     color: var(--text-color);
 }
@@ -455,6 +504,17 @@ a {
 .button--input:focus-visible {
     background-color: var(--surface-color);
     color: var(--text-color);
+}
+
+.article__header .button--secondary {
+    height: 3rem;
+    width: fit-content;
+
+    gap: var(--space-2);
+}
+
+.article__header .button--secondary:hover {
+    gap: var(--space-5);
 }
 
 .button--sm {}
