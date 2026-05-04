@@ -319,6 +319,7 @@ a {
     gap: var(--space-2);
 
     border: none;
+    border-radius: 0;
 
     letter-spacing: 2px;
 
@@ -330,12 +331,11 @@ a {
 .button:hover {
     letter-spacing: 3px;
     box-shadow: var(--shadow-sm);
+    border-radius: var(--space-1) var(--space-3);
 }
 
 .button--primary {
     justify-content: center;
-
-    border-radius: 0;
 
     background-color: var(--accent-400);
     color: var(--text-inverse);
@@ -344,7 +344,6 @@ a {
 }
 
 .button--primary:hover {
-    border-radius: var(--space-1) var(--space-5);
     background-color: var(--accent-color);
 }
 
@@ -384,7 +383,6 @@ a {
 .button--ghost {
     overflow: hidden;
 
-    border-radius: 0;
     outline: 1px solid var(--primary-200);
 
     background-color: var(--surface-color);
@@ -405,8 +403,6 @@ a {
 }
 
 .button--ghost:hover {
-    border-radius: var(--space-1) var(--space-3);
-
     background-color: var(--surface-hover);
     color: var(--primary-700);
 }
@@ -459,7 +455,6 @@ a {
 
 .button--card {
     outline: 1px solid transparent;
-    border-radius: 0;
 
     box-shadow: var(--shadow-md);
     background-color: #FFFFFF;
@@ -467,7 +462,7 @@ a {
 }
 
 .button--card:hover {
-    border-radius: var(--space-1) var(--space-3);
+
 }
 
 .button--card:active {
@@ -483,15 +478,11 @@ a {
 .button--input {
     justify-content: center;
 
-    border-radius: 0;
-
     background-color: var(--surface-color);
     color: var(--text-muted);
 }
 
 .button--input:hover {
-    border-radius: var(--space-1) var(--space-5);
-
     background-color: var(--surface-hover);
     color: var(--text-color);
 }

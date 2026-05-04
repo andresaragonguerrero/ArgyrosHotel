@@ -507,7 +507,7 @@
             var(--accent-300));
 
     clip-path: inset(0 0 0 100%);
-    transition: clip-path 2.5s cubic-bezier(0.2, 1, 0.4, 1);
+    transition: clip-path 3s cubic-bezier(0.2, 1, 0.4, 1);
 }
 
 .rooms__overline.is-visible::before {
