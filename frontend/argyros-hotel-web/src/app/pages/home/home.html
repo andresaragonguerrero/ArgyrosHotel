@@ -644,14 +644,14 @@
                     Hazte miembro y accede a ventajas exclusivas que elevan tu experiencia.
                 </p>
 
-                <button class="entertainment__cta text-body">Más información</button>
+                <button class="button button-card text-body">Más información</button>
             </div>
         </article>
 
         <article class="entertainment__body">
 
             <!-- botón de desplazamiento -->
-            <button class="button-slide button-slide--prev" (click)="scrollPrevEnt()" [disabled]="isAtStartEnt">
+            <button class="button button--ghost" (click)="scrollPrevEnt()" [disabled]="isAtStartEnt">
                 <svg class="icon entertainment__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
                 </svg>
@@ -671,7 +671,7 @@
                         <p class="entertainment__card-description text-body">
                             Ofrecemos la reposición de películas clásicas cada jueves a las 22h celebrado al aire libre.
                         </p>
-                        <button class="entertainment__card-button text-body">Más información</button>
+                        <button class="button button-card text-body">Más información</button>
                     </div>
                 </li>
 
@@ -687,7 +687,7 @@
                             Se ofrece un alquiler gratuito de bicicletas a cada residente para su uso exclusivo por el
                             pueblo.
                         </p>
-                        <button class="entertainment__card-button text-body">Más información</button>
+                        <button class="button button-card text-body">Más información</button>
                     </div>
                 </li>
 
@@ -704,7 +704,7 @@
                             Disfruta de la variedad de actuaciones musicales en vivo que ofrecemos los viernes y fines
                             de semana.
                         </p>
-                        <button class="entertainment__card-button text-body">Más información</button>
+                        <button class="button button-card text-body">Más información</button>
                     </div>
                 </li>
 
@@ -720,7 +720,7 @@
                         <p class="entertainment__card-description text-body">
                             Se ofrece una amplia variedad de actividades lúdicas orientadas a los pequeños.
                         </p>
-                        <button class="entertainment__card-button text-body">Más información</button>
+                        <button class="button button-card text-body">Más información</button>
                     </div>
                 </li>
 
@@ -736,13 +736,13 @@
                         <p class="entertainment__card-description text-body">
                             Los residentes tendrán a su disposición zonas dedicadas a deportes y a juegos acuáticos.
                         </p>
-                        <button class="entertainment__card-button text-body">Más información</button>
+                        <button class="button button-card text-body">Más información</button>
                     </div>
                 </li>
             </ul>
 
             <!-- botón de desplazamiento -->
-            <button class="button-slide button-slide--next" (click)="scrollNextEnt()" [disabled]="isAtEndEnt">
+            <button class="button button--ghost" (click)="scrollNextEnt()" [disabled]="isAtEndEnt">
                 <svg class="icon entertainment__button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z" />
                 </svg>
