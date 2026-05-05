@@ -509,7 +509,10 @@ a {
     gap: var(--space-5);
 }
 
-.button--sm {}
+.button--sm {
+    height: 3rem;
+    width: 3rem;
+}
 
 .button--md {}
 
