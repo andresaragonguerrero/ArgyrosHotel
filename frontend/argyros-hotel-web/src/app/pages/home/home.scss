@@ -41,55 +41,63 @@
 .article__motto {
     width: 70%;
 
-    margin: var(--space-6) auto 0;
+    margin: var(--space-2) auto 0;
     align-self: center;
     justify-self: start;
     z-index: 2;
 }
 
 .article__motto--wrapper {
+    width: fit-content;
     max-width: 50%;
 
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    align-self: flex-start;
+}
+
+.article__motto--wrapper h1 {
+    margin: 0 0 0.5rem 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+}
+
+.text-h1 {
+    display: block;
+    white-space: nowrap;
 }
 
 .article__motto-brand {
+    width: 100%;
+
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
 
-    // color: var(--accent-300);
-    color: #FC8C4D;
     letter-spacing: 0.2em;
+    text-align: right;
     text-transform: uppercase;
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
+    color: #FC8C4D;
     white-space: nowrap;
 }
 
 .article__motto-brand::before {
-    content: "";
+    content: '';
 
     height: 2px;
 
     flex-grow: 1;
 
-    // background-color: var(--accent-300);
     background-color: #FC8C4D;
 }
 
-.article__motto h1 {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
 .article__motto .text-h1 {
-    // color: var(--text-inverse);
     color: #FFFFFF;
     line-height: 1.1;
-
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
