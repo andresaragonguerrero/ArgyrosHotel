@@ -322,15 +322,12 @@ a {
     border-radius: 0;
     appearance: none;
 
-    letter-spacing: 2px;
-
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 
     cursor: pointer;
 }
 
 .button:hover {
-    letter-spacing: 3px;
     box-shadow: var(--shadow-sm);
     border-radius: var(--space-1) var(--space-3);
 }
@@ -359,20 +356,23 @@ a {
 }
 
 .button--secondary {
-    outline: 1px solid var(--primary-200);
+    border: 1px solid var(--primary-200);
 
     background-color: var(--surface-color);
     color: var(--primary-color);
 }
 
 .button--secondary:hover {
-    background-color: var(--surface-hover);
+    border: 1px solid var(--primary-700);
+
+    background-color: transparent;
+    color: var(--primary-900);
 }
 
 .button--secondary:active {
     outline: 1px solid var(--accent-color);
     
-    background-color: var(--secondary-800);
+    background-color: var(--secondary-900);
     color: var(--text-inverse);
 }
 
@@ -384,7 +384,7 @@ a {
 .button--ghost {
     overflow: hidden;
 
-    outline: 1px solid var(--primary-200);
+    border: 1px solid var(--primary-200);
 
     background-color: var(--surface-color);
     color: var(--primary-color);
@@ -404,8 +404,10 @@ a {
 }
 
 .button--ghost:hover {
+    border: 1px solid var(--primary-700);
+
     background-color: var(--surface-hover);
-    color: var(--primary-700);
+    color: var(--primary-900);
 }
 
 .button--ghost:hover::before {
@@ -455,15 +457,18 @@ a {
 }
 
 .button--card {
-    outline: 1px solid transparent;
+    border: 1px solid transparent;
 
     box-shadow: var(--shadow-md);
-    background-color: #FFFFFF;
+    background-color: #F0F7FC;
     color: #0C2740;
 }
 
 .button--card:hover {
+    border: 1px solid #F0F7FC;
 
+    background-color: transparent;
+    color: #FFFFFF;
 }
 
 .button--card:active {
@@ -479,12 +484,16 @@ a {
 .button--input {
     justify-content: center;
 
+    border: 1px solid transparent;
+
     background-color: var(--surface-color);
     color: var(--text-muted);
 }
 
 .button--input:hover {
-    background-color: var(--surface-hover);
+    border: 1px solid var(--primary-700);
+
+    background-color: transparent;
     color: var(--text-color);
 }
 
