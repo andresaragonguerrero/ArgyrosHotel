@@ -1021,7 +1021,7 @@
     gap: var(--space-6);
 
     background-color: var(--surface-color);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .services__filters {
@@ -1597,7 +1597,6 @@
 
 .entertainment__title {
     letter-spacing: 0.02em;
-    // color: var(--text-inverse);
     color: #FFFFFF;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
@@ -1606,7 +1605,6 @@
 .entertainment__benefits {
     max-width: 90%;
 
-    // color: var(--background-color);
     color: #F0F7FC;
     line-height: 1.8;
     font-weight: 600;
@@ -1625,10 +1623,8 @@
     padding: var(--space-3) var(--space-6);
 
     border: none;
-    // outline: 1px solid var(--text-inverse);
     outline: 1px solid #FFFFFF;
 
-    // color: var(--text-inverse);
     color: #FFFFFF;
     background-color: transparent;
     font-weight: 700;
@@ -1642,7 +1638,6 @@
 }
 
 .entertainment__cta:hover {
-    // color: var(--text-muted);
     color: #FFFFFF;
     background-color: var(--text-inverse);
 }
@@ -1660,7 +1655,6 @@
     width: 80dvw;
 
     position: relative;
-    // padding-bottom: var(--space-6);
     margin: -3rem auto 0;
     z-index: 3;
 
@@ -1672,13 +1666,12 @@
     overflow: hidden;
 
     position: relative;
-    padding: 0;
+    padding: 0 0 var(--space-10) 0;
     margin: 0;
 
     display: flex;
 
-    box-shadow: var(--shadow-md);
-    background-color: var(--background-color);
+    background-color: transparent;
 }
 
 .entertainment__body .button--ghost {
@@ -1718,41 +1711,39 @@
     position: relative;
     padding: var(--space-1);
 
+    display: flex;
     flex: 0 0 25%;
-}
+    flex-direction: column;
 
-.entertainment__item:nth-child(odd) {
-    background-color: var(--surface-color);
-}
-
-.entertainment__item:nth-child(even) {
-    // transform: translateY(8px);
     background-color: var(--surface-raised);
 }
 
-.entertainment__card-image {
-    height: 12rem;
-    width: 100%;
-
-    position: static;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.entertainment__item:nth-child(even) {
+    transform: translateY(var(--space-7));
 }
 
-.entertainment__item:nth-child(odd) .entertainment__card-image {
-    transform: scaleY(1.1);
-    transform-origin: top;
+.entertainment__card-image {
+    height: 20rem;
+    width: 100%;
+
+    z-index: 1;
+
+    object-fit: cover;
 }
 
 .entertainment__card-info {
     position: relative;
-    padding: var(--space-1);
+    margin: -3rem var(--space-2) 0 var(--space-2);
+    padding: var(--space-4);
+
     z-index: 2;
 
     display: grid;
-    grid-template-rows: auto auto auto;
-    gap: var(--space-4);
+    grid-template-rows: auto auto 1fr auto;
+    gap: var(--space-3);
+
+    box-shadow: var(--shadow-sm);
+    background-color: var(--background-color);
 }
 
 .entertainment__card-info .entertainment__card-title,
@@ -1760,23 +1751,25 @@
     color: var(--text-muted);
 }
 
+.entertainment__card-caption {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--accent-color);
+}
+
 .entertainment__card-title {
-    height: 3rem;
-
-    padding: 0 var(--space-2);
-
-    display: inline-block;
+    margin: 0;
 
     color: var(--text-color);
-    backdrop-filter: blur(2px);
 }
 
-.entertainment__item:nth-child(odd) .entertainment__card-title {
-    background-color: var(--surface-color);
-}
+.entertainment__card-description {
+    overflow: hidden;
 
-.entertainment__item:nth-child(even) .entertainment__card-title {
-    background-color: var(--surface-raised);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    align-self: start;
 }
 
 .entertainment__card-button {
