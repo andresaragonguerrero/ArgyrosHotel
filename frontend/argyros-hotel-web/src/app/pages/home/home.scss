@@ -1772,31 +1772,6 @@
     align-self: start;
 }
 
-.entertainment__card-button {
-    padding: var(--space-2) var(--space-4);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: none;
-
-    color: var(--text-inverse);
-    background-color: var(--accent-color);
-    box-shadow: var(--shadow-md);
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition: background-color 0.3s ease-out;
-}
-
-.entertainment__card-button:hover {
-    background-color: var(--accent-600);
-    box-shadow: var(--shadow-lg);
-}
-
 // ------ QUOTE & STORYTELLING ------
 .section__quote,
 .section__storytelling {
