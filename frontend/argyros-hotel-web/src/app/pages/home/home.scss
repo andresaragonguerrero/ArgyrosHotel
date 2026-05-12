@@ -1413,6 +1413,8 @@
 }
 
 .events__carousel-item {
+    width: 100%;
+
     position: relative;
     overflow: hidden;
 
@@ -1424,10 +1426,19 @@
 
 .events__carousel-item:not(.is-active) {
     height: 6rem;
+    width: 92%;
 
     border-color: transparent;
     border-bottom: 1px solid var(--primary-100);
     background-color: var(--primary-50);
+}
+
+.events__carousel-item:not(.is-active):nth-child(odd) {
+    align-self: flex-start;
+}
+
+.events__carousel-item:not(.is-active):nth-child(even) {
+    align-self: flex-end;
 }
 
 .events__carousel-item:not(.is-active) .events__carousel-image {
@@ -1440,42 +1451,6 @@
     background: transparent;
 }
 
-// .events__carousel-item:not(.is-active) .events__carousel-content::before,
-// .events__carousel-item:not(.is-active) .events__carousel-content::after {
-//     content: "";
-
-//     position: absolute;
-
-//     height: 1.5rem;
-//     width: 5rem;
-    
-//     // quizás habría que cambiar este color por un --accent-color
-//     border: 2px solid var(--primary-color);
-//     z-index: 4;
-//     pointer-events: none;
-//     opacity: 1;
-//     transition: opacity 0.3s ease;
-// }
-
-// .events__carousel-item:not(.is-active) .events__carousel-content::before {
-//     top: 0;
-//     left: 0;
-//     border-right: none;
-//     border-bottom: none;
-// }
-
-// .events__carousel-item:not(.is-active) .events__carousel-content::after {
-//     bottom: 0;
-//     right: 0;
-//     border-left: none;
-//     border-top: none;
-// }
-
-// .events__carousel-item.is-active .events__carousel-content::before,
-// .events__carousel-item.is-active .events__carousel-content::after {
-//     opacity: 0;
-// }
-
 .events__carousel-item:not(.is-active) .events__item-label {
     padding: var(--space-1) var(--space-2);
 
@@ -1487,6 +1462,9 @@
 
 .events__carousel-item.is-active {
     height: 60dvh;
+    width: 100%;
+
+    align-self: center;
 }
 
 .events__carousel-image {
