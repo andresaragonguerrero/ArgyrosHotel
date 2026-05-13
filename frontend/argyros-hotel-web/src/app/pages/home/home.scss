@@ -330,25 +330,30 @@
 }
 
 .section__introduction-gallery .section__introduction-image:first-child {
-    width: 70%;
-    height: 35rem;
+    width: 80%;
+    height: 38rem;
 
     position: relative;
     z-index: 1;
-    transform: none;
+    padding: var(--space-2);
+
+    border: 1px solid var(--primary-100);
+    box-shadow: var(--shadow-sm);
+    background-color: var(--surface-color);
 }
 
 .section__introduction-gallery .section__introduction-image:last-child {
-    width: 55%;
-    height: 25rem;
+    width: 50%;
+    height: 18rem;
 
     position: absolute;
     z-index: 2;
-    bottom: 10%;
-    right: 5%;
+    top: auto;
+    bottom: 42%;
+    right: -2%;
 
-
-    border: 8px solid var(--background-color);
+    border: var(--space-2) solid var(--background-color);
+    box-shadow: var(--shadow-sm);
 }
 
 .section__introduction-text {
