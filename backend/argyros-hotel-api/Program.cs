@@ -8,6 +8,17 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Puerto por defecto de Vite
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,7 +47,10 @@ builder.Services.AddScoped<IPricingService, PricingService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
 builder.Services.AddScoped<ISavingService, SavingService>();
 
+builder.Services.AddScoped<AvailabilityService>();
+
 var app = builder.Build();
+app.UseCors("AllowFrontend");
 
 // Middleware
 if (app.Environment.IsDevelopment())

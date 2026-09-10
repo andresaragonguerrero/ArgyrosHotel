@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# React / Vite (frontend)
+dist/
+.env
+.env.local
+.vite/
