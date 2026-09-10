@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Navbar } from './components/Navbar';
 import { RoomsPage } from './pages/RoomsPage';
 import { ServicesPage } from './pages/ServicesPage';
+import { BookingsPage } from './pages/BookingsPage';
 
 export function App() {
   return (
@@ -12,7 +13,7 @@ export function App() {
           <Route path="/" element={<Navigate to="/rooms" replace />} />
           <Route path="/rooms" element={<RoomsPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/bookings" element={<div>Próximamente: Vista de Reservas</div>} />
+          <Route path="/bookings" element={<BookingsPage />} />
         </Routes>
       </main>
     </Router>
