@@ -50,7 +50,10 @@ builder.Services.AddScoped<ISavingService, SavingService>();
 builder.Services.AddScoped<AvailabilityService>();
 
 var app = builder.Build();
+
 app.UseCors("AllowFrontend");
+
+app.UseStaticFiles();
 
 // Middleware
 if (app.Environment.IsDevelopment())

@@ -4,34 +4,39 @@
     "Name": "Single Room",
     "Capacity": 1,
     "BasePrice": 80.00,
-    "TotalRooms": 10
+    "TotalRooms": 10,
+    "ImageUrl": "/images/rooms/single-room.jpg"
   },
   {
     "Id": "22222222-2222-2222-2222-222222222222",
     "Name": "Double Room",
     "Capacity": 2,
     "BasePrice": 120.00,
-    "TotalRooms": 15
+    "TotalRooms": 15,
+    "ImageUrl": "/images/rooms/double-room.jpg"
   },
   {
     "Id": "33333333-3333-3333-3333-333333333333",
     "Name": "Family Room",
     "Capacity": 4,
     "BasePrice": 180.00,
-    "TotalRooms": 8
+    "TotalRooms": 8,
+    "ImageUrl": "/images/rooms/family-room.jpg"
   },
   {
     "Id": "44444444-4444-4444-4444-444444444444",
     "Name": "Deluxe Room",
     "Capacity": 2,
     "BasePrice": 220.00,
-    "TotalRooms": 5
+    "TotalRooms": 5,
+    "ImageUrl": "/images/rooms/deluxe-room.jpg"
   },
   {
     "Id": "55555555-5555-5555-5555-555555555555",
     "Name": "Suite",
     "Capacity": 3,
     "BasePrice": 350.00,
-    "TotalRooms": 3
+    "TotalRooms": 3,
+    "ImageUrl": "/images/rooms/suite.jpg"
   }
 ]
