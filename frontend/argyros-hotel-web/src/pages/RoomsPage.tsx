@@ -13,19 +13,19 @@ export const RoomsPage = () => {
 
                 <div className="rooms-carousel">
                     <button className="carousel-item">
-                        <img className="carousel-image" src="" alt="Single room" />
+                        <img className="carousel-image" src="../assets/images/rooms/single-room.jpg" alt="Single room" />
                     </button>
                     <button className="carousel-item">
-                        <img className="carousel-image" src="" alt="Double room" />
+                        <img className="carousel-image" src="../assets/images/rooms/double-room.jpg" alt="Double room" />
                     </button>
                     <button className="carousel-item">
-                        <img className="carousel-image" src="" alt="Family room" />
+                        <img className="carousel-image" src="../assets/images/rooms/family-room.jpg" alt="Family room" />
                     </button>
                     <button className="carousel-item">
-                        <img className="carousel-image" src="" alt="Deluxe room" />
+                        <img className="carousel-image" src="../assets/images/rooms/deluxe-room.jpg" alt="Deluxe room" />
                     </button>
                     <button className="carousel-item">
-                        <img className="carousel-image" src="" alt="Suite room" />
+                        <img className="carousel-image" src="../assets/images/rooms/suite.jpg" alt="Suite room" />
                     </button>
                 </div>
             </div>
