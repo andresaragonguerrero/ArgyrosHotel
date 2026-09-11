@@ -1,0 +1,42 @@
+export const mockRooms = [
+    {
+        id: '1',
+        name: 'Single Room',
+        basePrice: 60,
+        capacity: 1,
+        totalRooms: 5,
+        imageUrl: '../assets/images/rooms/single-room.jpg',
+    },
+    {
+        id: '2',
+        name: 'Double Room',
+        basePrice: 90,
+        capacity: 2,
+        totalRooms: 8,
+        imageUrl: '../assets/images/rooms/double-room.jpg',
+    },
+    {
+        id: '3',
+        name: 'Family Room',
+        basePrice: 130,
+        capacity: 4,
+        totalRooms: 4,
+        imageUrl: '../assets/images/rooms/family-room.jpg',
+    },
+    {
+        id: '4',
+        name: 'Deluxe Room',
+        basePrice: 160,
+        capacity: 2,
+        totalRooms: 3,
+        imageUrl: '../assets/images/rooms/deluxe-room.jpg',
+    },
+    {
+        id: '5',
+        name: 'Suite Room',
+        basePrice: 220,
+        capacity: 2,
+        totalRooms: 2,
+        imageUrl: '../assets/images/rooms/suite.jpg',
+    },
+];
