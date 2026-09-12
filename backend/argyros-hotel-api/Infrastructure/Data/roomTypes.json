@@ -5,7 +5,9 @@
     "Capacity": 1,
     "BasePrice": 80.00,
     "TotalRooms": 10,
-    "ImageUrl": "/images/rooms/single-room.jpg"
+    "ImageUrl": "/images/rooms/single-room.jpg",
+    "Description": "Habitación pensada para el viajero que busca comodidad sin excesos. Cuenta con una cama individual, escritorio de trabajo y baño privado. Su distribución compacta aprovecha cada rincón, ofreciendo un espacio funcional y luminoso, ideal para estancias cortas de negocios o descanso puntual durante un viaje.",
+    "SquareMeters": 18
   },
   {
     "Id": "22222222-2222-2222-2222-222222222222",
@@ -13,7 +15,9 @@
     "Capacity": 2,
     "BasePrice": 120.00,
     "TotalRooms": 15,
-    "ImageUrl": "/images/rooms/double-room.jpg"
+    "ImageUrl": "/images/rooms/double-room.jpg",
+    "Description": "Espacio amplio y luminoso equipado con cama doble o dos individuales, zona de descanso independiente y baño completo. Su diseño equilibra confort y funcionalidad, siendo la opción preferida por parejas o compañeros de viaje que buscan una estancia agradable sin renunciar al espacio personal.",
+    "SquareMeters": 26
   },
   {
     "Id": "33333333-3333-3333-3333-333333333333",
@@ -21,7 +25,9 @@
     "Capacity": 4,
     "BasePrice": 180.00,
     "TotalRooms": 8,
-    "ImageUrl": "/images/rooms/family-room.jpg"
+    "ImageUrl": "/images/rooms/family-room.jpg",
+    "Description": "Diseñada para familias, combina una cama doble con literas o camas adicionales en una distribución que separa las zonas de descanso. Ofrece espacio de sobra para el equipaje y el juego, además de un baño amplio, garantizando comodidad para todos los miembros durante toda la estancia.",
+    "SquareMeters": 35
   },
   {
     "Id": "44444444-4444-4444-4444-444444444444",
@@ -29,7 +35,9 @@
     "Capacity": 2,
     "BasePrice": 220.00,
     "TotalRooms": 5,
-    "ImageUrl": "/images/rooms/deluxe-room.jpg"
+    "ImageUrl": "/images/rooms/deluxe-room.jpg",
+    "Description": "Habitación superior con acabados de mayor calidad, zona de estar independiente y vistas privilegiadas. Incluye amenities exclusivos y un baño con bañera o ducha de diseño. Pensada para quienes buscan una experiencia más elevada, combinando amplitud, estilo y detalles que marcan la diferencia frente a las habitaciones estándar.",
+    "SquareMeters": 32
   },
   {
     "Id": "55555555-5555-5555-5555-555555555555",
@@ -37,6 +45,8 @@
     "Capacity": 3,
     "BasePrice": 350.00,
     "TotalRooms": 3,
-    "ImageUrl": "/images/rooms/suite.jpg"
+    "ImageUrl": "/images/rooms/suite.jpg",
+    "Description": "La máxima expresión de confort del hotel: salón separado del dormitorio, terraza privada y baño de lujo con bañera de hidromasaje. Cada detalle está cuidado para ofrecer una estancia excepcional, ideal para ocasiones especiales o huéspedes que desean disfrutar de un espacio exclusivo y espacioso.",
+    "SquareMeters": 48
   }
 ]

@@ -13,5 +13,9 @@ namespace argyros_hotel_api.Application.DTOs
         public int TotalRooms { get; set; }
 
         public string ImageUrl { get; set; } = string.Empty;
+
+        public string Description { get; set; } = string.Empty;
+
+        public int SquareMeters { get; set; }
     }
 }
