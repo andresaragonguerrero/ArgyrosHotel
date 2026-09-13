@@ -23,15 +23,19 @@ export const RoomsPage = () => {
 
       <div className="rooms-content">
         <div className="rooms-info">
-          <h2 className="rooms-info-title">{selectedRoom.name}</h2>
-          <p className="rooms-info-meta">
-            {selectedRoom.capacity} personas · {selectedRoom.squareMeters} m² ·
-            desde {selectedRoom.basePrice}€
-          </p>
-          <p className="rooms-info-text">{selectedRoom.description}</p>
+          <h2 className="rooms-info__title">{selectedRoom.name}</h2>
+
+          <p className="rooms-info__text">Desde {selectedRoom.basePrice}€</p>
+
+          <div className="rooms-info__meta">
+            <p className="rooms-info__meta-text">{selectedRoom.capacity} personas</p>
+            <p className="rooms-info__meta-text">{selectedRoom.squareMeters} m²</p>
+          </div>
+
+          <p className="rooms-info__text">{selectedRoom.description}</p>
         </div>
 
-        <div className="rooms-empty" />
+        <div className="rooms-services" />
 
         <div className="rooms-actions">
           <button type="button" className="rooms-action-btn">

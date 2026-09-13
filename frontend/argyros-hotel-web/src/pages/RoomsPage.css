@@ -27,21 +27,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-5);
+  gap: var(--space-4);
+  color: var(--text-inverse);
+  background-color: lightblue;
+}
+
+.rooms-info__title {
+  max-width: 200px;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-title);
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-wrap: balance;
+  line-height: 0.9;
   color: var(--text-inverse);
 }
 
-.rooms-info-title {
-  font-family: var(--secondary-font-family);
-}
-
-.rooms-info-meta,
-.rooms-info-text {
-  font-family: var(--primary-font-family);
-}
-
-.rooms-empty {
+.rooms-services {
   width: 100%;
   height: 100%;
 }
