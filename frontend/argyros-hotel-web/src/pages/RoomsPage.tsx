@@ -6,27 +6,35 @@ export const RoomsPage = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedRoom = mockRooms[selectedIndex];
 
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev === 0 ? mockRooms.length - 1 : prev - 1));
+  const goTo = (index: number) => {
+    if (document.startViewTransition) {
+      document.startViewTransition(() => setSelectedIndex(index));
+    } else {
+      setSelectedIndex(index);
+    }
   };
 
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev === mockRooms.length - 1 ? 0 : prev + 1));
-  };
+  const handlePrev = () =>
+    goTo(selectedIndex === 0 ? mockRooms.length - 1 : selectedIndex - 1);
+  const handleNext = () =>
+    goTo(selectedIndex === mockRooms.length - 1 ? 0 : selectedIndex + 1);
 
   return (
     <section className="rooms-section">
       <div
         className="rooms-background"
-        style={{ backgroundImage: `url(${selectedRoom.imageUrl})` }}
+        style={
+          {
+            backgroundImage: `url(${selectedRoom.imageUrl})`,
+            viewTransitionName: `room-image-${selectedRoom.id}`,
+          } as React.CSSProperties
+        }
       />
 
       <div className="rooms-content">
         <div className="rooms-info">
           <h2 className="rooms-info__title">{selectedRoom.name}</h2>
-
           <p className="rooms-info__text">Desde {selectedRoom.basePrice}€</p>
-
           <div className="rooms-info__meta">
             <p className="rooms-info__meta-text">
               {selectedRoom.capacity} personas
@@ -35,14 +43,16 @@ export const RoomsPage = () => {
               {selectedRoom.squareMeters} m²
             </p>
           </div>
-
           <p className="rooms-info__text">{selectedRoom.description}</p>
         </div>
 
         <div className="rooms-services" />
 
         <div className="rooms-actions">
-          <button type="button" className="rooms-action__button rooms-action__button--reserve">
+          <button
+            type="button"
+            className="rooms-action__button rooms-action__button--reserve"
+          >
             Reservar habitación
           </button>
           <button
@@ -96,12 +106,20 @@ export const RoomsPage = () => {
             <button
               key={room.id}
               className="carousel-item"
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => goTo(index)}
             >
               <img
                 className="carousel-image"
                 src={room.imageUrl}
                 alt={room.name}
+                style={
+                  {
+                    viewTransitionName:
+                      room.id === selectedRoom.id
+                        ? undefined
+                        : `room-image-${room.id}`,
+                  } as React.CSSProperties
+                }
               />
             </button>
           ))}

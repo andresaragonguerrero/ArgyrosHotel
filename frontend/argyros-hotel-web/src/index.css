@@ -5,7 +5,7 @@
   --ff-secondary: "Raleway", sans-serif;
 
   /* Cormorant Garamond */
-  --fs-title:    clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  --fs-title: clamp(2.5rem, 1.5rem + 4vw, 5rem);
   --fs-subtitle: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem);
 
   /* Raleway */
@@ -13,10 +13,10 @@
   --fs-eyebrow: clamp(0.7rem, 0.68rem + 0.1vw, 0.75rem);
 
   /* primera en mayúsculas, resto en minúsculas */
-  --fs-body:        clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --fs-body: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
   --fs-description: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
-  --fs-button:      clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
-  --fs-caption:     clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --fs-button: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  --fs-caption: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
 
   /* en cursivas */
   --fs-quote: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
@@ -193,6 +193,12 @@
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.45);
   --shadow-xl: 1px 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 
 *,
