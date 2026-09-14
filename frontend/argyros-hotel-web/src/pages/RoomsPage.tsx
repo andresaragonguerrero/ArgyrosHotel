@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { mockRooms } from "../mocks/rooms.mock";
 import "./RoomsPage.css";
 
 export const RoomsPage = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedRoom = mockRooms[selectedIndex];
+
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   const goTo = (index: number) => {
     if (document.startViewTransition) {
@@ -18,6 +23,41 @@ export const RoomsPage = () => {
     goTo(selectedIndex === 0 ? mockRooms.length - 1 : selectedIndex - 1);
   const handleNext = () =>
     goTo(selectedIndex === mockRooms.length - 1 ? 0 : selectedIndex + 1);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      const activeItem = carouselRef.current.children[
+        selectedIndex
+      ] as HTMLElement;
+      if (activeItem) {
+        carouselRef.current.scrollTo({
+          left: activeItem.offsetLeft - carouselRef.current.offsetLeft,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [selectedIndex]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (window.innerWidth >= 1850) return;
+    if (!carouselRef.current) return;
+    isDragging.current = true;
+    startX.current = e.pageX - carouselRef.current.offsetLeft;
+    scrollLeft.current = carouselRef.current.scrollLeft;
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (window.innerWidth >= 1850) return;
+    if (!isDragging.current || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft.current - walk;
+  };
 
   return (
     <section className="rooms-section">
@@ -70,9 +110,9 @@ export const RoomsPage = () => {
               <path
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m15 18l-6-6l6-6"
               />
             </svg>
@@ -92,20 +132,29 @@ export const RoomsPage = () => {
               <path
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m9 18l6-6l-6-6"
               />
             </svg>
           </button>
         </div>
 
-        <div className="rooms-carousel">
+        <div
+          ref={carouselRef}
+          className="rooms-carousel"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeaveOrUp}
+          onMouseUp={handleMouseLeaveOrUp}
+          onMouseMove={handleMouseMove}
+        >
           {mockRooms.map((room, index) => (
             <button
               key={room.id}
-              className="carousel-item"
+              className={`carousel-item ${
+                index === selectedIndex ? "carousel-item--selected" : ""
+              }`}
               onClick={() => goTo(index)}
             >
               <img

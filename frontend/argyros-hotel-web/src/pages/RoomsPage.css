@@ -32,7 +32,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 70dvh 30dvh;
+  grid-template-rows: 65dvh 35dvh;
 }
 
 .rooms-info {
@@ -132,23 +132,68 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-4);
   padding: 0 var(--space-6);
   overflow-x: auto;
   border-top: 1px solid var(--text-inverse);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.rooms-carousel:active {
+  cursor: grabbing;
+}
+
+.rooms-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-item {
-  flex: 0 0 45%;
+  flex: 0 0 160px;
+  height: 80%;
   border: none;
   background: none;
   cursor: pointer;
+  scroll-snap-align: start;
+  opacity: 0.7;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    outline 0.3s ease;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+
+.carousel-item:hover {
+  opacity: 1;
+}
+
+.carousel-item--selected {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .carousel-image {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
   box-shadow: var(--shadow-md);
+  pointer-events: none;
+}
+
+@media (min-width: 1850px) {
+  .rooms-carousel {
+    cursor: default;
+    overflow-x: hidden;
+  }
+
+  .rooms-carousel:active {
+    cursor: default;
+  }
 }
