@@ -105,10 +105,17 @@
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
-  border: 1px solid var(--text-inverse);
+  border: none;
+  outline: none;
   color: var(--text-inverse);
   background-color: var(--accent-color);
   cursor: pointer;
+}
+
+.rooms-action__button:hover {
+  color: var(--text-inverse);
+  outline: 1px solid var(--text-inverse);
+  background-color: transparent;
 }
 
 .rooms-action__button--reserve {
