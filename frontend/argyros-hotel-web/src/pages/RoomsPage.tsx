@@ -4,13 +4,23 @@ import "./RoomsPage.css";
 
 export const RoomsPage = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const selectedRoom = mockRooms[selectedIndex];
 
   const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
   const goTo = (index: number) => {
+    if (index === selectedIndex) return;
+
     if (document.startViewTransition) {
-      document.startViewTransition(() => setSelectedIndex(index));
+      setIsTransitioning(true);
+      const transition = document.startViewTransition(() => {
+        setSelectedIndex(index);
+      });
+
+      transition.finished.finally(() => {
+        setIsTransitioning(false);
+      });
     } else {
       setSelectedIndex(index);
     }
@@ -42,7 +52,9 @@ export const RoomsPage = () => {
       />
 
       <div className="rooms-content">
-        <div className="rooms-info">
+        <div
+          className={`rooms-info ${isTransitioning ? "fade-in-delayed" : ""}`}
+        >
           <h2 className="rooms-info__title">{selectedRoom.name}</h2>
           <p className="rooms-info__text">Desde {selectedRoom.basePrice}€</p>
           <div className="rooms-info__meta">
