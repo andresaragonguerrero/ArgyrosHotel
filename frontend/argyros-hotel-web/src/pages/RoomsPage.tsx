@@ -14,13 +14,12 @@ export const RoomsPage = () => {
 
     setIsTransitioning(true);
 
-    // Oculta el contenido, cambia los datos y luego vuelve a mostrar el contenido
     setTimeout(() => {
       setSelectedIndex(index);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 50);
-    }, 300); // Coincide con la duración del fade-out en CSS
+    }, 300);
   };
 
   const handlePrev = () =>

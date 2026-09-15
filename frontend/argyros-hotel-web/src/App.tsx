@@ -8,7 +8,7 @@ export function App() {
   return (
     <Router>
       <Navbar />
-      <main style={{ padding: '1rem' }}>
+      <main>
         <Routes>
           <Route path="/" element={<Navigate to="/rooms" replace />} />
           <Route path="/rooms" element={<RoomsPage />} />
