@@ -11,6 +11,7 @@
   background-size: cover;
   background-position: center;
   background-color: var(--background-muted);
+  transition: background-image 0.8s ease-in-out;
 }
 
 .rooms-background::after {
@@ -42,6 +43,16 @@
   justify-content: center;
   gap: var(--space-4);
   color: var(--text-inverse);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.rooms-info.is-hidden {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .rooms-info__title {
@@ -92,6 +103,16 @@
   align-items: flex-start;
   gap: var(--space-3);
   border-top: 1px solid var(--text-inverse);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.rooms-actions.is-hidden {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .rooms-action__button {
@@ -162,6 +183,7 @@
   opacity: 0.7;
   transition:
     opacity 0.3s ease,
+    transform 0.3s ease,
     outline 0.3s ease;
   outline: 2px solid transparent;
   outline-offset: -2px;

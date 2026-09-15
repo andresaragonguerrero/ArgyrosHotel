@@ -10,20 +10,17 @@ export const RoomsPage = () => {
   const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
   const goTo = (index: number) => {
-    if (index === selectedIndex) return;
+    if (index === selectedIndex || isTransitioning) return;
 
-    if (document.startViewTransition) {
-      setIsTransitioning(true);
-      const transition = document.startViewTransition(() => {
-        setSelectedIndex(index);
-      });
+    setIsTransitioning(true);
 
-      transition.finished.finally(() => {
-        setIsTransitioning(false);
-      });
-    } else {
+    // Oculta el contenido, cambia los datos y luego vuelve a mostrar el contenido
+    setTimeout(() => {
       setSelectedIndex(index);
-    }
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+    }, 300); // Coincide con la duración del fade-out en CSS
   };
 
   const handlePrev = () =>
@@ -43,18 +40,11 @@ export const RoomsPage = () => {
     <section className="rooms-section">
       <div
         className="rooms-background"
-        style={
-          {
-            backgroundImage: `url(${selectedRoom.imageUrl})`,
-            viewTransitionName: `room-image-${selectedRoom.id}`,
-          } as React.CSSProperties
-        }
+        style={{ backgroundImage: `url(${selectedRoom.imageUrl})` }}
       />
 
       <div className="rooms-content">
-        <div
-          className={`rooms-info ${isTransitioning ? "fade-in-delayed" : ""}`}
-        >
+        <div className={`rooms-info ${isTransitioning ? "is-hidden" : ""}`}>
           <h2 className="rooms-info__title">{selectedRoom.name}</h2>
           <p className="rooms-info__text">Desde {selectedRoom.basePrice}€</p>
           <div className="rooms-info__meta">
@@ -70,7 +60,7 @@ export const RoomsPage = () => {
 
         <div className="rooms-services" />
 
-        <div className="rooms-actions">
+        <div className={`rooms-actions ${isTransitioning ? "is-hidden" : ""}`}>
           <button
             type="button"
             className="rooms-action__button rooms-action__button--reserve"
@@ -139,14 +129,6 @@ export const RoomsPage = () => {
                 className="carousel-image"
                 src={room.imageUrl}
                 alt={room.name}
-                style={
-                  {
-                    viewTransitionName:
-                      room.id === selectedRoom.id
-                        ? undefined
-                        : `room-image-${room.id}`,
-                  } as React.CSSProperties
-                }
               />
             </button>
           ))}
