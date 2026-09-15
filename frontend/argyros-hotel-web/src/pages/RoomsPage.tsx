@@ -8,6 +8,7 @@ export const RoomsPage = () => {
   const selectedRoom = mockRooms[selectedIndex];
 
   const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const goTo = (index: number) => {
     if (index === selectedIndex || isTransitioning) return;
@@ -28,11 +29,15 @@ export const RoomsPage = () => {
     goTo(selectedIndex === mockRooms.length - 1 ? 0 : selectedIndex + 1);
 
   useEffect(() => {
-    itemsRef.current[selectedIndex]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "nearest",
-      block: "nearest",
-    });
+    const carousel = carouselRef.current;
+    const item = itemsRef.current[selectedIndex];
+
+    if (carousel && item) {
+      carousel.scrollTo({
+        left: item.offsetLeft - 32,
+        behavior: "smooth",
+      });
+    }
   }, [selectedIndex]);
 
   return (
@@ -112,7 +117,7 @@ export const RoomsPage = () => {
           </button>
         </div>
 
-        <div className="rooms-carousel">
+        <div className="rooms-carousel" ref={carouselRef}>
           {mockRooms.map((room, index) => (
             <button
               key={room.id}

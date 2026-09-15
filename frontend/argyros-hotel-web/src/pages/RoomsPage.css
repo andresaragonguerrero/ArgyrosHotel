@@ -157,12 +157,12 @@ body {
 }
 
 .rooms-carousel {
+  position: relative;
+  padding: 0 var(--space-6);
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: var(--space-4);
-  padding: 0 var(--space-6);
-  padding-right: calc(var(--space-6) + 15px);
   overflow-x: auto;
   border-top: 1px solid var(--text-inverse);
   scroll-behavior: smooth;
