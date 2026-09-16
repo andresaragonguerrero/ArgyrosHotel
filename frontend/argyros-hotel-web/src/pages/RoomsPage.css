@@ -25,12 +25,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.65),
-    rgba(0, 0, 0, 0.25) 45%,
-    rgba(0, 0, 0, 0) 70%
-  );
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.25) 45%,
+      rgba(0, 0, 0, 0) 70%);
 }
 
 .rooms-content {
@@ -227,6 +225,50 @@ body {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+  .rooms-content {
+    grid-template-rows: 58dvh 42dvh;
+  }
+
+  .rooms-info {
+    padding: var(--space-4) var(--space-5);
+    gap: var(--space-3);
+  }
+
+  .rooms-info__title {
+    font-size: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+    max-width: 100%;
+  }
+
+  .rooms-info__text {
+    font-size: var(--fs-description);
+  }
+
+  .rooms-actions {
+    padding: var(--space-3) var(--space-5);
+    gap: var(--space-2);
+  }
+
+  .rooms-action__button {
+    height: var(--space-6);
+    min-width: var(--space-6);
+  }
+
+  .rooms-carousel {
+    padding: 0 var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .carousel-item {
+    flex: 0 0 190px;
+    height: 80%;
+  }
+
+  .carousel-image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 @media (max-width: 767px) {
   .rooms-section {
     width: 100vw;
@@ -252,12 +294,10 @@ body {
   }
 
   .rooms-background::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(7, 26, 43, 0.7) 60%,
-      var(--primary-900) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(7, 26, 43, 0.7) 60%,
+        var(--primary-900) 100%);
   }
 
   .rooms-info {
