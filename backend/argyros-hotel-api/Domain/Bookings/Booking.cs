@@ -2,11 +2,11 @@ using System.Text.Json.Serialization;
 
 namespace argyros_hotel_api.Domain.Bookings
 {
-    // Clase que representa una reserva de habitación de hotel
-    // En lugar de incluir aquí el cálculo total,
-    // asumiré que se calculará en dos servicios separados:
-    // - BookingService/PricingService: donde se calculará el precio total de la reserva basándose en el tipo de habitación, fechas, número de huéspedes, etc
-    // - DiscountService: donde se aplicarán los descuentos correspondientes basándose en las promociones, el historial del cliente, si es premium, etc
+    // Clase que representa una reserva de habitaciï¿½n de hotel
+    // En lugar de incluir aquï¿½ el cï¿½lculo total,
+    // asumirï¿½ que se calcularï¿½ en dos servicios separados:
+    // - BookingService/PricingService: donde se calcularï¿½ el precio total de la reserva basï¿½ndose en el tipo de habitaciï¿½n, fechas, nï¿½mero de huï¿½spedes, etc
+    // - DiscountService: donde se aplicarï¿½n los descuentos correspondientes basï¿½ndose en las promociones, el historial del cliente, si es premium, etc
     public class Booking
     {
         public Guid Id { get; private set; }
@@ -23,20 +23,26 @@ namespace argyros_hotel_api.Domain.Bookings
 
         public int NumberOfGuests { get; private set; }
 
+        public decimal BasePrice { get; private set; }
+
+        public decimal FinalPrice { get; private set; }
+
         [JsonConstructor]
-        public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests)
+        public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests, decimal basePrice, decimal finalPrice)
         {
             if (userId == Guid.Empty)
-                throw new ArgumentException("UserId inválido", nameof(userId));
+                throw new ArgumentException("UserId invÃ¡lido", nameof(userId));
 
             if (roomTypeId == Guid.Empty)
-                throw new ArgumentException("RoomTypeId inválido", nameof(roomTypeId));
+                throw new ArgumentException("RoomTypeId invÃ¡lido", nameof(roomTypeId));
 
             if (startDate >= endDate)
                 throw new ArgumentException("La fecha de inicio debe ser anterior a la de fin");
 
             if (numberOfGuests <= 0)
-                throw new ArgumentException("Debe haber al menos un huésped", nameof(numberOfGuests));
+                throw new ArgumentException("Debe haber al menos un huÃ©sped", nameof(numberOfGuests));
+
+            if (basePrice < 0 || finalPrice < 0) throw new ArgumentException("Los precios no pueden ser negativos");
 
             Id = id;
             UserId = userId;
@@ -44,12 +50,14 @@ namespace argyros_hotel_api.Domain.Bookings
             StartDate = startDate;
             EndDate = endDate;
             NumberOfGuests = numberOfGuests;
+            BasePrice = basePrice;
+            FinalPrice = finalPrice;
         }
 
         public void AssignRoom(Guid roomId)
         {
             if (roomId == Guid.Empty)
-                throw new ArgumentException("RoomId inválido", nameof(roomId));
+                throw new ArgumentException("RoomId invÃ¡lido", nameof(roomId));
 
             RoomId = roomId;
         }

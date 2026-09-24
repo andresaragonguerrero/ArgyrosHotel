@@ -10,7 +10,6 @@ namespace argyros_hotel_api.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IBookingRepository _bookingRepository;
         private readonly IRoomTypeRepository _roomTypeRepository;
-
         private readonly AvailabilityService _availabilityService;
         private readonly PricingService _pricingService;
         private readonly DiscountService _discountService;
@@ -80,7 +79,9 @@ namespace argyros_hotel_api.Application.Services
                 roomType.Id,
                 startDate,
                 endDate,
-                numberOfGuests
+                numberOfGuests,
+                basePrice,
+                finalPrice
             );
 
             // Guardar

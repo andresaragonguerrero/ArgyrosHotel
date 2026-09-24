@@ -149,20 +149,49 @@ app.MapDelete("/users/{id}", async (Guid id, IUserRepository repo) =>
 
 app.MapGet("/bookings", async (IBookingRepository repo) =>
 {
-    return Results.Ok(await repo.GetAllAsync());
+    var bookings = await repo.GetAllAsync();
+    var response = bookings.Select(b => new BookingResponse
+    {
+        Id = b.Id,
+        UserId = b.UserId,
+        RoomTypeId = b.RoomTypeId,
+        RoomId = b.RoomId,
+        StartDate = b.StartDate,
+        EndDate = b.EndDate,
+        NumberOfGuests = b.NumberOfGuests,
+        BasePrice = b.BasePrice,
+        FinalPrice = b.FinalPrice
+    });
+    return Results.Ok(response);
 });
 
 app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
 {
     var booking = await repo.GetByIdAsync(id);
-    return booking is null ? Results.NotFound() : Results.Ok(booking);
+    if (booking is null) return Results.NotFound();
+
+    var response = new BookingResponse
+    {
+        Id = booking.Id,
+        UserId = booking.UserId,
+        RoomTypeId = booking.RoomTypeId,
+        RoomId = booking.RoomId,
+        StartDate = booking.StartDate,
+        EndDate = booking.EndDate,
+        NumberOfGuests = booking.NumberOfGuests,
+        BasePrice = booking.BasePrice,
+        FinalPrice = booking.FinalPrice
+    };
+    return Results.Ok(response);
 });
 
 app.MapPost("/bookings", async (
     CreateBookingRequest request,
     IBookingRepository bookingRepo,
     IRoomTypeRepository roomTypeRepo,
-    IUserRepository userRepo) =>
+    IUserRepository userRepo,
+    [FromServices] IPricingService pricingService,
+    [FromServices] IDiscountService discountService) =>
 {
     var roomType = await roomTypeRepo.GetByIdAsync(request.RoomTypeId);
     if (roomType is null)
@@ -181,18 +210,36 @@ app.MapPost("/bookings", async (
     if (existingBookings.Count() >= roomType.TotalRooms)
         return Results.BadRequest("No hay disponibilidad");
 
+    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+    var finalPrice = discountService.ApplyDiscount(user, basePrice);
+
     var booking = new Booking(
         Guid.NewGuid(),
         request.UserId,
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests
+        request.NumberOfGuests,
+        basePrice,
+        finalPrice
     );
 
     await bookingRepo.AddAsync(booking);
 
-    return Results.Created($"/bookings/{booking.Id}", booking);
+    var response = new BookingResponse
+    {
+        Id = booking.Id,
+        UserId = booking.UserId,
+        RoomTypeId = booking.RoomTypeId,
+        RoomId = booking.RoomId,
+        StartDate = booking.StartDate,
+        EndDate = booking.EndDate,
+        NumberOfGuests = booking.NumberOfGuests,
+        BasePrice = booking.BasePrice,
+        FinalPrice = booking.FinalPrice
+    };
+
+    return Results.Created($"/bookings/{booking.Id}", response);
 });
 
 app.MapPut("/bookings/{id}", async (
@@ -215,12 +262,27 @@ app.MapPut("/bookings/{id}", async (
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests
+        request.NumberOfGuests,
+        existing.BasePrice,
+        existing.FinalPrice
     );
 
     await bookingRepo.UpdateAsync(updated);
 
-    return Results.Ok(updated);
+    var response = new BookingResponse
+    {
+        Id = updated.Id,
+        UserId = updated.UserId,
+        RoomTypeId = updated.RoomTypeId,
+        RoomId = updated.RoomId,
+        StartDate = updated.StartDate,
+        EndDate = updated.EndDate,
+        NumberOfGuests = updated.NumberOfGuests,
+        BasePrice = updated.BasePrice,
+        FinalPrice = updated.FinalPrice
+    };
+
+    return Results.Ok(response);
 });
 
 app.MapDelete("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
