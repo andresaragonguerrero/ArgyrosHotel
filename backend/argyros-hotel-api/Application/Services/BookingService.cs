@@ -2,7 +2,7 @@
 using argyros_hotel_api.Domain.Bookings;
 using argyros_hotel_api.Domain.Services;
 
-namespace argyros_hotel_api.Aplication.Services
+namespace argyros_hotel_api.Application.Services
 {
     // Archivo encargado de orquestar los servicios relacionados con las reservas 
     public class BookingService
