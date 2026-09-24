@@ -1,6 +1,6 @@
 namespace argyros_hotel_api.Application.DTOs
 {
-    public class BookingResponse
+    public class BookingAddOnResponse
     {
         public Guid Id { get; set; }
 

@@ -1,6 +1,6 @@
 namespace argyros_hotel_api.Application.DTOs
 {
-    public class CreateBookingServiceRequest
+    public class CreateBookingAddOnRequest
     {
         public Guid BookingId { get; set; }
 

@@ -40,8 +40,8 @@ builder.Services.AddSingleton<IRoomRepository>(_ =>
 builder.Services.AddSingleton<IServiceRepository>(_ =>
     new InMemoryServiceRepository(Path.Combine("Infrastructure", "Data", "services.json")));
 
-builder.Services.AddSingleton<IBookingServiceRepository>(_ =>
-    new InMemoryBookingServiceRepository(Path.Combine("Infrastructure", "Data", "bookingServices.json")));
+builder.Services.AddSingleton<IBookingAddOnRepository>(_ =>
+    new InMemoryBookingAddOnRepository(Path.Combine("Infrastructure", "Data", "bookingAddOns.json")));
 
 builder.Services.AddScoped<IPricingService, PricingService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
@@ -279,25 +279,25 @@ app.MapGet("/services/{id}", async (Guid id, IServiceRepository repo) =>
 
 // BookingServices
 
-app.MapGet("/bookingServices", async (IBookingServiceRepository repo) =>
+app.MapGet("/bookingAddOns", async (IBookingAddOnRepository repo) =>
 {
     return Results.Ok(await repo.GetAllAsync());
 });
 
-app.MapGet("/bookingServices/{id}", async (Guid id, IBookingServiceRepository repo) =>
+app.MapGet("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) =>
 {
     var bs = await repo.GetByIdAsync(id);
     return bs is null ? Results.NotFound() : Results.Ok(bs);
 });
 
-app.MapGet("/bookingServices/byBooking/{bookingId}", async (Guid bookingId, IBookingServiceRepository repo) =>
+app.MapGet("/bookingAddOns/byBooking/{bookingId}", async (Guid bookingId, IBookingAddOnRepository repo) =>
 {
     return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
 });
 
-app.MapPost("/bookingServices", async (
-    CreateBookingServiceRequest request,
-    IBookingServiceRepository repo,
+app.MapPost("/bookingAddOns", async (
+    CreateBookingAddOnRequest request,
+    IBookingAddOnRepository repo,
     IBookingRepository bookingRepo,
     IServiceRepository serviceRepo) =>
 {
@@ -309,7 +309,7 @@ app.MapPost("/bookingServices", async (
     if (service is null)
         return Results.BadRequest("Service no encontrado");
 
-    var bookingService = new BookingService(
+    var bookingService = new BookingAddOn(
         Guid.NewGuid(),
         request.BookingId,
         request.ServiceId,
@@ -318,10 +318,10 @@ app.MapPost("/bookingServices", async (
 
     await repo.AddAsync(bookingService);
 
-    return Results.Created($"/bookingServices/{bookingService.Id}", bookingService);
+    return Results.Created($"/bookingAddOns/{bookingService.Id}", bookingService);
 });
 
-app.MapDelete("/bookingServices/{id}", async (Guid id, IBookingServiceRepository repo) =>
+app.MapDelete("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) =>
 {
     var existing = await repo.GetByIdAsync(id);
     if (existing is null)

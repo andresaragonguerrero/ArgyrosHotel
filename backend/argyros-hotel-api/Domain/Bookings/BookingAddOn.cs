@@ -2,8 +2,8 @@ using System.Text.Json.Serialization;
 
 namespace argyros_hotel_api.Domain.Bookings
 {
-    // Clase que representa a un servicio adicional asociado a una reserva de habitaciÛn de hotel
-    public class BookingService
+    // Clase que representa a un servicio adicional asociado a una reserva de habitaci√≥n de hotel
+    public class BookingAddOn
     {
         public Guid Id { get; private set; }
 
@@ -14,13 +14,13 @@ namespace argyros_hotel_api.Domain.Bookings
         public decimal TotalPrice { get; private set; }
 
         [JsonConstructor]
-        public BookingService(Guid id, Guid bookingId, Guid serviceId, decimal totalPrice)
+        public BookingAddOn(Guid id, Guid bookingId, Guid serviceId, decimal totalPrice)
         {
             if (bookingId == Guid.Empty)
-                throw new ArgumentException("BookingId inv·lido", nameof(bookingId));
+                throw new ArgumentException("BookingId inv√°lido", nameof(bookingId));
 
             if (serviceId == Guid.Empty)
-                throw new ArgumentException("ServiceId inv·lido", nameof(serviceId));
+                throw new ArgumentException("ServiceId inv√°lido", nameof(serviceId));
 
             if (totalPrice < 0)
                 throw new ArgumentException("El precio total no puede ser negativo", nameof(totalPrice));
