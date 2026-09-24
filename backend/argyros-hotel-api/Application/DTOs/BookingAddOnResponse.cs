@@ -9,5 +9,9 @@ namespace argyros_hotel_api.Application.DTOs
         public Guid ServiceId { get; set; }
 
         public decimal TotalPrice { get; set; }
+
+        public int Quantity { get; set; }
+
+        public decimal UnitPrice { get; set; }
     }
 }

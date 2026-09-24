@@ -371,16 +371,32 @@ app.MapPost("/bookingAddOns", async (
     if (service is null)
         return Results.BadRequest("Service no encontrado");
 
-    var bookingService = new BookingAddOn(
+    var quantity = request.Quantity <= 0 ? 1 : request.Quantity;
+    var unitPrice = service.Price;
+    var totalPrice = unitPrice * quantity;
+
+    var bookingAddOn = new BookingAddOn(
         Guid.NewGuid(),
         request.BookingId,
         request.ServiceId,
-        service.Price
+        quantity,
+        unitPrice,
+        totalPrice
     );
 
-    await repo.AddAsync(bookingService);
+    await repo.AddAsync(bookingAddOn);
 
-    return Results.Created($"/bookingAddOns/{bookingService.Id}", bookingService);
+    var response = new BookingAddOnResponse
+    {
+        Id = bookingAddOn.Id,
+        BookingId = bookingAddOn.BookingId,
+        ServiceId = bookingAddOn.ServiceId,
+        Quantity = bookingAddOn.Quantity,
+        UnitPrice = bookingAddOn.UnitPrice,
+        TotalPrice = bookingAddOn.TotalPrice
+    };
+
+    return Results.Created($"/bookingAddOns/{bookingAddOn.Id}", response);
 });
 
 app.MapDelete("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) =>
