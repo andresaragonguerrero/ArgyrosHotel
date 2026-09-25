@@ -2,25 +2,29 @@ using System.Text.Json.Serialization;
 
 namespace argyros_hotel_api.Domain.Hotel
 {
-    // Representa un servicio adicional que puede ser contratado por los huÈspedes: desayuno, actividad, evento, etc
     public class Service
     {
         public Guid Id { get; private set; }
 
         public string Name { get; private set; }
 
+        public string Description { get; private set; }
+
         public decimal Price { get; private set; }
 
         [JsonConstructor]
-        public Service(Guid id, string name, decimal price)
+        public Service(Guid id, string name, string description, decimal price)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("El nombre no puede estar vacÌo.", nameof(name));
+                throw new ArgumentException("El nombre no puede estar vac√≠o.", nameof(name));
+            if (string.IsNullOrWhiteSpace(description))
+                throw new ArgumentException("La descripci√≥n no puede estar vac√≠a.", nameof(description));
             if (price < 0)
                 throw new ArgumentException("El precio no puede ser negativo.", nameof(price));
 
             Id = id;
             Name = name;
+            Description = description;
             Price = price;
         }
     }
