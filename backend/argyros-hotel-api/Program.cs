@@ -257,7 +257,10 @@ app.MapPut("/bookings/{id}", async (
     Guid id,
     UpdateBookingRequest request,
     IBookingRepository bookingRepo,
-    IRoomTypeRepository roomTypeRepo) =>
+    IRoomTypeRepository roomTypeRepo,
+    IUserRepository userRepo,
+    [FromServices] IPricingService pricingService,
+    [FromServices] IDiscountService discountService) =>
 {
     var existing = await bookingRepo.GetByIdAsync(id);
     if (existing is null)
@@ -267,6 +270,13 @@ app.MapPut("/bookings/{id}", async (
     if (roomType is null)
         return Results.BadRequest("RoomType no encontrado");
 
+    var user = await userRepo.GetByIdAsync(request.UserId);
+    if (user is null)
+        return Results.BadRequest("Usuario no encontrado");
+
+    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+    var finalPrice = discountService.ApplyDiscount(user, basePrice);
+
     var updated = new Booking(
         id,
         request.UserId,
@@ -274,8 +284,8 @@ app.MapPut("/bookings/{id}", async (
         request.StartDate,
         request.EndDate,
         request.NumberOfGuests,
-        existing.BasePrice,
-        existing.FinalPrice
+        basePrice,
+        finalPrice
     );
 
     await bookingRepo.UpdateAsync(updated);
