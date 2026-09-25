@@ -4,41 +4,40 @@ using System.Text.Json;
 
 namespace argyros_hotel_api.Infrastructure.Repositories
 {
-    // Implementación básica en memoria del repositorio de usuarios
     public class InMemoryUserRepository : IUserRepository
     {
         private readonly List<User> _users;
+        private readonly string _jsonFilePath;
 
-        // Se carga la lista de usuarios desde un archivo JSON al crear la instancia del repositorio
         public InMemoryUserRepository(string jsonFilePath)
         {
+            _jsonFilePath = jsonFilePath;
+
             if (!File.Exists(jsonFilePath))
                 _users = new List<User>();
             else
             {
                 var json = File.ReadAllText(jsonFilePath);
-                _users = JsonSerializer.Deserialize<List<User>>(json)
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                _users = JsonSerializer.Deserialize<List<User>>(json, options)
                          ?? new List<User>();
             }
         }
 
-        //public InMemoryUserRepository(List<User>? initialUsers = null)
-        //{
-        //    _users = initialUsers ?? new List<User>();
-        //}
-
-        public Task AddAsync(User user)
+        public async Task AddAsync(User user)
         {
             _users.Add(user);
-            return Task.CompletedTask;
+            await SaveAsync();
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var user = _users.FirstOrDefault(u => u.Id == id);
             if (user != null)
+            {
                 _users.Remove(user);
-            return Task.CompletedTask;
+                await SaveAsync();
+            }
         }
 
         public Task<IEnumerable<User>> GetAllAsync() => Task.FromResult(_users.AsEnumerable());
@@ -49,12 +48,21 @@ namespace argyros_hotel_api.Infrastructure.Repositories
         public Task<User?> GetByIdAsync(Guid id) =>
             Task.FromResult(_users.FirstOrDefault(u => u.Id == id));
 
-        public Task UpdateAsync(User user)
+        public async Task UpdateAsync(User user)
         {
             var index = _users.FindIndex(u => u.Id == user.Id);
             if (index >= 0)
+            {
                 _users[index] = user;
-            return Task.CompletedTask;
+                await SaveAsync();
+            }
+        }
+
+        private async Task SaveAsync()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_users, options);
+            await File.WriteAllTextAsync(_jsonFilePath, json);
         }
     }
 }
