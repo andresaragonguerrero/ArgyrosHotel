@@ -369,6 +369,21 @@ app.MapGet("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) 
     return bs is null ? Results.NotFound() : Results.Ok(bs);
 });
 
+app.MapGet("/bookings/{id}/addOns", async (Guid id, IBookingAddOnRepository repo) =>
+{
+    var addOns = await repo.GetByBookingIdAsync(id);
+    var response = addOns.Select(a => new BookingAddOnResponse
+    {
+        Id = a.Id,
+        BookingId = a.BookingId,
+        ServiceId = a.ServiceId,
+        Quantity = a.Quantity,
+        UnitPrice = a.UnitPrice,
+        TotalPrice = a.TotalPrice
+    });
+    return Results.Ok(response);
+});
+
 app.MapGet("/bookingAddOns/byBooking/{bookingId}", async (Guid bookingId, IBookingAddOnRepository repo) =>
 {
     return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
