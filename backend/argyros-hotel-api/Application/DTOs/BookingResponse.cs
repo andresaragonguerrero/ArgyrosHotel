@@ -19,5 +19,7 @@ namespace argyros_hotel_api.Application.DTOs
         public decimal BasePrice { get; set; }
         
         public decimal FinalPrice { get; set; }
+
+        public List<BookingAddOnResponse> AddOns { get; set; } = new();
     }
 }

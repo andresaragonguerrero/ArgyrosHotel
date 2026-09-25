@@ -165,10 +165,12 @@ app.MapGet("/bookings", async (IBookingRepository repo) =>
     return Results.Ok(response);
 });
 
-app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
+app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo, IBookingAddOnRepository addOnRepo) =>
 {
     var booking = await repo.GetByIdAsync(id);
     if (booking is null) return Results.NotFound();
+
+    var addOns = await addOnRepo.GetByBookingIdAsync(id);
 
     var response = new BookingResponse
     {
@@ -180,7 +182,16 @@ app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo) =>
         EndDate = booking.EndDate,
         NumberOfGuests = booking.NumberOfGuests,
         BasePrice = booking.BasePrice,
-        FinalPrice = booking.FinalPrice
+        FinalPrice = booking.FinalPrice,
+        AddOns = addOns.Select(a => new BookingAddOnResponse
+        {
+            Id = a.Id,
+            BookingId = a.BookingId,
+            ServiceId = a.ServiceId,
+            Quantity = a.Quantity,
+            UnitPrice = a.UnitPrice,
+            TotalPrice = a.TotalPrice
+        }).ToList()
     };
     return Results.Ok(response);
 });
