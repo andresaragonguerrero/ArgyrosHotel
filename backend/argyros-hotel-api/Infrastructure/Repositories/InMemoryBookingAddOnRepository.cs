@@ -7,9 +7,12 @@ namespace argyros_hotel_api.Infrastructure.Repositories
     public class InMemoryBookingAddOnRepository : IBookingAddOnRepository
     {
         private readonly List<BookingAddOn> _bookingAddOns;
+        private readonly string _jsonFilePath;
 
         public InMemoryBookingAddOnRepository(string jsonFilePath)
         {
+            _jsonFilePath = jsonFilePath;
+
             if (!File.Exists(jsonFilePath))
                 _bookingAddOns = new List<BookingAddOn>();
             else
@@ -29,23 +32,31 @@ namespace argyros_hotel_api.Infrastructure.Repositories
 
         public Task<IEnumerable<BookingAddOn>> GetByBookingIdAsync(Guid bookingId)
         {
-            var services = _bookingAddOns.Where(bs => bs.BookingId == bookingId);
-            return Task.FromResult(services.AsEnumerable());
+            var addOns = _bookingAddOns.Where(bs => bs.BookingId == bookingId);
+            return Task.FromResult(addOns.AsEnumerable());
         }
 
-        public Task AddAsync(BookingAddOn BookingAddOn)
+        public async Task AddAsync(BookingAddOn bookingAddOn)
         {
-            _bookingAddOns.Add(BookingAddOn);
-            return Task.CompletedTask;
+            _bookingAddOns.Add(bookingAddOn);
+            await SaveAsync();
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var existing = _bookingAddOns.FirstOrDefault(bs => bs.Id == id);
             if (existing != null)
+            {
                 _bookingAddOns.Remove(existing);
+                await SaveAsync();
+            }
+        }
 
-            return Task.CompletedTask;
+        private async Task SaveAsync()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_bookingAddOns, options);
+            await File.WriteAllTextAsync(_jsonFilePath, json);
         }
     }
 }
