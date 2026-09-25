@@ -330,13 +330,30 @@ app.MapGet("/rooms/byRoomType/{roomTypeId}", async (Guid roomTypeId, IRoomReposi
 
 app.MapGet("/services", async (IServiceRepository repo) =>
 {
-    return Results.Ok(await repo.GetAllAsync());
+    var services = await repo.GetAllAsync();
+    var response = services.Select(s => new ServiceResponse
+    {
+        Id = s.Id,
+        Name = s.Name,
+        Description = s.Description,
+        Price = s.Price
+    });
+    return Results.Ok(response);
 });
 
 app.MapGet("/services/{id}", async (Guid id, IServiceRepository repo) =>
 {
     var service = await repo.GetByIdAsync(id);
-    return service is null ? Results.NotFound() : Results.Ok(service);
+    if (service is null) return Results.NotFound();
+
+    var response = new ServiceResponse
+    {
+        Id = service.Id,
+        Name = service.Name,
+        Description = service.Description,
+        Price = service.Price
+    };
+    return Results.Ok(response);
 });
 
 // BookingServices
