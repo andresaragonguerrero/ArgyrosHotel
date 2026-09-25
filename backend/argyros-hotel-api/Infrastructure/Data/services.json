@@ -1,27 +1,32 @@
 ﻿[
   {
     "Id": "90000001-0000-0000-0000-000000000001",
-    "Name": "Breakfast Buffet",
-    "Price": 15.00
+    "Name": "Desayuno",
+    "Description": "Desayuno buffet en el restaurante del hotel.",
+    "Price": 15.0
   },
   {
     "Id": "90000002-0000-0000-0000-000000000002",
-    "Name": "Spa Access",
-    "Price": 40.00
+    "Name": "Traslado al aeropuerto",
+    "Description": "Servicio de traslado privado al aeropuerto.",
+    "Price": 25.0
   },
   {
     "Id": "90000003-0000-0000-0000-000000000003",
-    "Name": "Airport Transfer",
-    "Price": 25.00
+    "Name": "Lavandería",
+    "Description": "Servicio de lavandería y planchado.",
+    "Price": 20.0
   },
   {
     "Id": "90000004-0000-0000-0000-000000000004",
-    "Name": "Late Checkout",
-    "Price": 20.00
+    "Name": "Atención personalizada",
+    "Description": "Asistente personal dedicado durante la estancia.",
+    "Price": 50.0
   },
   {
     "Id": "90000005-0000-0000-0000-000000000005",
-    "Name": "Welcome Dinner",
-    "Price": 60.00
+    "Name": "Cuidado de mascotas",
+    "Description": "Servicio de cuidado de mascotas durante la estancia.",
+    "Price": 30.0
   }
 ]
