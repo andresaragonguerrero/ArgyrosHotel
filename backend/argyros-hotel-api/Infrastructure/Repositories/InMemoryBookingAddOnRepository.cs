@@ -6,44 +6,44 @@ namespace argyros_hotel_api.Infrastructure.Repositories
 {
     public class InMemoryBookingAddOnRepository : IBookingAddOnRepository
     {
-        private readonly List<BookingAddOn> _BookingAddOns;
+        private readonly List<BookingAddOn> _bookingAddOns;
 
         public InMemoryBookingAddOnRepository(string jsonFilePath)
         {
             if (!File.Exists(jsonFilePath))
-                _BookingAddOns = new List<BookingAddOn>();
+                _bookingAddOns = new List<BookingAddOn>();
             else
             {
                 var json = File.ReadAllText(jsonFilePath);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                _BookingAddOns = JsonSerializer.Deserialize<List<BookingAddOn>>(json, options)
+                _bookingAddOns = JsonSerializer.Deserialize<List<BookingAddOn>>(json, options)
                                    ?? new List<BookingAddOn>();
             }
         }
 
         public Task<BookingAddOn?> GetByIdAsync(Guid id) =>
-            Task.FromResult(_BookingAddOns.FirstOrDefault(bs => bs.Id == id));
+            Task.FromResult(_bookingAddOns.FirstOrDefault(bs => bs.Id == id));
 
         public Task<IEnumerable<BookingAddOn>> GetAllAsync() =>
-            Task.FromResult(_BookingAddOns.AsEnumerable());
+            Task.FromResult(_bookingAddOns.AsEnumerable());
 
         public Task<IEnumerable<BookingAddOn>> GetByBookingIdAsync(Guid bookingId)
         {
-            var services = _BookingAddOns.Where(bs => bs.BookingId == bookingId);
+            var services = _bookingAddOns.Where(bs => bs.BookingId == bookingId);
             return Task.FromResult(services.AsEnumerable());
         }
 
         public Task AddAsync(BookingAddOn BookingAddOn)
         {
-            _BookingAddOns.Add(BookingAddOn);
+            _bookingAddOns.Add(BookingAddOn);
             return Task.CompletedTask;
         }
 
         public Task DeleteAsync(Guid id)
         {
-            var existing = _BookingAddOns.FirstOrDefault(bs => bs.Id == id);
+            var existing = _bookingAddOns.FirstOrDefault(bs => bs.Id == id);
             if (existing != null)
-                _BookingAddOns.Remove(existing);
+                _bookingAddOns.Remove(existing);
 
             return Task.CompletedTask;
         }
