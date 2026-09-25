@@ -403,7 +403,14 @@ app.MapPost("/bookingAddOns", async (
     if (service is null)
         return Results.BadRequest("Service no encontrado");
 
-    var quantity = request.Quantity <= 0 ? 1 : request.Quantity;
+    if (request.Quantity <= 0)
+        return Results.BadRequest("La cantidad debe ser mayor que cero");
+
+    var existingAddOns = await repo.GetByBookingIdAsync(request.BookingId);
+    if (existingAddOns.Any(a => a.ServiceId == request.ServiceId))
+        return Results.BadRequest("Este servicio ya está contratado para esta reserva");
+
+    var quantity = request.Quantity;
     var unitPrice = service.Price;
     var totalPrice = unitPrice * quantity;
 
