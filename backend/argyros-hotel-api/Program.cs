@@ -80,9 +80,12 @@ app.MapGet("/users/{id}", async (Guid id, IUserRepository repo) =>
     return user is null ? Results.NotFound() : Results.Ok(user);
 });
 
-// Falta por implementar el hash de contraseña (también validaciones, es un MVP)
 app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
 {
+    var existing = await repo.GetByEmailAsync(request.Email);
+    if (existing is not null)
+        return Results.BadRequest("El email ya está registrado");
+
     var passwordHash = request.Password;
 
     var user = new User(
