@@ -281,6 +281,16 @@ app.MapPut("/bookings/{id}", async (
     if (user is null)
         return Results.BadRequest("Usuario no encontrado");
 
+    var overlappingBookings = await bookingRepo.GetBookingsByRoomTypeAndDateRangeAsync(
+    request.RoomTypeId,
+    request.StartDate,
+    request.EndDate);
+
+    var otherBookings = overlappingBookings.Where(b => b.Id != id);
+
+    if (otherBookings.Count() >= roomType.TotalRooms)
+        return Results.BadRequest("No hay disponibilidad para las nuevas fechas");
+
     var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
     var finalPrice = discountService.ApplyDiscount(user, basePrice);
 
