@@ -369,17 +369,6 @@ app.MapGet("/services/{id}", async (Guid id, IServiceRepository repo) =>
 
 // BookingServices
 
-app.MapGet("/bookingAddOns", async (IBookingAddOnRepository repo) =>
-{
-    return Results.Ok(await repo.GetAllAsync());
-});
-
-app.MapGet("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) =>
-{
-    var bs = await repo.GetByIdAsync(id);
-    return bs is null ? Results.NotFound() : Results.Ok(bs);
-});
-
 app.MapGet("/bookings/{id}/addOns", async (Guid id, IBookingAddOnRepository repo) =>
 {
     var addOns = await repo.GetByBookingIdAsync(id);
@@ -441,7 +430,7 @@ app.MapPost("/bookingAddOns", async (
         TotalPrice = bookingAddOn.TotalPrice
     };
 
-    return Results.Created($"/bookingAddOns/{bookingAddOn.Id}", response);
+    return Results.Created($"/bookings/{bookingAddOn.BookingId}/addOns", response);
 });
 
 app.MapDelete("/bookingAddOns/{id}", async (Guid id, IBookingAddOnRepository repo) =>
