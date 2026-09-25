@@ -384,11 +384,6 @@ app.MapGet("/bookings/{id}/addOns", async (Guid id, IBookingAddOnRepository repo
     return Results.Ok(response);
 });
 
-app.MapGet("/bookingAddOns/byBooking/{bookingId}", async (Guid bookingId, IBookingAddOnRepository repo) =>
-{
-    return Results.Ok(await repo.GetByBookingIdAsync(bookingId));
-});
-
 app.MapPost("/bookingAddOns", async (
     CreateBookingAddOnRequest request,
     IBookingAddOnRepository repo,
