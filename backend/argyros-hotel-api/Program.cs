@@ -113,6 +113,10 @@ app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserReposi
     var existing = await repo.GetByIdAsync(id);
     if (existing is null) return Results.NotFound();
 
+    var userWithEmail = await repo.GetByEmailAsync(request.Email);
+    if (userWithEmail is not null && userWithEmail.Id != id)
+        return Results.BadRequest("El email ya está en uso por otro usuario");
+
     var updated = new User(
         id,
         request.Name,
