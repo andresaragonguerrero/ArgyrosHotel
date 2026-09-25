@@ -4,35 +4,40 @@ using System.Text.Json;
 
 namespace argyros_hotel_api.Infrastructure.Repositories
 {
-    // Implementación básica en memoria del repositorio de reservas
     public class InMemoryBookingRepository : IBookingRepository
     {
         private readonly List<Booking> _bookings;
+        private readonly string _jsonFilePath;
 
         public InMemoryBookingRepository(string jsonFilePath)
         {
+            _jsonFilePath = jsonFilePath;
+
             if (!File.Exists(jsonFilePath))
                 _bookings = new List<Booking>();
             else
             {
                 var json = File.ReadAllText(jsonFilePath);
-                _bookings = JsonSerializer.Deserialize<List<Booking>>(json)
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                _bookings = JsonSerializer.Deserialize<List<Booking>>(json, options)
                             ?? new List<Booking>();
             }
         }
 
-        public Task AddAsync(Booking booking)
+        public async Task AddAsync(Booking booking)
         {
             _bookings.Add(booking);
-            return Task.CompletedTask;
+            await SaveAsync();
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var booking = _bookings.FirstOrDefault(b => b.Id == id);
             if (booking != null)
+            {
                 _bookings.Remove(booking);
-            return Task.CompletedTask;
+                await SaveAsync();
+            }
         }
 
         public Task<IEnumerable<Booking>> GetAllAsync() => Task.FromResult(_bookings.AsEnumerable());
@@ -52,12 +57,21 @@ namespace argyros_hotel_api.Infrastructure.Repositories
             return Task.FromResult(overlapping.AsEnumerable());
         }
 
-        public Task UpdateAsync(Booking booking)
+        public async Task UpdateAsync(Booking booking)
         {
             var index = _bookings.FindIndex(b => b.Id == booking.Id);
             if (index >= 0)
+            {
                 _bookings[index] = booking;
-            return Task.CompletedTask;
+                await SaveAsync();
+            }
+        }
+
+        private async Task SaveAsync()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_bookings, options);
+            await File.WriteAllTextAsync(_jsonFilePath, json);
         }
     }
 }
