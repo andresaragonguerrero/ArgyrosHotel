@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Service } from '../types/service';
-import { getAllServices } from '../services/serviceApi';
+import { serviceService } from '../services/serviceService';
 
 export const useServices = () => {
     const [services, setServices] = useState<Service[]>([]);
@@ -11,7 +11,7 @@ export const useServices = () => {
         const loadServices = async () => {
             try {
                 setLoading(true);
-                const data = await getAllServices();
+                const data = await serviceService.getAllServices();
                 setServices(data);
             } catch (err) {
                 setError('No se pudieron cargar los servicios del hotel.');
