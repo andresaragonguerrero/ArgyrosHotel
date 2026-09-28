@@ -111,6 +111,28 @@ app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
     return Results.Created($"/users/{user.Id}", response);
 });
 
+app.MapPost("/users/login", async (LoginRequest request, IUserRepository repo) =>
+{
+    var user = await repo.GetByEmailAsync(request.Email);
+    if (user is null)
+        return Results.BadRequest("Credenciales incorrectas");
+
+    var hash = PasswordHasher.Hash(request.Password);
+    if (user.PasswordHash != hash)
+        return Results.BadRequest("Credenciales incorrectas");
+
+    var response = new UserResponse
+    {
+        Id = user.Id,
+        Name = user.Name,
+        Surname = user.Surname,
+        Email = user.Email,
+        IsPremium = user.IsPremium
+    };
+
+    return Results.Ok(response);
+});
+
 app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserRepository repo) =>
 {
     var existing = await repo.GetByIdAsync(id);
