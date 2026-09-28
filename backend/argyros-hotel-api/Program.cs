@@ -147,7 +147,7 @@ app.MapPut("/users/{id}", async (Guid id, UpdateUserRequest request, IUserReposi
         request.Name,
         request.Surname,
         request.Email,
-        request.Password,
+        PasswordHasher.Hash(request.Password),
         request.IsPremium
     );
 
