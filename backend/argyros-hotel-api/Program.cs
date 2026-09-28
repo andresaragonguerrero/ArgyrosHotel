@@ -86,7 +86,7 @@ app.MapPost("/users", async (CreateUserRequest request, IUserRepository repo) =>
     if (existing is not null)
         return Results.BadRequest("El email ya está registrado");
 
-    var passwordHash = request.Password;
+    var passwordHash = PasswordHasher.Hash(request.Password);
 
     var user = new User(
         Guid.NewGuid(),
