@@ -574,4 +574,79 @@ app.MapGet("/savings", async (
     });
 });
 
+app.MapPost("/bookings/quote", async (
+    QuoteRequest request,
+    IBookingRepository bookingRepo,
+    IRoomTypeRepository roomTypeRepo,
+    IUserRepository userRepo,
+    IServiceRepository serviceRepo,
+    [FromServices] IPricingService pricingService,
+    [FromServices] IDiscountService discountService) =>
+{
+    var roomType = await roomTypeRepo.GetByIdAsync(request.RoomTypeId);
+    if (roomType is null)
+        return Results.BadRequest("RoomType no encontrado");
+
+    var user = await userRepo.GetByIdAsync(request.UserId);
+    if (user is null)
+        return Results.BadRequest("Usuario no encontrado");
+
+    var overlapping = await bookingRepo.GetBookingsByRoomTypeAndDateRangeAsync(
+        request.RoomTypeId, request.StartDate, request.EndDate);
+
+    if (overlapping.Count() >= roomType.TotalRooms)
+        return Results.BadRequest("No hay disponibilidad");
+
+    decimal basePrice;
+    try
+    {
+        basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+
+    var roomFinalPrice = discountService.ApplyDiscount(user, basePrice);
+
+    var lines = new List<QuoteServiceLine>();
+    decimal servicesTotal = 0;
+
+    foreach (var item in request.SelectedServices)
+    {
+        if (item.Quantity <= 0)
+            return Results.BadRequest("La cantidad de cada servicio debe ser mayor que cero");
+
+        var service = await serviceRepo.GetByIdAsync(item.ServiceId);
+        if (service is null)
+            return Results.BadRequest($"Servicio {item.ServiceId} no encontrado");
+
+        var lineTotal = service.Price * item.Quantity;
+        var lineDiscounted = discountService.ApplyDiscount(user, lineTotal);
+
+        lines.Add(new QuoteServiceLine
+        {
+            ServiceId = service.Id,
+            Name = service.Name,
+            Quantity = item.Quantity,
+            UnitPrice = service.Price,
+            TotalPrice = lineDiscounted
+        });
+
+        servicesTotal += lineDiscounted;
+    }
+
+    var response = new QuoteResponse
+    {
+        BasePrice = basePrice,
+        RoomFinalPrice = roomFinalPrice,
+        IsPremium = user.IsPremium,
+        Services = lines,
+        ServicesTotal = servicesTotal,
+        GrandTotal = roomFinalPrice + servicesTotal
+    };
+
+    return Results.Ok(response);
+});
+
 app.Run();
