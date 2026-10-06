@@ -20,3 +20,34 @@ export interface CreateBookingRequest {
   endDate: string;
   numberOfGuests: number;
 }
+
+export interface QuoteServiceItem {
+  serviceId: string;
+  quantity: number;
+}
+
+export interface QuoteRequest {
+  userId: string;
+  roomTypeId: string;
+  startDate: string;
+  endDate: string;
+  numberOfGuests: number;
+  selectedServices: QuoteServiceItem[];
+}
+
+export interface QuoteServiceLine {
+  serviceId: string;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+  totalPrice: number;
+}
+
+export interface QuoteResponse {
+  basePrice: number;
+  roomFinalPrice: number;
+  isPremium: boolean;
+  services: QuoteServiceLine[];
+  servicesTotal: number;
+  grandTotal: number;
+}
