@@ -27,11 +27,16 @@ export const BookingConfirmationPage = () => {
       return;
     }
 
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
     const load = async () => {
       try {
         setLoading(true);
         const data = await getQuote({
-          userId: user?.id ?? "",
+          userId: user.id,
           roomTypeId: draft.roomTypeId!,
           startDate: draft.startDate!,
           endDate: draft.endDate!,
