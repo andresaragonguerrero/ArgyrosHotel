@@ -119,5 +119,27 @@
     "NumberOfGuests": 2,
     "BasePrice": 1260.00,
     "FinalPrice": 1260.00
+  },
+  {
+    "Id": "4787d5c4-9310-479b-af24-71e0ddba65c7",
+    "UserId": "69ecabfe-7623-4a70-929c-aaaf48d827aa",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": null,
+    "StartDate": "2026-10-08T00:00:00",
+    "EndDate": "2026-10-15T00:00:00",
+    "NumberOfGuests": 1,
+    "BasePrice": 560.00,
+    "FinalPrice": 560.00
+  },
+  {
+    "Id": "b7359839-3b59-4d92-800c-e6d7a56ef1aa",
+    "UserId": "69ecabfe-7623-4a70-929c-aaaf48d827aa",
+    "RoomTypeId": "11111111-1111-1111-1111-111111111111",
+    "RoomId": null,
+    "StartDate": "2026-10-08T00:00:00",
+    "EndDate": "2026-10-15T00:00:00",
+    "NumberOfGuests": 1,
+    "BasePrice": 560.00,
+    "FinalPrice": 560.00
   }
 ]
