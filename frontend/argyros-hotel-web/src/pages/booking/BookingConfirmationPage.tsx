@@ -28,7 +28,7 @@ export const BookingConfirmationPage = () => {
     }
 
     if (!user) {
-      navigate("/login");
+      navigate("/booking/data");
       return;
     }
 
@@ -56,7 +56,7 @@ export const BookingConfirmationPage = () => {
 
   const handleConfirm = async () => {
     if (!user) {
-      navigate("/login");
+      navigate("/booking/data");
       return;
     }
 
@@ -121,12 +121,6 @@ export const BookingConfirmationPage = () => {
           <strong>Total: {quote.grandTotal}€</strong>
         </p>
       </div>
-
-      {!user && (
-        <p style={{ color: "orange" }}>
-          Debes iniciar sesión para confirmar la reserva.
-        </p>
-      )}
 
       <button onClick={handleConfirm} disabled={submitting}>
         {submitting ? "Confirmando..." : "Confirmar reserva"}
