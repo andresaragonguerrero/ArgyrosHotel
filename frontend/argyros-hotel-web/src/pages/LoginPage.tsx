@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import type { SubmitEvent } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: string } | null)?.from ?? "/rooms";
   const { login, loading, error } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const ok = await login({ email, password });
-    if (ok) navigate("/rooms");
+    if (ok) navigate(from);
   };
 
   return (
