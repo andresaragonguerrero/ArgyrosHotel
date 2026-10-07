@@ -1,11 +1,12 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useBookingDraft } from "../../hooks/useBookingDraft";
 import { useAuth } from "../../hooks/useAuth";
 
 export const BookingDataPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { draft, updateDraft } = useBookingDraft();
   const { user } = useAuth();
 
@@ -49,6 +50,12 @@ export const BookingDataPage = () => {
     updateDraft({
       guestData: { name, surname, email, acceptTerms, acceptPrivacy },
     });
+
+    if (!user) {
+      navigate("/login", { state: { from: location.pathname } });
+      return;
+    }
+
     navigate("/booking/confirmation");
   };
 
