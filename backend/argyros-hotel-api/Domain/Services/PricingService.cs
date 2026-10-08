@@ -4,32 +4,43 @@ namespace argyros_hotel_api.Domain.Services
 {
     public interface IPricingService
     {
-        decimal CalculateBasePrice(RoomType roomType, DateTime startDate, DateTime endDate);
+        decimal CalculateBasePrice(
+            RoomType roomType,
+            DateTime startDate,
+            DateTime endDate,
+            int adults,
+            int children,
+            int seniors);
     }
 
-    // Servicio encargado de la lógica relacionada con el cálculo del precio de las reservas
-    // NO se incluirá la lógica del cálculo de impuestos, descuentos o promociones:
-    // esta funcionalidad se delegará a otros servicios especializados (DiscountService, TaxService)
     public class PricingService : IPricingService
     {
+        private readonly IGuestSurchargeService _surchargeService;
+
+        public PricingService(IGuestSurchargeService surchargeService)
+        {
+            _surchargeService = surchargeService;
+        }
+
         public decimal CalculateBasePrice(
-                    RoomType roomType,
-                    DateTime startDate,
-                    DateTime endDate)
+            RoomType roomType,
+            DateTime startDate,
+            DateTime endDate,
+            int adults,
+            int children,
+            int seniors)
         {
             if (startDate >= endDate)
                 throw new ArgumentException("Invalid date range");
 
-            // Calcular tiempo de la estancia en noches
             var nights = (endDate - startDate).Days;
 
             if (nights <= 0)
                 throw new ArgumentException("Stay must be at least one night");
 
-            // Calcular precio base
-            var totalPrice = nights * roomType.BasePrice;
+            var extraPerNight = _surchargeService.CalculateExtraPerNight(adults, children, seniors);
 
-            return totalPrice;
-        }// CalculateTotalPrice method.end
-    } // PricingService class.end
+            return nights * (roomType.BasePrice + extraPerNight);
+        }
+    }
 }

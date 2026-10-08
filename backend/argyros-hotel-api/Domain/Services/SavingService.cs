@@ -13,8 +13,6 @@ namespace argyros_hotel_api.Domain.Services
         );
     }
 
-    // Servicio encargado de manejar la lógica de negocio relacionada con 
-    // calcular el total de los ahorroros de un cliente por el mero hecho de ser premium
     public class SavingService : ISavingService
     {
         private readonly IPricingService _pricingService;
@@ -49,7 +47,10 @@ namespace argyros_hotel_api.Domain.Services
                 var basePrice = _pricingService.CalculateBasePrice(
                     roomType,
                     booking.StartDate,
-                    booking.EndDate);
+                    booking.EndDate,
+                    booking.Adults,
+                    booking.Children,
+                    booking.Seniors);
 
                 var finalPrice = _discountService.ApplyDiscount(user, basePrice);
 

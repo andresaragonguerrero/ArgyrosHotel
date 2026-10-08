@@ -14,10 +14,12 @@ namespace argyros_hotel_api.Application.DTOs
 
         public DateTime EndDate { get; set; }
 
-        public int NumberOfGuests { get; set; }
+        public int Adults { get; set; }
+        public int Children { get; set; }
+        public int Seniors { get; set; }
 
         public decimal BasePrice { get; set; }
-        
+
         public decimal FinalPrice { get; set; }
 
         public List<BookingAddOnResponse> AddOns { get; set; } = new();

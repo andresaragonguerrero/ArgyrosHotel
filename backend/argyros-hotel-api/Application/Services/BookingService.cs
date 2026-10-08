@@ -4,7 +4,6 @@ using argyros_hotel_api.Domain.Services;
 
 namespace argyros_hotel_api.Application.Services
 {
-    // Archivo encargado de orquestar los servicios relacionados con las reservas 
     public class BookingService
     {
         private readonly IUserRepository _userRepository;
@@ -35,23 +34,21 @@ namespace argyros_hotel_api.Application.Services
             Guid roomTypeId,
             DateTime startDate,
             DateTime endDate,
-            int numberOfGuests)
+            int adults,
+            int children,
+            int seniors)
         {
-            // Obtener usuario
             var user = await _userRepository.GetByIdAsync(userId)
                        ?? throw new Exception("User not found");
 
-            // Obtener tipo de habitación
             var roomType = await _roomTypeRepository.GetByIdAsync(roomTypeId)
                           ?? throw new Exception("Room type not found");
 
-            // Obtener reservas existentes de ese tipo
             var allBookings = await _bookingRepository.GetAllAsync();
             var bookingsForType = allBookings
                 .Where(b => b.RoomTypeId == roomTypeId)
                 .ToList();
 
-            // Comprobar disponibilidad
             var availability = _availabilityService.CheckAvailability(
                 roomType,
                 bookingsForType,
@@ -62,29 +59,30 @@ namespace argyros_hotel_api.Application.Services
             if (!availability.IsAvailable)
                 throw new Exception("No rooms available for selected dates");
 
-            // Calcular precio base
             var basePrice = _pricingService.CalculateBasePrice(
                 roomType,
                 startDate,
-                endDate
+                endDate,
+                adults,
+                children,
+                seniors
             );
 
-            // Aplicar descuentos
             var finalPrice = _discountService.ApplyDiscount(user, basePrice);
 
-            // Crear reserva
             var booking = new Booking(
                 Guid.NewGuid(),
                 user.Id,
                 roomType.Id,
                 startDate,
                 endDate,
-                numberOfGuests,
+                adults,
+                children,
+                seniors,
                 basePrice,
                 finalPrice
             );
 
-            // Guardar
             await _bookingRepository.AddAsync(booking);
 
             return booking;

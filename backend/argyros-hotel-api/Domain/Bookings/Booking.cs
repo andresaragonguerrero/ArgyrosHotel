@@ -2,11 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace argyros_hotel_api.Domain.Bookings
 {
-    // Clase que representa una reserva de habitaci�n de hotel
-    // En lugar de incluir aqu� el c�lculo total,
-    // asumir� que se calcular� en dos servicios separados:
-    // - BookingService/PricingService: donde se calcular� el precio total de la reserva bas�ndose en el tipo de habitaci�n, fechas, n�mero de hu�spedes, etc
-    // - DiscountService: donde se aplicar�n los descuentos correspondientes bas�ndose en las promociones, el historial del cliente, si es premium, etc
     public class Booking
     {
         public Guid Id { get; private set; }
@@ -21,14 +16,32 @@ namespace argyros_hotel_api.Domain.Bookings
 
         public DateTime EndDate { get; private set; }
 
-        public int NumberOfGuests { get; private set; }
+        public int Adults { get; private set; }
+
+        public int Children { get; private set; }
+
+        public int Seniors { get; private set; }
+
+        [JsonIgnore]
+        public int NumberOfGuests => Adults + Children + Seniors;
 
         public decimal BasePrice { get; private set; }
 
         public decimal FinalPrice { get; private set; }
 
+#pragma warning disable S107
         [JsonConstructor]
-        public Booking(Guid id, Guid userId, Guid roomTypeId, DateTime startDate, DateTime endDate, int numberOfGuests, decimal basePrice, decimal finalPrice)
+        public Booking(
+            Guid id,
+            Guid userId,
+            Guid roomTypeId,
+            DateTime startDate,
+            DateTime endDate,
+            int adults,
+            int children,
+            int seniors,
+            decimal basePrice,
+            decimal finalPrice)
         {
             if (userId == Guid.Empty)
                 throw new ArgumentException("UserId inválido", nameof(userId));
@@ -39,20 +52,30 @@ namespace argyros_hotel_api.Domain.Bookings
             if (startDate >= endDate)
                 throw new ArgumentException("La fecha de inicio debe ser anterior a la de fin");
 
-            if (numberOfGuests <= 0)
-                throw new ArgumentException("Debe haber al menos un huésped", nameof(numberOfGuests));
+            if (adults < 1)
+                throw new ArgumentException("Debe haber al menos un adulto", nameof(adults));
 
-            if (basePrice < 0 || finalPrice < 0) throw new ArgumentException("Los precios no pueden ser negativos");
+            if (children < 0)
+                throw new ArgumentException("El número de niños no puede ser negativo", nameof(children));
+
+            if (seniors < 0)
+                throw new ArgumentException("El número de ancianos no puede ser negativo", nameof(seniors));
+
+            if (basePrice < 0 || finalPrice < 0)
+                throw new ArgumentException("Los precios no pueden ser negativos");
 
             Id = id;
             UserId = userId;
             RoomTypeId = roomTypeId;
             StartDate = startDate;
             EndDate = endDate;
-            NumberOfGuests = numberOfGuests;
+            Adults = adults;
+            Children = children;
+            Seniors = seniors;
             BasePrice = basePrice;
             FinalPrice = finalPrice;
         }
+#pragma warning restore S107
 
         public void AssignRoom(Guid roomId)
         {

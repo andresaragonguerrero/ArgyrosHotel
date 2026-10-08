@@ -8,6 +8,8 @@ namespace argyros_hotel_api.Application.DTOs
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public int NumberOfGuests { get; set; }
+        public int Adults { get; set; }
+        public int Children { get; set; }
+        public int Seniors { get; set; }
     }
 }

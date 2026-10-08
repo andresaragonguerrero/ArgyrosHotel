@@ -44,9 +44,9 @@ builder.Services.AddSingleton<IBookingAddOnRepository>(_ =>
     new InMemoryBookingAddOnRepository(Path.Combine("Infrastructure", "Data", "bookingAddOns.json")));
 
 builder.Services.AddScoped<IPricingService, PricingService>();
+builder.Services.AddScoped<IGuestSurchargeService, GuestSurchargeService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
 builder.Services.AddScoped<ISavingService, SavingService>();
-
 builder.Services.AddScoped<AvailabilityService>();
 
 var app = builder.Build();
@@ -187,7 +187,9 @@ app.MapGet("/bookings", async (IBookingRepository repo) =>
         RoomId = b.RoomId,
         StartDate = b.StartDate,
         EndDate = b.EndDate,
-        NumberOfGuests = b.NumberOfGuests,
+        Adults = b.Adults,
+        Children = b.Children,
+        Seniors = b.Seniors,
         BasePrice = b.BasePrice,
         FinalPrice = b.FinalPrice
     });
@@ -209,7 +211,9 @@ app.MapGet("/bookings/{id}", async (Guid id, IBookingRepository repo, IBookingAd
         RoomId = booking.RoomId,
         StartDate = booking.StartDate,
         EndDate = booking.EndDate,
-        NumberOfGuests = booking.NumberOfGuests,
+        Adults = booking.Adults,
+        Children = booking.Children,
+        Seniors = booking.Seniors,
         BasePrice = booking.BasePrice,
         FinalPrice = booking.FinalPrice,
         AddOns = addOns.Select(a => new BookingAddOnResponse
@@ -250,7 +254,7 @@ app.MapPost("/bookings", async (
     if (existingBookings.Count() >= roomType.TotalRooms)
         return Results.BadRequest("No hay disponibilidad");
 
-    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate, request.Adults, request.Children, request.Seniors);
     var finalPrice = discountService.ApplyDiscount(user, basePrice);
 
     var booking = new Booking(
@@ -259,7 +263,9 @@ app.MapPost("/bookings", async (
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests,
+        request.Adults,
+        request.Children,
+        request.Seniors,
         basePrice,
         finalPrice
     );
@@ -274,7 +280,9 @@ app.MapPost("/bookings", async (
         RoomId = booking.RoomId,
         StartDate = booking.StartDate,
         EndDate = booking.EndDate,
-        NumberOfGuests = booking.NumberOfGuests,
+        Adults = booking.Adults,
+        Children = booking.Children,
+        Seniors = booking.Seniors,
         BasePrice = booking.BasePrice,
         FinalPrice = booking.FinalPrice
     };
@@ -313,7 +321,7 @@ app.MapPut("/bookings/{id}", async (
     if (otherBookings.Count() >= roomType.TotalRooms)
         return Results.BadRequest("No hay disponibilidad para las nuevas fechas");
 
-    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+    var basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate, request.Adults, request.Children, request.Seniors);
     var finalPrice = discountService.ApplyDiscount(user, basePrice);
 
     var updated = new Booking(
@@ -322,7 +330,9 @@ app.MapPut("/bookings/{id}", async (
         request.RoomTypeId,
         request.StartDate,
         request.EndDate,
-        request.NumberOfGuests,
+        request.Adults,
+        request.Children,
+        request.Seniors,
         basePrice,
         finalPrice
     );
@@ -337,7 +347,9 @@ app.MapPut("/bookings/{id}", async (
         RoomId = updated.RoomId,
         StartDate = updated.StartDate,
         EndDate = updated.EndDate,
-        NumberOfGuests = updated.NumberOfGuests,
+        Adults = updated.Adults,
+        Children = updated.Children,
+        Seniors = updated.Seniors,
         BasePrice = updated.BasePrice,
         FinalPrice = updated.FinalPrice
     };
@@ -600,7 +612,7 @@ app.MapPost("/bookings/quote", async (
     decimal basePrice;
     try
     {
-        basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate);
+        basePrice = pricingService.CalculateBasePrice(roomType, request.StartDate, request.EndDate, request.Adults, request.Children, request.Seniors);
     }
     catch (ArgumentException ex)
     {
