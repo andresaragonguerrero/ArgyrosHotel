@@ -1,7 +1,9 @@
+import { Hero } from "../components/Hero";
+
 export const HomePage = () => {
-  return (
-    <section>
-      <h1>Argyros Hotel</h1>
-    </section>
-  );
+    return (
+        <section>
+            <Hero />
+        </section>
+    );
 };
