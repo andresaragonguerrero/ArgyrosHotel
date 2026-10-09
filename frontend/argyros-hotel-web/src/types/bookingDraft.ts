@@ -14,7 +14,9 @@ export interface GuestData {
 export interface BookingDraft {
   startDate: string | null;
   endDate: string | null;
-  numberOfGuests: number | null;
+  adults: number | null;
+  children: number | null;
+  seniors: number | null;
   roomTypeId: string | null;
   selectedServices: SelectedService[];
   guestData: GuestData | null;
@@ -23,7 +25,9 @@ export interface BookingDraft {
 export const EMPTY_DRAFT: BookingDraft = {
   startDate: null,
   endDate: null,
-  numberOfGuests: null,
+  adults: null,
+  children: null,
+  seniors: null,
   roomTypeId: null,
   selectedServices: [],
   guestData: null,

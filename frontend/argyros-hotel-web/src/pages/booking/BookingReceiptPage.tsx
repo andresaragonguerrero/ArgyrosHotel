@@ -39,7 +39,10 @@ export const BookingReceiptPage = () => {
         <p>Reserva: {booking.id}</p>
         <p>Entrada: {booking.startDate.slice(0, 10)}</p>
         <p>Salida: {booking.endDate.slice(0, 10)}</p>
-        <p>Huéspedes: {booking.numberOfGuests}</p>
+        <p>
+          Huéspedes: {booking.adults} adultos, {booking.children} niños,{" "}
+          {booking.seniors} ancianos
+        </p>
       </div>
 
       <div>

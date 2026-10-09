@@ -7,7 +7,9 @@ export interface Booking {
   roomId?: string | null;
   startDate: string;
   endDate: string;
-  numberOfGuests: number;
+  adults: number;
+  children: number;
+  seniors: number;
   basePrice: number;
   finalPrice: number;
   addOns?: BookingAddOn[];
@@ -18,7 +20,9 @@ export interface CreateBookingRequest {
   roomTypeId: string;
   startDate: string;
   endDate: string;
-  numberOfGuests: number;
+  adults: number;
+  children: number;
+  seniors: number;
 }
 
 export interface QuoteServiceItem {
@@ -31,7 +35,9 @@ export interface QuoteRequest {
   roomTypeId: string;
   startDate: string;
   endDate: string;
-  numberOfGuests: number;
+  adults: number;
+  children: number;
+  seniors: number;
   selectedServices: QuoteServiceItem[];
 }
 

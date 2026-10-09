@@ -21,6 +21,9 @@ export const BookingConfirmationPage = () => {
       !draft.roomTypeId ||
       !draft.startDate ||
       !draft.endDate ||
+      draft.adults === null ||
+      draft.children === null ||
+      draft.seniors === null ||
       !draft.guestData
     ) {
       navigate("/booking/dates");
@@ -40,7 +43,9 @@ export const BookingConfirmationPage = () => {
           roomTypeId: draft.roomTypeId!,
           startDate: draft.startDate!,
           endDate: draft.endDate!,
-          numberOfGuests: draft.numberOfGuests!,
+          adults: draft.adults!,
+          children: draft.children!,
+          seniors: draft.seniors!,
           selectedServices: draft.selectedServices,
         });
         setQuote(data);
@@ -69,7 +74,9 @@ export const BookingConfirmationPage = () => {
         roomTypeId: draft.roomTypeId!,
         startDate: draft.startDate!,
         endDate: draft.endDate!,
-        numberOfGuests: draft.numberOfGuests!,
+        adults: draft.adults!,
+        children: draft.children!,
+        seniors: draft.seniors!,
       });
 
       await Promise.all(
@@ -102,7 +109,10 @@ export const BookingConfirmationPage = () => {
       <div>
         <p>Entrada: {draft.startDate}</p>
         <p>Salida: {draft.endDate}</p>
-        <p>Huéspedes: {draft.numberOfGuests}</p>
+        <p>
+          Huéspedes: {draft.adults} adultos, {draft.children} niños,{" "}
+          {draft.seniors} ancianos
+        </p>
       </div>
 
       <div>

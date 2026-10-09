@@ -16,8 +16,17 @@ export const BookingRoomsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const totalGuests =
+    (draft.adults ?? 0) + (draft.children ?? 0) + (draft.seniors ?? 0);
+
   useEffect(() => {
-    if (!draft.startDate || !draft.endDate || !draft.numberOfGuests) {
+    if (
+      !draft.startDate ||
+      !draft.endDate ||
+      draft.adults === null ||
+      draft.children === null ||
+      draft.seniors === null
+    ) {
       navigate("/booking/dates");
       return;
     }
@@ -40,8 +49,7 @@ export const BookingRoomsPage = () => {
 
         const filtered = checks.filter(
           (r) =>
-            r.availability.isAvailable &&
-            r.roomType.capacity >= draft.numberOfGuests!,
+            r.availability.isAvailable && r.roomType.capacity >= totalGuests,
         );
 
         setRooms(filtered);
@@ -53,7 +61,15 @@ export const BookingRoomsPage = () => {
     };
 
     void load();
-  }, [draft.startDate, draft.endDate, draft.numberOfGuests, navigate]);
+  }, [
+    draft.startDate,
+    draft.endDate,
+    draft.adults,
+    draft.children,
+    draft.seniors,
+    totalGuests,
+    navigate,
+  ]);
 
   const handleSelect = (roomTypeId: string) => {
     updateDraft({ roomTypeId });
@@ -67,8 +83,8 @@ export const BookingRoomsPage = () => {
     <section>
       <h1>Habitaciones disponibles</h1>
       <p>
-        Del {draft.startDate} al {draft.endDate} para {draft.numberOfGuests}{" "}
-        huésped(es)
+        Del {draft.startDate} al {draft.endDate} — {draft.adults} adultos,{" "}
+        {draft.children} niños, {draft.seniors} ancianos
       </p>
 
       {rooms.length === 0 ? (
