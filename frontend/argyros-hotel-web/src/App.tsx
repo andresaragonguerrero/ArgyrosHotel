@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { RoomsPage } from "./pages/RoomsPage";
 import { ServicesPage } from "./pages/ServicesPage";
@@ -16,6 +11,7 @@ import { BookingServicesPage } from "./pages/booking/BookingServicesPage";
 import { BookingDataPage } from "./pages/booking/BookingDataPage";
 import { BookingConfirmationPage } from "./pages/booking/BookingConfirmationPage";
 import { BookingReceiptPage } from "./pages/booking/BookingReceiptPage";
+import { HomePage } from "./pages/HomePage";
 
 export function App() {
   return (
@@ -23,7 +19,7 @@ export function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Navigate to="/rooms" replace />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/rooms" element={<RoomsPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/bookings" element={<BookingsPage />} />
